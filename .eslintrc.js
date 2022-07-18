@@ -27,6 +27,7 @@ module.exports = {
         "import/prefer-default-export": [0],
         "react/function-component-definition": [1, {
             "namedComponents": "arrow-function"
-        }]
+        }],
+        "object-curly-spacing": [1, "always"]
     }
 }
