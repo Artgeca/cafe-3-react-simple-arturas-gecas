@@ -1,12 +1,6 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  IconButton,
-  Toolbar,
-  Typography
-} from '@mui/material';
+import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
 import StraightenIcon from '@mui/icons-material/Straighten';
+import MenuIcon from '@mui/icons-material/Menu';
 import * as Nav from './components';
 
 const pages = [
@@ -14,32 +8,43 @@ const pages = [
   { title: 'Projects', to: '/projects' },
   { title: 'Galery', to: '/galery' },
   { title: 'About', to: '/about' },
-  { title: 'Contact', to: '/contact' }
+  { title: 'Contacts', to: '/contacts' }
 ];
 
 const Navbar = () => {
   return (
-    <AppBar sx={{ opacity: 0.9, bgcolor: '#2C3639', color: '#DCD7C9' }}>
+    <AppBar sx={{ bgcolor: '#2C3639' }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box
-          sx={{
+          sx={(theme) => ({
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
-          }}
+            alignItems: 'center',
+            color: theme.palette.grey[200]
+          })}
         >
-          <IconButton color='inherit'>
+          <Nav.HomeLink color='inherit' to='/'>
             <StraightenIcon />
-          </IconButton>
-          <Typography variant='h6'>EngServices</Typography>
+            <Typography variant='h6' ml={1}>
+              EngServices
+            </Typography>
+          </Nav.HomeLink>
         </Box>
-        <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, alignSelf: 'stretch' }}>
           {pages.map((page) => (
-            <Button key={page.title} color='inherit'>
+            <Nav.Link key={page.title} to={page.to} color='inherit'>
               {page.title}
-            </Button>
+            </Nav.Link>
           ))}
         </Box>
+        <IconButton
+          sx={(theme) => ({
+            display: { md: 'none' },
+            color: theme.palette.grey[200]
+          })}
+        >
+          <MenuIcon />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );

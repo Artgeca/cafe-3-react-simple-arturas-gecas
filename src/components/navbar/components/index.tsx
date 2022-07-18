@@ -6,5 +6,25 @@ export const Link = styled(NavLink)(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   padding: theme.spacing(0, 2),
-  textDecoration: 'none'
+  textDecoration: 'none',
+  color: theme.palette.grey[500],
+
+  '&.active': {
+    boxShadow: `inset 0 -4px 0 ${theme.palette.common.white}`,
+    color: theme.palette.grey[200]
+  },
+
+  ':hover': {
+    backgroundColor: '#3F4E4F',
+    color: theme.palette.grey[200]
+  }
+}));
+
+export const HomeLink = styled(NavLink)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: theme.spacing(0, 2),
+  textDecoration: 'none',
+  color: theme.palette.grey[200]
 }));
