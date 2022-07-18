@@ -7,9 +7,7 @@ const HomePage = () => {
       <Home.Background />
       <Home.BackgroundOverlay />
       <Home.Content>
-        <Typography variant='h1' color='white'>
-          Test
-        </Typography>
+        <Typography variant='h1' color='white'></Typography>
       </Home.Content>
     </Box>
   );
