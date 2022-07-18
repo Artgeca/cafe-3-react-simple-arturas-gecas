@@ -1,10 +1,10 @@
-import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import StraightenIcon from '@mui/icons-material/Straighten';
 import MenuIcon from '@mui/icons-material/Menu';
 import * as Nav from './components';
 
 const pages = [
-  { title: 'Services', to: '/services' },
+  { title: 'Services', to: "/services" },
   { title: 'Projects', to: '/projects' },
   { title: 'Galery', to: '/galery' },
   { title: 'About', to: '/about' },
