@@ -28,6 +28,7 @@ module.exports = {
         "react/function-component-definition": [1, {
             "namedComponents": "arrow-function"
         }],
-        "object-curly-spacing": [1, "always"]
+        "object-curly-spacing": [1, "always"],
+        "quotes": [1, "single"]
     }
 }

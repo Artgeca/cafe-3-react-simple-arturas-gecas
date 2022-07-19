@@ -19,14 +19,14 @@ export const Background = styled(Box)(({ theme }) => ({
   }
 }));
 
-export const BackgroundOverlay = styled(Box)(({ theme }) => ({
+export const BackgroundOverlay = styled(Box)(() => ({
   position: 'absolute',
   top: 0,
   left: 0,
   width: '100%',
   height: '100%',
   backgroundColor: '#000',
-  opacity: 0.6,
+  opacity: 0.7,
   zIndex: 2
 }));
 
@@ -36,5 +36,9 @@ export const Content = styled(Box)({
   left: 0,
   width: '100%',
   height: '100%',
-  zIndex: 3
+  zIndex: 3,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 });
