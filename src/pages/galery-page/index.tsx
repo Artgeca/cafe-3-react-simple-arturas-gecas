@@ -1,5 +1,3 @@
-const GaleryPage = () => {
-  return <div>GaleryPage</div>;
-};
+const GaleryPage = () => <div>GaleryPage</div>;
 
 export default GaleryPage;

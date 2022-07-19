@@ -7,7 +7,9 @@ module.exports = {
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:react/jsx-runtime"
+        "plugin:react/jsx-runtime",
+        "airbnb",
+        'airbnb-typescript'
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -15,7 +17,8 @@ module.exports = {
             "jsx": true
         },
         "ecmaVersion": "latest",
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": './tsconfig.json'
     },
     "plugins": [
         "react",
@@ -28,7 +31,6 @@ module.exports = {
         "react/function-component-definition": [1, {
             "namedComponents": "arrow-function"
         }],
-        "object-curly-spacing": [1, "always"],
-        "quotes": [1, "single"]
+        "react/react-in-jsx-scope": "off",
     }
 }

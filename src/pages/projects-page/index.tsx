@@ -1,5 +1,3 @@
-const ProjectsPage = () => {
-  return <div>ProjectsPage</div>;
-};
+const ProjectsPage = () => <div>ProjectsPage</div>;
 
 export default ProjectsPage;

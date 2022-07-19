@@ -15,8 +15,8 @@ export const Background = styled(Box)(({ theme }) => ({
   zIndex: 1,
 
   [theme.breakpoints.up('md')]: {
-    backgroundImage: `url(${img2})`
-  }
+    backgroundImage: `url(${img2})`,
+  },
 }));
 
 export const BackgroundOverlay = styled(Box)(() => ({
@@ -27,7 +27,7 @@ export const BackgroundOverlay = styled(Box)(() => ({
   height: '100%',
   backgroundColor: '#000',
   opacity: 0.7,
-  zIndex: 2
+  zIndex: 2,
 }));
 
 export const Content = styled(Box)({
@@ -40,5 +40,5 @@ export const Content = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
 });

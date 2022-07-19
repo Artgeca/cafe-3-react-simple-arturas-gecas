@@ -1,5 +1,3 @@
-const ServicesPage = () => {
-  return <div>ServicesPage</div>;
-};
+const ServicesPage = () => <div>ServicesPage</div>;
 
 export default ServicesPage;

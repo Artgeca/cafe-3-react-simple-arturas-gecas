@@ -11,13 +11,13 @@ export const Link = styled(NavLink)(({ theme }) => ({
 
   '&.active': {
     boxShadow: `inset 0 -4px 0 ${theme.palette.common.white}`,
-    color: theme.palette.grey[200]
+    color: theme.palette.grey[200],
   },
 
   ':hover': {
     backgroundColor: '#3F4E4F',
-    color: theme.palette.grey[200]
-  }
+    color: theme.palette.grey[200],
+  },
 }));
 
 export const HomeLink = styled(NavLink)(({ theme }) => ({
@@ -26,5 +26,5 @@ export const HomeLink = styled(NavLink)(({ theme }) => ({
   alignItems: 'center',
   padding: theme.spacing(0, 2),
   textDecoration: 'none',
-  color: theme.palette.grey[200]
+  color: theme.palette.grey[200],
 }));
