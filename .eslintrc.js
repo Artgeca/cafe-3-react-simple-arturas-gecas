@@ -32,5 +32,6 @@ module.exports = {
             "namedComponents": "arrow-function"
         }],
         "react/react-in-jsx-scope": "off",
+        // "jsx-quotes": [1, "prefer-single"]
     }
 }
