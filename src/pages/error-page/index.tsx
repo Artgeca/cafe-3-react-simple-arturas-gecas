@@ -4,16 +4,16 @@ import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 const ErrorPage = () => (
   <Box
     mt={15}
-    display="flex"
-    justifyContent="center"
-    alignItems="center"
+    display='flex'
+    justifyContent='center'
+    alignItems='center'
     sx={{ color: 'error.main' }}
   >
-    <ErrorOutlineIcon fontSize="large" />
-    <Typography variant="h4" component="p" mx={1}>
+    <ErrorOutlineIcon fontSize='large' />
+    <Typography variant='h4' component='p' mx={1}>
       Page Not Found
     </Typography>
-    <ErrorOutlineIcon fontSize="large" />
+    <ErrorOutlineIcon fontSize='large' />
   </Box>
 );
 

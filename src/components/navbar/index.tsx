@@ -24,16 +24,16 @@ const Navbar = () => (
           color: theme.palette.grey[200],
         })}
       >
-        <Nav.HomeLink color="inherit" to="/">
+        <Nav.HomeLink color='inherit' to='/'>
           <StraightenIcon />
-          <Typography variant="h6" ml={1}>
+          <Typography variant='h6' ml={1}>
             EngServices
           </Typography>
         </Nav.HomeLink>
       </Box>
       <Box sx={{ display: { xs: 'none', md: 'flex' }, alignSelf: 'stretch' }}>
         {pages.map((page) => (
-          <Nav.Link key={page.title} to={page.to} color="inherit">
+          <Nav.Link key={page.title} to={page.to} color='inherit'>
             {page.title}
           </Nav.Link>
         ))}

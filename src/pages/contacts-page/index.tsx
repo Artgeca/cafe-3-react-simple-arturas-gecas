@@ -36,8 +36,8 @@ const ContactsPage = () => {
           p: '48px', mt: '128px', textAlign: 'center', width: '400px', height: '400px',
         }}
       >
-        <Typography variant="h4" pb={4}>Contact Us</Typography>
-        <TextField select fullWidth value={value} label="Question category" color="secondary" onChange={(e) => setValue(e.target.value)}>
+        <Typography variant='h4' pb={4}>Contact Us</Typography>
+        <TextField select fullWidth value={value} label='Question category' color='secondary' onChange={(e) => setValue(e.target.value)}>
           {
           questionCategory.map((item) => (
             <MenuItem key={item.value} value={item.value}>{item.label}</MenuItem>
