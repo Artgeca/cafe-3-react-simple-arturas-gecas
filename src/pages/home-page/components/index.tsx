@@ -2,6 +2,15 @@ import { Box, styled } from '@mui/material';
 import img1 from '../../../assets/images/home1.jpg';
 import img2 from '../../../assets/images/home2.jpg';
 
+export { default as HomeCard } from './home-card';
+
+export const Container = styled(Box)({
+  position: 'relative',
+  minHeight: '100vh',
+  display: 'flex',
+  justifyContent: 'center',
+});
+
 export const Background = styled(Box)(({ theme }) => ({
   position: 'absolute',
   top: 0,
@@ -26,11 +35,11 @@ export const BackgroundOverlay = styled(Box)(() => ({
   width: '100%',
   height: '100%',
   backgroundColor: '#000',
-  opacity: 0.7,
+  opacity: 0.8,
   zIndex: 2,
 }));
 
-export const Content = styled(Box)({
+export const Content = styled(Box)(({ theme }) => ({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -41,4 +50,15 @@ export const Content = styled(Box)({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-});
+  textAlign: 'center',
+  padding: theme.spacing(10),
+  color: theme.palette.common.white,
+
+  [theme.breakpoints.up('md')]: {
+    padding: theme.spacing(20),
+  },
+
+  [theme.breakpoints.up('lg')]: {
+    padding: theme.spacing(30),
+  },
+}));

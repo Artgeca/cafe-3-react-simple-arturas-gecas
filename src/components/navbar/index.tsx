@@ -26,7 +26,7 @@ const Navbar = () => (
       >
         <Nav.HomeLink color='inherit' to='/'>
           <StraightenIcon />
-          <Typography variant='h6' ml={1}>
+          <Typography variant='h6' ml={1} color='#d4e157' fontWeight={100}>
             EngServices
           </Typography>
         </Nav.HomeLink>

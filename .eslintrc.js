@@ -34,6 +34,6 @@ module.exports = {
         "react/react-in-jsx-scope": "off",
         "jsx-quotes": [1, "prefer-single"],
         "no-unused-vars": [1],
-        "@typescript-eslint/no-unused-vars": [1]
+        "@typescript-eslint/no-unused-vars": [1],
     }
 }
