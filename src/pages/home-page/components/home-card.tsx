@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import {
-  Box, Button, Card, CardContent, CardMedia, Theme, Typography, useMediaQuery,
+  Box, Button, Card, CardContent, CardMedia, Typography,
 } from '@mui/material';
 
 interface Props {
