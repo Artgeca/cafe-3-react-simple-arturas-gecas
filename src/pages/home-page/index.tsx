@@ -13,7 +13,7 @@ const HomePage = () => {
       <Home.Background />
       <Home.BackgroundOverlay />
       <Home.Content>
-        <Typography variant='h2' component='h1' fontWeight={100} fontSize={smUp ? '60px' : '40px'} gutterBottom color='#d4e157'>
+        <Typography variant='h2' component='h1' fontWeight={100} fontSize={smUp ? '60px' : '40px'} gutterBottom color='primary'>
           EngServices
         </Typography>
         <Typography variant='h4' component='p' fontWeight={100} fontSize={smUp ? '30px' : '20px'} mb={5}>
