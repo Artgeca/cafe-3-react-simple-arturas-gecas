@@ -6,27 +6,33 @@ import cardsData from '../../assets/data/home-cards-data';
 
 const HomePage = () => {
   const theme = useTheme();
-  const smUp = useMediaQuery(theme.breakpoints.up('sm'));
+  const mdUp = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <Home.Container>
       <Home.Background />
       <Home.BackgroundOverlay />
       <Home.Content>
-        <Typography variant='h2' component='h1' fontWeight={100} fontSize={smUp ? '60px' : '40px'} gutterBottom color='primary'>
+        <Typography variant='h2' component='h1' fontWeight={100} fontSize={mdUp ? '60px' : '40px'} gutterBottom color='primary'>
           EngServices
         </Typography>
-        <Typography variant='h4' component='p' fontWeight={100} fontSize={smUp ? '30px' : '20px'} mb={5}>
+        <Typography variant='body1' fontWeight={100} fontSize={mdUp ? '30px' : '20px'} mb={5}>
           We are happy being able to offer professional skills
           and highest competences to solve all your design and construction problems
         </Typography>
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 5 }}>
-          {
+        {
+          mdUp ? (
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 5 }}>
+              {
             cardsData.map(({ title, img, description }) => (
               <Home.HomeCard key={title} title={title} img={img} description={description} />
             ))
           }
-        </Box>
+            </Box>
+          ) : (
+            null
+          )
+        }
       </Home.Content>
     </Home.Container>
   );

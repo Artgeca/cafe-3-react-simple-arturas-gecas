@@ -51,14 +51,6 @@ export const Content = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   textAlign: 'center',
-  padding: theme.spacing(10),
+  padding: theme.spacing(5),
   color: theme.palette.common.white,
-
-  [theme.breakpoints.up('md')]: {
-    padding: theme.spacing(20),
-  },
-
-  [theme.breakpoints.up('lg')]: {
-    padding: theme.spacing(30),
-  },
 }));
