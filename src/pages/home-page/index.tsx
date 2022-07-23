@@ -12,22 +12,22 @@ const cardsData = [
   {
     title: 'Design',
     img: designImg,
-    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia ipsam esse impedit quaerat numquam dolorem voluptatem temporibus voluptatum ullam unde!',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit doloribus molestias dolor corrupti cumque, accusamus distinctio cum eaque voluptas, modi sed odit, quidem velit iusto consequuntur asperiores eveniet perferendis ipsa?',
   },
   {
     title: 'Construction',
     img: constructionImg,
-    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia ipsam esse impedit quaerat numquam dolorem',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia ipsam esse impedit quaerat numquam dolorem.',
   },
   {
     title: 'Demolition',
     img: demolitionImg,
-    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia ipsam esse impedit quaerat numquam dolorem voluptatem temporibus voluptatum ullam unde!',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit doloribus molestias dolor corrupti cumque, accusamus distinctio cum eaque voluptas, modi sed odit, quidem velit iusto consequuntur asperiores eveniet perferendis ipsa?',
   },
   {
     title: 'Equipment',
     img: rentalImg,
-    description: 'Lorem ipsum dolor, sit amet consectetur',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit doloribus molestias dolor corrupti cumque.',
   },
 ];
 

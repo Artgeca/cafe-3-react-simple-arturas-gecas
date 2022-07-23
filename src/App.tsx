@@ -11,7 +11,6 @@ import ServicesPage from './pages/services-page';
 const App = () => (
   <BrowserRouter>
     <Navbar />
-
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/services' element={<ServicesPage />} />

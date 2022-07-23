@@ -31,6 +31,14 @@ const HomeCard = ({ img, title, description }: Props) => {
           <Typography
             variant='body2'
             color='text.secondary'
+            align='left'
+            sx={{
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              display: '-webkit-box',
+              WebkitLineClamp: '5',
+              WebkitBoxOrient: 'vertical',
+            }}
           >
             {description}
           </Typography>
