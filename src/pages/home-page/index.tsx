@@ -1,5 +1,5 @@
 import {
-  Box, Typography, useMediaQuery, useTheme,
+  Grid, Typography, useMediaQuery, useTheme,
 } from '@mui/material';
 import * as Home from './components';
 import cardsData from '../../assets/data/home-cards-data';
@@ -16,19 +16,21 @@ const HomePage = () => {
         <Typography variant='h2' component='h1' fontWeight={100} fontSize={mdUp ? '60px' : '40px'} gutterBottom color='primary'>
           EngServices
         </Typography>
-        <Typography variant='body1' fontWeight={100} fontSize={mdUp ? '30px' : '20px'} mb={5}>
+        <Typography variant='body1' fontWeight={100} fontSize={mdUp ? 30 : 20} mb={5} sx={{ maxWidth: { xs: 600, md: 1200 } }}>
           We are happy being able to offer professional skills
           and highest competences to solve all your design and construction problems
         </Typography>
         {
           mdUp ? (
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 5 }}>
+            <Grid container justifyContent='center' spacing={2} maxWidth={1200}>
               {
             cardsData.map(({ title, img, description }) => (
-              <Home.HomeCard key={title} title={title} img={img} description={description} />
+              <Grid item key={title} display='flex' justifyContent='center' md={3}>
+                <Home.HomeCard title={title} img={img} description={description} />
+              </Grid>
             ))
           }
-            </Box>
+            </Grid>
           ) : (
             null
           )

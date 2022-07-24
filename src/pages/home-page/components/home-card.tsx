@@ -23,12 +23,15 @@ const HomeCard = ({ img, title, description }: Props) => {
         image={img}
         alt='design'
       />
-      <CardContent sx={{ height: 190, '&:last-child': { pb: 0 } }}>
+      <CardContent sx={{
+        height: 190, '&:last-child': { pb: 0 }, p: 0, pt: 2,
+      }}
+      >
         <Box sx={{
           height: '100%', display: 'flex', flexDirection: 'column', gap: 2,
         }}
         >
-          <Button variant='outlined' fullWidth color='secondary' sx={{ fontSize: 24, fontWeight: 400 }} onClick={() => navigate('/services')}>
+          <Button variant='outlined' fullWidth color='secondary' sx={{ fontSize: 18, fontWeight: 400 }} onClick={() => navigate('/services')}>
             {title}
           </Button>
           <Typography
