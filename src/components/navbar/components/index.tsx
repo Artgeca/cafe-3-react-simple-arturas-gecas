@@ -15,7 +15,7 @@ export const Link = styled(NavLink)(({ theme }) => ({
   },
 
   ':hover': {
-    backgroundColor: '#3F4E4F',
+    backgroundColor: theme.palette.secondary.light,
     color: theme.palette.grey[200],
   },
 }));

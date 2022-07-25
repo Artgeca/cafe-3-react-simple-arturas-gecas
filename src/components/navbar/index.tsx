@@ -14,7 +14,7 @@ const pages = [
 ];
 
 const Navbar = () => (
-  <AppBar sx={{ bgcolor: '#2C3639' }}>
+  <AppBar color='secondary'>
     <Toolbar sx={{ justifyContent: 'space-between' }}>
       <Box
         sx={(theme) => ({
