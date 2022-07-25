@@ -7,7 +7,6 @@ import StraightenIcon from '@mui/icons-material/Straighten';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import * as Nav from './components';
-import { Background } from '../../pages/home-page/components/index';
 
 const pages = [
   { title: 'Services', to: '/services' },
