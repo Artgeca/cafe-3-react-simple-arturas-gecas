@@ -34,11 +34,11 @@ const ContactsPage = () => {
       <Paper
         elevation={3}
         sx={{
-          p: '48px', mt: '128px', textAlign: 'center', width: '400px', height: '400px',
+          p: 5, mt: 15, mx: 3, textAlign: 'center', maxWidth: '400px', height: '400px',
         }}
       >
-        <Typography variant='h4' pb={4}>Contact Us</Typography>
-        <TextField select fullWidth value={value} label='Question category' color='secondary' onChange={(e) => setValue(e.target.value)}>
+        <Typography variant='h4' gutterBottom>Contact Us</Typography>
+        <TextField select value={value} label='Question category' color='primary' onChange={(e) => setValue(e.target.value)} sx={{ width: 250 }}>
           {
           questionCategory.map((item) => (
             <MenuItem key={item.value} value={item.value}>{item.label}</MenuItem>

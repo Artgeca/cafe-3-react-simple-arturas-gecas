@@ -14,7 +14,6 @@ const App = () => (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <Navbar />
-
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/services' element={<ServicesPage />} />
@@ -22,7 +21,6 @@ const App = () => (
         <Route path='/galery' element={<GaleryPage />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/contacts' element={<ContactsPage />} />
-
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </ThemeProvider>
