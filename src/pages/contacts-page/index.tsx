@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import {
-  Box, MenuItem, Paper, TextField, Typography,
+  MenuItem, Paper, TextField, Typography,
 } from '@mui/material';
+import * as Page from '../../components';
 
 const questionCategory = [
   {
@@ -26,8 +27,8 @@ const ContactsPage = () => {
   const [value, setValue] = useState<string>('');
 
   return (
-    <Box sx={{
-      display: 'flex', justifyContent: 'center', height: '100vh',
+    <Page.Content sx={{
+      display: 'flex', justifyContent: 'center',
     }}
     >
       <Paper
@@ -45,7 +46,7 @@ const ContactsPage = () => {
         }
         </TextField>
       </Paper>
-    </Box>
+    </Page.Content>
   );
 };
 
