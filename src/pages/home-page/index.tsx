@@ -22,7 +22,7 @@ const HomePage = () => {
         </Typography>
         {
           mdUp ? (
-            <Grid container justifyContent='center' spacing={2} maxWidth={1200}>
+            <Grid container justifyContent='center' spacing={3} maxWidth={1200}>
               {
             cardsData.map(({ title, img, description }) => (
               <Grid item key={title} display='flex' justifyContent='center' md={3}>
