@@ -13,10 +13,10 @@ const HomePage = () => {
       <Home.Background />
       <Home.BackgroundOverlay />
       <Home.Content>
-        <Typography variant='h2' component='h1' fontWeight={100} fontSize={mdUp ? '60px' : '40px'} gutterBottom color='primary'>
+        <Typography variant='h2' component='h1' fontWeight={100} fontSize={mdUp ? 50 : 40} gutterBottom color='primary'>
           EngServices
         </Typography>
-        <Typography variant='body1' fontWeight={100} fontSize={mdUp ? 30 : 20} mb={5} sx={{ maxWidth: { xs: 600, md: 1200 } }}>
+        <Typography variant='body1' fontWeight={100} fontSize={mdUp ? 24 : 20} mb={5} sx={{ maxWidth: { xs: 600, md: 1200 } }}>
           We are happy being able to offer professional skills
           and highest competences to solve all your design and construction problems
         </Typography>
