@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  Box,
   MenuItem, Paper, TextField, Typography,
 } from '@mui/material';
 import * as Page from '../../components';
@@ -34,17 +35,34 @@ const ContactsPage = () => {
       <Paper
         elevation={3}
         sx={{
-          p: 5, mt: 15, mx: 3, textAlign: 'center', maxWidth: '400px', height: '400px',
+          p: 5, mt: 12, mb: 5,
         }}
       >
-        <Typography variant='h4' gutterBottom>Contact Us</Typography>
-        <TextField select value={value} label='Question category' color='primary' onChange={(e) => setValue(e.target.value)} sx={{ width: 250 }}>
-          {
-          questionCategory.map((item) => (
-            <MenuItem key={item.value} value={item.value}>{item.label}</MenuItem>
-          ))
-        }
-        </TextField>
+        <Typography variant='h4'>Contact Us</Typography>
+        <Box sx={{
+          display: 'flex', flexDirection: 'column', gap: 3, mt: 3,
+        }}
+        >
+          <TextField variant='standard' label='Name' placeholder='John' fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField variant='standard' label='Surname' placeholder='Doe' fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField variant='standard' label='Mail' placeholder='johndoe@mail.com' fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField variant='standard' label='Phone' placeholder='+908...' fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField variant='standard' select value={value} label='Question category' fullWidth color='primary' onChange={(e) => setValue(e.target.value)} sx={{ width: 250 }} InputLabelProps={{ style: { color: 'inherit' } }}>
+            {
+            questionCategory.map((item) => (
+              <MenuItem key={item.value} value={item.value}>{item.label}</MenuItem>
+            ))
+            }
+          </TextField>
+          <TextField variant='standard' label='Name' placeholder='John' fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField variant='standard' label='Surname' placeholder='Doe' fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField variant='standard' label='Mail' placeholder='johndoe@mail.com' fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField variant='standard' label='Phone' placeholder='+908...' fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField variant='standard' label='Name' placeholder='John' fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField variant='standard' label='Surname' placeholder='Doe' fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField variant='standard' label='Mail' placeholder='johndoe@mail.com' fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField variant='standard' label='Phone' placeholder='+908...' fullWidth InputLabelProps={{ shrink: true }} />
+        </Box>
       </Paper>
     </Page.Content>
   );
