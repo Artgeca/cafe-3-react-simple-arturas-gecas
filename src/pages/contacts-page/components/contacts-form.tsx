@@ -29,7 +29,7 @@ const ContactsForm = () => {
     <Paper
       elevation={3}
       sx={{
-        p: 5, mt: { xs: 12, md: 12 }, mb: { xs: 0, md: 5 }, textAlign: 'center', height: 675, width: '85%', maxWidth: 500, order: { xs: 1, md: 2 },
+        p: 5, mt: { xs: 12, md: 12 }, mb: { xs: 0, md: 5 }, textAlign: 'center', height: 700, width: '85%', maxWidth: 500, order: { xs: 1, md: 2 },
       }}
     >
       <Typography variant='h4' gutterBottom>Contact Us</Typography>
@@ -49,7 +49,7 @@ const ContactsForm = () => {
             ))
             }
         </TextField>
-        <TextField variant='standard' required label='Message' color='secondary' fullWidth multiline maxRows={4} InputLabelProps={{ shrink: true }} />
+        <TextField variant='standard' required label='Message' color='secondary' fullWidth multiline rows={3} InputLabelProps={{ shrink: true }} />
         <Button variant='contained' color='primary'>Send Message</Button>
       </Box>
     </Paper>
