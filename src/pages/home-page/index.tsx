@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import {
-  Box,
-  Button,
-  Grid, Typography, useMediaQuery, useTheme,
+  Box, Button, Grid, Typography, useMediaQuery, useTheme,
 } from '@mui/material';
 import * as Home from './components';
 import cardsData from '../../assets/data/home-cards-data';
@@ -39,7 +37,7 @@ const HomePage = () => {
             <Box display='flex' flexDirection='column' gap={2} width='100%'>
               {
                 cardsData.map(({ title }) => (
-                  <Button variant='outlined' fullWidth color='primary' sx={{ fontSize: 18, fontWeight: 400 }} onClick={() => navigate('/services')}>
+                  <Button variant='outlined' fullWidth size='medium' sx={{ fontSize: 18, fontWeight: 400 }} onClick={() => navigate('/services')}>
                     {title}
                   </Button>
                 ))
