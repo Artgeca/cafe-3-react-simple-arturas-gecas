@@ -31,7 +31,13 @@ const HomeCard = ({ img, title, description }: Props) => {
           height: '100%', display: 'flex', flexDirection: 'column', gap: 2,
         }}
         >
-          <Button variant='outlined' fullWidth color='secondary' sx={{ fontSize: 18, fontWeight: 400 }} onClick={() => navigate('/services')}>
+          <Button
+            variant='outlined'
+            fullWidth
+            color='secondary'
+            sx={{ fontSize: 18, fontWeight: 400 }}
+            onClick={() => navigate('/services')}
+          >
             {title}
           </Button>
           <Typography

@@ -38,7 +38,12 @@ const Navbar = () => {
         >
           <Nav.HomeLink color='inherit' to='/'>
             <StraightenIcon />
-            <Typography variant='h6' ml={1} color='primary' fontWeight={100}>
+            <Typography
+              variant='h6'
+              ml={1}
+              color='primary'
+              fontWeight={100}
+            >
               EngServices
             </Typography>
           </Nav.HomeLink>
@@ -59,7 +64,13 @@ const Navbar = () => {
         >
           <MenuIcon />
         </IconButton>
-        <Drawer anchor='right' open={drawerOpen} onClose={() => setDrawerOpen(false)} sx={{ display: { md: 'none' } }} PaperProps={{ sx: { bgcolor: 'primary.light' } }}>
+        <Drawer
+          anchor='right'
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+          sx={{ display: { md: 'none' } }}
+          PaperProps={{ sx: { bgcolor: 'primary.light' } }}
+        >
           <List sx={{ py: 3 }}>
             {
               pages.map((page) => (

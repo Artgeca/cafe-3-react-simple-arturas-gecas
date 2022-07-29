@@ -12,7 +12,12 @@ const ContactsInfo = () => (
     }}
   >
     <Typography variant='h4' gutterBottom>Contact Information</Typography>
-    <Box display='flex' flexDirection='column' gap={2} mt={3}>
+    <Box
+      display='flex'
+      flexDirection='column'
+      gap={2}
+      mt={3}
+    >
       <Box display='flex' gap={2}>
         <PhoneIphoneIcon />
         <Typography variant='body1'>
@@ -31,7 +36,13 @@ const ContactsInfo = () => (
           1875 Atlantic Ave, 11233
         </Typography>
       </Box>
-      <Box component='img' height={{ xs: 300, md: 370 }} width='100%' src={contactsMapImg} sx={{ objectFit: 'cover' }} />
+      <Box
+        component='img'
+        height={{ xs: 300, md: 370 }}
+        width='100%'
+        src={contactsMapImg}
+        sx={{ objectFit: 'cover' }}
+      />
     </Box>
   </Paper>
 );

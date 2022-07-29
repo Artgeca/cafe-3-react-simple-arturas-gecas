@@ -10,7 +10,12 @@ const ErrorPage = () => (
     sx={{ color: 'warning.main' }}
   >
     <ErrorOutlineIcon fontSize='large' />
-    <Typography variant='h4' component='p' mx={1} sx={{ fontSize: { xs: 28, md: 34 } }}>
+    <Typography
+      variant='h4'
+      component='p'
+      mx={1}
+      sx={{ fontSize: { xs: 28, md: 34 } }}
+    >
       Page Not Found
     </Typography>
     <ErrorOutlineIcon fontSize='large' />

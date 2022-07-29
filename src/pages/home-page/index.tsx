@@ -15,29 +15,65 @@ const HomePage = () => {
       <Home.Background />
       <Home.BackgroundOverlay />
       <Home.Content>
-        <Typography variant='h2' component='h1' fontWeight={100} fontSize={mdUp ? 50 : 40} gutterBottom color='primary'>
+        <Typography
+          variant='h2'
+          component='h1'
+          fontWeight={100}
+          fontSize={mdUp ? 50 : 40}
+          gutterBottom
+          color='primary'
+        >
           EngServices
         </Typography>
-        <Typography variant='body1' fontWeight={100} fontSize={mdUp ? 24 : 20} mb={5} sx={{ maxWidth: { xs: 600, md: 1200 } }}>
+        <Typography
+          variant='body1'
+          fontWeight={100}
+          fontSize={mdUp ? 24 : 20}
+          mb={5}
+          sx={{ maxWidth: { xs: 600, md: 1200 } }}
+        >
           We are happy being able to offer professional skills
           and highest competences to solve all your design and construction problems
         </Typography>
         {
           mdUp ? (
-            <Grid container justifyContent='center' spacing={3} maxWidth={1200}>
+            <Grid
+              container
+              justifyContent='center'
+              spacing={3}
+              maxWidth={1200}
+            >
               {
             cardsData.map(({ title, img, description }) => (
-              <Grid item key={title} display='flex' justifyContent='center' md={3}>
+              <Grid
+                item
+                key={title}
+                display='flex'
+                justifyContent='center'
+                md={3}
+              >
                 <Home.HomeCard title={title} img={img} description={description} />
               </Grid>
             ))
           }
             </Grid>
           ) : (
-            <Box display='flex' flexDirection='column' gap={2} width='100%'>
+            <Box
+              display='flex'
+              flexDirection='column'
+              gap={2}
+              width='100%'
+            >
               {
                 cardsData.map(({ title }) => (
-                  <Button key={title} variant='outlined' fullWidth size='medium' sx={{ fontSize: 18, fontWeight: 400 }} onClick={() => navigate('/services')}>
+                  <Button
+                    key={title}
+                    variant='outlined'
+                    fullWidth
+                    size='medium'
+                    sx={{ fontSize: 18, fontWeight: 400 }}
+                    onClick={() => navigate('/services')}
+                  >
                     {title}
                   </Button>
                 ))
