@@ -1,5 +1,15 @@
 {
-  "contactsMessages": [],
+  "contactsMessages": [
+    {
+      "name": "John",
+      "surname": "Doe",
+      "mail": "joh@mail.com",
+      "phone": "12345678910",
+      "category": "design",
+      "message": "Test",
+      "id": 1
+    }
+  ],
   "projectsData": [
     {
       "id": 1,

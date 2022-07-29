@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  Box, Button, MenuItem, Paper, TextField, Typography,
+  Box, Button, MenuItem, Paper, TextField, Typography, AlertColor,
 } from '@mui/material';
 import * as Page from '../../../components';
 
@@ -32,6 +32,21 @@ interface Form {
   message: string
 }
 
+interface Snackbar {
+  open: boolean,
+  type: AlertColor,
+  message: string,
+}
+
+const defaultForm = {
+  name: '',
+  surname: '',
+  mail: '',
+  phone: '',
+  category: '',
+  message: '',
+};
+
 const ContactsForm = () => {
   const [formValue, setFormValue] = useState<Form>({
     name: '',
@@ -41,16 +56,37 @@ const ContactsForm = () => {
     category: '',
     message: '',
   });
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const [snackbar, setSnackbar] = useState<Snackbar>({
+    open: false,
+    type: 'error',
+    message: '',
+  });
+
+  const postMessage = async (data: Form) => {
+    await fetch('http://localhost:8000/contactsMessages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    setFormValue(defaultForm);
+  };
+
+  const handleClick = () => {
     const { mail, category, message } = formValue;
     if (!mail || !category || !message) {
-      setSnackbarOpen(true);
+      setSnackbar({
+        ...snackbar, open: true, type: 'error', message: 'Please fill all required fields',
+      });
 
       return;
     }
-    console.log('test');
+    postMessage(formValue);
+    setSnackbar({
+      ...snackbar, open: true, type: 'success', message: 'Your message successfully delivered',
+    });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -155,10 +191,10 @@ const ContactsForm = () => {
         </Box>
       </Paper>
       <Page.PageSnackbar
-        open={snackbarOpen}
-        onClose={() => setSnackbarOpen(false)}
-        type='error'
-        message='Please fill all required fields'
+        open={snackbar.open}
+        onClose={() => setSnackbar({ ...snackbar, open: false })}
+        type={snackbar.type}
+        message={snackbar.message}
       />
     </>
   );
