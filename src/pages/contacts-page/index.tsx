@@ -1,6 +1,4 @@
-import { useContext, useEffect } from 'react';
 import * as Page from '../../components';
-import AlertContext from '../../contexts/alert-context';
 import * as Contacts from './components';
 
 const ContactsPage = () => (
