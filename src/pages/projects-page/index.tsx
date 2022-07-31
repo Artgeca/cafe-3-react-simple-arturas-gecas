@@ -30,7 +30,7 @@ const ProjectsPage = () => {
         fontSize={{ xs: 30, sm: 40 }}
         color='primary'
       >
-        Our finished projects
+        Projects
       </Typography>
       <Grid
         container
