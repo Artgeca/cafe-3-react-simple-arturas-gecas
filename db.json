@@ -8,15 +8,6 @@
       "category": "design",
       "message": "Test",
       "id": 1
-    },
-    {
-      "name": "",
-      "surname": "",
-      "mail": "joh@mail.com",
-      "phone": "12345678910",
-      "category": "products",
-      "message": "test",
-      "id": 2
     }
   ],
   "projectsData": [
