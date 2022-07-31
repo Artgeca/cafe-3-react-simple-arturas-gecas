@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {
   Box, Button, MenuItem, Paper, TextField, Typography, AlertColor,
 } from '@mui/material';
 import * as Page from '../../../components';
+import AlertContext from '../../../contexts/alert-context';
 
 const questionCategory = [
   {
@@ -32,13 +33,7 @@ interface Form {
   message: string
 }
 
-interface Snackbar {
-  open: boolean,
-  type: AlertColor,
-  message: string,
-}
-
-const defaultForm = {
+const defaultFormValues = {
   name: '',
   surname: '',
   mail: '',
@@ -48,18 +43,15 @@ const defaultForm = {
 };
 
 const ContactsForm = () => {
+  const context = useContext(AlertContext);
+  const { alert, setAlert } = context;
+
   const [formValue, setFormValue] = useState<Form>({
     name: '',
     surname: '',
     mail: '',
     phone: '',
     category: '',
-    message: '',
-  });
-
-  const [snackbar, setSnackbar] = useState<Snackbar>({
-    open: false,
-    type: 'error',
     message: '',
   });
 
@@ -71,21 +63,21 @@ const ContactsForm = () => {
       },
       body: JSON.stringify(data),
     });
-    setFormValue(defaultForm);
+    setFormValue(defaultFormValues);
   };
 
   const handleClick = () => {
     const { mail, category, message } = formValue;
     if (!mail || !category || !message) {
-      setSnackbar({
-        ...snackbar, open: true, type: 'error', message: 'Please fill all required fields',
+      setAlert({
+        ...alert, open: true, type: 'error', message: 'Please fill all required fields',
       });
 
       return;
     }
     postMessage(formValue);
-    setSnackbar({
-      ...snackbar, open: true, type: 'success', message: 'Your message successfully delivered',
+    setAlert({
+      ...alert, open: true, type: 'success', message: 'Your message successfully delivered',
     });
   };
 
@@ -94,109 +86,101 @@ const ContactsForm = () => {
   };
 
   return (
-    <>
-      <Paper
-        elevation={3}
-        sx={{
-          p: 5, mt: { xs: 12, md: 12 }, mb: { xs: 0, md: 5 }, textAlign: 'center', height: 700, width: '85%', maxWidth: 500, order: { xs: 1, md: 2 },
-        }}
+    <Paper
+      elevation={3}
+      sx={{
+        p: 5, mt: { xs: 12, md: 12 }, mb: { xs: 0, md: 5 }, textAlign: 'center', height: 700, width: '85%', maxWidth: 500, order: { xs: 1, md: 2 },
+      }}
+    >
+      <Typography variant='h4' gutterBottom>Contact Us</Typography>
+      <Typography variant='body1' fontWeight={100}>Any questions or remarks? Just write us a message!</Typography>
+      <Box sx={{
+        display: 'flex', flexDirection: 'column', gap: 3, mt: 3,
+      }}
       >
-        <Typography variant='h4' gutterBottom>Contact Us</Typography>
-        <Typography variant='body1' fontWeight={100}>Any questions or remarks? Just write us a message!</Typography>
-        <Box sx={{
-          display: 'flex', flexDirection: 'column', gap: 3, mt: 3,
-        }}
+        <TextField
+          variant='standard'
+          name='name'
+          value={formValue.name}
+          label='Name'
+          placeholder='John'
+          color='secondary'
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          onChange={handleChange}
+        />
+        <TextField
+          variant='standard'
+          name='surname'
+          value={formValue.surname}
+          label='Surname'
+          placeholder='Doe'
+          color='secondary'
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          onChange={handleChange}
+        />
+        <TextField
+          error={!formValue.mail}
+          variant='standard'
+          required
+          name='mail'
+          value={formValue.mail}
+          label='Mail'
+          placeholder='johndoe@mail.com'
+          color='secondary'
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          onChange={handleChange}
+        />
+        <TextField
+          variant='standard'
+          name='phone'
+          value={formValue.phone}
+          label='Phone'
+          placeholder='+908...'
+          color='secondary'
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          onChange={handleChange}
+        />
+        <TextField
+          error={!formValue.category}
+          variant='standard'
+          required
+          name='category'
+          select
+          value={formValue.category}
+          label='Question category'
+          color='secondary'
+          fullWidth
+          onChange={handleChange}
+          InputLabelProps={{ shrink: true }}
+          sx={{ textAlign: 'left' }}
         >
-          <TextField
-            variant='standard'
-            name='name'
-            value={formValue.name}
-            label='Name'
-            placeholder='John'
-            color='secondary'
-            fullWidth
-            InputLabelProps={{ shrink: true }}
-            onChange={handleChange}
-          />
-          <TextField
-            variant='standard'
-            name='surname'
-            value={formValue.surname}
-            label='Surname'
-            placeholder='Doe'
-            color='secondary'
-            fullWidth
-            InputLabelProps={{ shrink: true }}
-            onChange={handleChange}
-          />
-          <TextField
-            error={!formValue.mail}
-            variant='standard'
-            required
-            name='mail'
-            value={formValue.mail}
-            label='Mail'
-            placeholder='johndoe@mail.com'
-            color='secondary'
-            fullWidth
-            InputLabelProps={{ shrink: true }}
-            onChange={handleChange}
-          />
-          <TextField
-            variant='standard'
-            name='phone'
-            value={formValue.phone}
-            label='Phone'
-            placeholder='+908...'
-            color='secondary'
-            fullWidth
-            InputLabelProps={{ shrink: true }}
-            onChange={handleChange}
-          />
-          <TextField
-            error={!formValue.category}
-            variant='standard'
-            required
-            name='category'
-            select
-            value={formValue.category}
-            label='Question category'
-            color='secondary'
-            fullWidth
-            onChange={handleChange}
-            InputLabelProps={{ shrink: true }}
-            sx={{ textAlign: 'left' }}
-          >
-            {
+          {
             questionCategory.map((item) => (
               <MenuItem key={item.value} value={item.value}>{item.label}</MenuItem>
             ))
             }
-          </TextField>
-          <TextField
-            error={!formValue.message}
-            variant='standard'
-            required
-            name='message'
-            value={formValue.message}
-            label='Message'
-            color='secondary'
-            fullWidth
-            multiline
-            rows={3}
-            InputLabelProps={{ shrink: true }}
-            onChange={handleChange}
-          />
-          <Button variant='contained' color='secondary' onClick={(handleClick)}>Send Message</Button>
-        </Box>
-      </Paper>
-      <Page.PageSnackbar
-        open={snackbar.open}
-        onClose={() => setSnackbar({ ...snackbar, open: false })}
-        type={snackbar.type}
-        message={snackbar.message}
-      />
-    </>
+        </TextField>
+        <TextField
+          error={!formValue.message}
+          variant='standard'
+          required
+          name='message'
+          value={formValue.message}
+          label='Message'
+          color='secondary'
+          fullWidth
+          multiline
+          rows={3}
+          InputLabelProps={{ shrink: true }}
+          onChange={handleChange}
+        />
+        <Button variant='contained' color='secondary' onClick={(handleClick)}>Send Message</Button>
+      </Box>
+    </Paper>
   );
 };
 

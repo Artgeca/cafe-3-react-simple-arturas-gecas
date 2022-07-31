@@ -1,24 +1,21 @@
-import { Alert, AlertColor, Snackbar } from '@mui/material';
+import { Alert, Snackbar } from '@mui/material';
+import { useContext } from 'react';
+import AlertContext from '../contexts/alert-context';
 
-interface Props {
-  open: boolean,
-  onClose: () => void,
-  type: AlertColor,
-  message: string
-}
+const AlertSnackbar = () => {
+  const { alert, setAlert } = useContext(AlertContext);
+  const { open, type, message } = alert;
 
-const PageSnackbar = ({
-  open, onClose, type, message,
-}: Props) => (
-  <Snackbar
-    open={open}
-    onClose={onClose}
-    autoHideDuration={5000}
-    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-  >
-    <Alert variant='filled' severity={type} sx={{ width: '100%', mx: { xs: 5, sm: 0 } }}>{message}</Alert>
-  </Snackbar>
+  return (
+    <Snackbar
+      open={open}
+      onClose={() => setAlert({ ...alert, open: false })}
+      autoHideDuration={5000}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+    >
+      <Alert variant='filled' severity={type} sx={{ width: '100%', mx: { xs: 5, sm: 0 } }}>{message}</Alert>
+    </Snackbar>
+  );
+};
 
-);
-
-export default PageSnackbar;
+export default AlertSnackbar;
