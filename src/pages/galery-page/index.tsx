@@ -1,7 +1,7 @@
 import { Box, Button, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
 import * as Page from '../../components';
-import { PhotoModal } from './components';
+import * as Photo from './components';
 
 interface PhotosInterface {
   id: number,
@@ -60,7 +60,7 @@ const GaleryPage = () => {
         ))
       }
       </Grid>
-      <PhotoModal open={photoModal} src={imgSrc} onClose={() => setPhotoModal(false)} />
+      <Photo.PhotoModal open={photoModal} src={imgSrc} onClose={() => setPhotoModal(false)} />
     </Page.Content>
   );
 };
