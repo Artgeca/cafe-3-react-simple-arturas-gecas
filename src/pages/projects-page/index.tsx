@@ -1,5 +1,5 @@
-import { Grid, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { Grid } from '@mui/material';
 import * as Page from '../../components';
 import ProjectCard from './components/project-card';
 import { ProjectsDataInterface } from './types';
@@ -23,15 +23,7 @@ const ProjectsPage = () => {
       display: 'flex', flexDirection: 'column', alignItems: 'center', pt: { xs: 10, sm: 12 }, px: { xs: 3, md: 5 }, pb: 5, gap: 3,
     }}
     >
-      <Typography
-        variant='h2'
-        component='h1'
-        fontWeight={100}
-        fontSize={{ xs: 30, sm: 40 }}
-        color='primary'
-      >
-        Projects
-      </Typography>
+      <Page.Title title='Projects' />
       <Grid
         container
         justifyContent='center'
