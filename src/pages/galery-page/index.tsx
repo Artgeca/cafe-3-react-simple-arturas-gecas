@@ -1,6 +1,7 @@
-import { Box, Grid } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
 import * as Page from '../../components';
+import { PhotoModal } from './components';
 
 interface PhotosInterface {
   id: number,
@@ -9,11 +10,18 @@ interface PhotosInterface {
 
 const GaleryPage = () => {
   const [photos, setPhotos] = useState<PhotosInterface[] | []>([]);
+  const [photoModal, setPhotoModal] = useState(false);
+  const [imgSrc, setImgSrc] = useState('');
 
   const getGaleryPhotos = async () => {
     const response = await fetch('http://localhost:8000/galeryPhotos');
     const data = await response.json();
     setPhotos([...data]);
+  };
+
+  const handleClick = (url: string) => {
+    setPhotoModal(true);
+    setImgSrc(url);
   };
 
   useEffect(() => {
@@ -26,21 +34,33 @@ const GaleryPage = () => {
     }}
     >
       <Page.Title title='Photo galery' />
-      <Grid container gap={2} sx={{ justifyContent: 'center' }}>
+      <Grid container maxWidth={1440} sx={{ justifyContent: 'center' }}>
         {
-        photos.map((photo) => (
-          <Grid item key={photo.id}>
-            <Box
-              component='img'
-              src={photo.url}
-              height={300}
-              width={300}
-              sx={{ objectFit: 'cover' }}
-            />
+        photos.map(({ id, url }) => (
+          <Grid item key={id}>
+            <Button
+              color='secondary'
+              sx={{
+                opacity: 0.8,
+                '&:hover': {
+                  opacity: 1,
+                },
+              }}
+              onClick={() => handleClick(url)}
+            >
+              <Box
+                component='img'
+                src={url}
+                height={300}
+                width={300}
+                sx={{ objectFit: 'cover' }}
+              />
+            </Button>
           </Grid>
         ))
       }
       </Grid>
+      <PhotoModal open={photoModal} src={imgSrc} onClose={() => setPhotoModal(false)} />
     </Page.Content>
   );
 };
