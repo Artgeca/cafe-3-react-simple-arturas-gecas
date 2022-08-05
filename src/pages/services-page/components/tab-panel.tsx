@@ -16,14 +16,14 @@ const TabPanel = (props: TabPanelProps) => {
       hidden={value !== index}
     >
       {value === index && (
-      <Box
-        display='flex'
-        flexDirection='column'
-        alignItems='center'
-        sx={{ p: 3, color: 'common.white' }}
-      >
-        {children}
-      </Box>
+        <Box
+          display='flex'
+          flexDirection='column'
+          alignItems='center'
+          sx={{ p: 3, color: 'common.white' }}
+        >
+          {children}
+        </Box>
       )}
     </Box>
   );
