@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
-import designImg from '../../../assets/images/design3.jpg';
+import demolitionImg from '../../../assets/images/demolition2.jpg';
 
-const DesignTab = () => (
+const DemolitionTab = () => (
   <Box
     display='flex'
     maxWidth={800}
@@ -12,7 +12,7 @@ const DesignTab = () => (
   >
     <Box
       component='img'
-      src={designImg}
+      src={demolitionImg}
       width='100%'
       maxHeight={380}
       sx={{ objectFit: 'cover' }}
@@ -43,4 +43,4 @@ const DesignTab = () => (
   </Box>
 );
 
-export default DesignTab;
+export default DemolitionTab;

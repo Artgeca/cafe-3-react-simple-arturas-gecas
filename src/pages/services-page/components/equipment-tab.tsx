@@ -1,7 +1,7 @@
-import { Box, Typography } from '@mui/material';
-import designImg from '../../../assets/images/design3.jpg';
+import { Box, Button, Typography } from '@mui/material';
+import equipmentImg from '../../../assets/images/rental.jpg';
 
-const DesignTab = () => (
+const EquipmentTab = () => (
   <Box
     display='flex'
     maxWidth={800}
@@ -10,13 +10,52 @@ const DesignTab = () => (
     alignItems='center'
     gap={3}
   >
-    <Box
-      component='img'
-      src={designImg}
-      width='100%'
-      maxHeight={380}
-      sx={{ objectFit: 'cover' }}
-    />
+    <Box position='relative' width='100%' height={380}>
+      <Box
+        position='absolute'
+        top={0}
+        left={0}
+        component='img'
+        src={equipmentImg}
+        width='100%'
+        height='100%'
+        sx={{ objectFit: 'cover', zIndex: 1 }}
+      />
+      <Box
+        position='absolute'
+        top={0}
+        left={0}
+        width='100%'
+        height='100%'
+        bgcolor='common.black'
+        sx={{
+          zIndex: 2,
+          opacity: 0.6,
+        }}
+      />
+      <Box
+        position='absolute'
+        top={0}
+        left={0}
+        width='100%'
+        height='100%'
+        display='flex'
+        justifyContent='center'
+        alignItems='center'
+        sx={{
+          zIndex: 3,
+        }}
+      >
+        <Button sx={{
+          width: '100%',
+          height: '100%',
+          textTransform: 'none',
+        }}
+        >
+          <Typography variant='h4'>Visit Store</Typography>
+        </Button>
+      </Box>
+    </Box>
     <Typography align='center'>
       Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Dolore neque aut ab ut! Vel deleniti cupiditate, illo laborum rerum
@@ -43,4 +82,4 @@ const DesignTab = () => (
   </Box>
 );
 
-export default DesignTab;
+export default EquipmentTab;

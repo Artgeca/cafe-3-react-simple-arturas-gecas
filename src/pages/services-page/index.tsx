@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import * as Page from '../../components';
 import * as Content from './components';
 import TabPanel from './components/tab-panel';
@@ -14,7 +14,7 @@ const ServicesPage = () => {
 
   return (
     <Page.Content sx={{
-      display: 'flex', flexDirection: 'column', alignItems: 'center', pt: { xs: 10, sm: 12 }, px: { xs: 3, md: 5 }, pb: 5, gap: 3,
+      display: 'flex', flexDirection: 'column', alignItems: 'center', pt: { xs: 10, sm: 12 }, px: { xs: 0, md: 5 }, pb: 5, gap: 3,
     }}
     >
       {/* <Page.Title title='Services' /> */}
@@ -26,13 +26,13 @@ const ServicesPage = () => {
           <Content.DesignTab />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <Typography>Construction</Typography>
+          <Content.ConstructionTab />
         </TabPanel>
         <TabPanel value={value} index={3}>
-          <Typography>Demolition</Typography>
+          <Content.DemolitionTab />
         </TabPanel>
         <TabPanel value={value} index={4}>
-          <Typography>Equipment</Typography>
+          <Content.EquipmentTab />
         </TabPanel>
       </Box>
     </Page.Content>
