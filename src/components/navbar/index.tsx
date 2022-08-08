@@ -14,6 +14,7 @@ const pages = [
   { title: 'Galery', to: '/galery' },
   { title: 'About', to: '/about' },
   { title: 'Contacts', to: '/contacts' },
+  { title: 'Store', to: '/store' },
 ];
 
 const Navbar = () => {

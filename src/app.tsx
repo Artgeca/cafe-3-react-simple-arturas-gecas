@@ -11,6 +11,7 @@ import ProjectsPage from './pages/projects-page';
 import ServicesPage from './pages/services-page';
 import theme from './theme';
 import AlertContext, { defaultAlert } from './contexts/alert-context';
+import StorePage from './pages/store-page';
 
 const App = () => {
   const [alert, setAlert] = useState(defaultAlert);
@@ -31,6 +32,7 @@ const App = () => {
             <Route path='/galery' element={<GaleryPage />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/contacts' element={<ContactsPage />} />
+            <Route path='/store' element={<StorePage />} />
             <Route path='*' element={<ErrorPage />} />
           </Routes>
           <AlertSnackbar />
