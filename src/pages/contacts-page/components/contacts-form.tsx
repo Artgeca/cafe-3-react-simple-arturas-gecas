@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import {
   Box, Button, Paper, Typography,
 } from '@mui/material';
-import AlertContext from '../../../contexts/alert-context';
+import { AlertContext } from '../../../contexts/alert-context';
 import ContactsFormList from './contacts-form-list';
 import { Form } from '../types';
 
