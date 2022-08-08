@@ -1,6 +1,4 @@
-import {
-  createContext, useMemo, useState,
-} from 'react';
+import { createContext, useMemo, useState } from 'react';
 import { AlertColor } from '@mui/material';
 
 interface AlertInterface {
