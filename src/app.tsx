@@ -11,7 +11,7 @@ import ServicesPage from './pages/services-page';
 import theme from './theme';
 import AlertProvider from './contexts/alert-context';
 import StorePage from './pages/store-page';
-import ServiceNavigationProvider from './contexts/service-navigation-context';
+import ServiceNavigationProvider from './contexts/services-page-navigation-context';
 
 const App = () => (
   <BrowserRouter>

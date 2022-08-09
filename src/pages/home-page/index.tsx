@@ -5,7 +5,7 @@ import {
 import { useContext } from 'react';
 import * as Home from './components';
 import cardsData from '../../assets/data/home-cards-data';
-import { ServiceNavigationContext } from '../../contexts/service-navigation-context';
+import { ServiceNavigationContext } from '../../contexts/services-page-navigation-context';
 
 const HomePage = () => {
   const { setIndex } = useContext(ServiceNavigationContext);

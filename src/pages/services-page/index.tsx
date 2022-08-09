@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Box } from '@mui/material';
 import * as Page from '../../components';
 import * as Content from './components';
-import { ServiceNavigationContext } from '../../contexts/service-navigation-context';
+import { ServiceNavigationContext } from '../../contexts/services-page-navigation-context';
 
 const ServicesPage = () => {
   const { index, setIndex } = useContext(ServiceNavigationContext);
