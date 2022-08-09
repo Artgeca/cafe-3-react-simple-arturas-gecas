@@ -2,13 +2,22 @@ import { useNavigate } from 'react-router-dom';
 import {
   Box, Button, Grid, Typography, useMediaQuery, useTheme,
 } from '@mui/material';
+import { useContext } from 'react';
 import * as Home from './components';
 import cardsData from '../../assets/data/home-cards-data';
+import { ServiceNavigationContext } from '../../contexts/service-navigation-context';
 
 const HomePage = () => {
+  const { setIndex } = useContext(ServiceNavigationContext);
+
   const navigate = useNavigate();
   const theme = useTheme();
   const mdUp = useMediaQuery(theme.breakpoints.up('md'));
+
+  const handleClick = (i: number) => {
+    setIndex(i + 1);
+    navigate('/services');
+  };
 
   return (
     <Home.Container>
@@ -44,18 +53,24 @@ const HomePage = () => {
               maxWidth={1200}
             >
               {
-            cardsData.map(({ title, img, description }) => (
-              <Grid
-                item
-                key={title}
-                display='flex'
-                justifyContent='center'
-                md={3}
-              >
-                <Home.HomeCard title={title} img={img} description={description} />
-              </Grid>
-            ))
-          }
+                cardsData.map(({ title, img, description }, i) => (
+                  <Grid
+                    item
+                    key={title}
+                    display='flex'
+                    justifyContent='center'
+                    md={3}
+                  >
+                    <Home.HomeCard
+                      title={title}
+                      img={img}
+                      description={description}
+                      handleNavigation={handleClick}
+                      i={i}
+                    />
+                  </Grid>
+                ))
+              }
             </Grid>
           ) : (
             <Box
@@ -65,14 +80,14 @@ const HomePage = () => {
               width='100%'
             >
               {
-                cardsData.map(({ title }) => (
+                cardsData.map(({ title }, i) => (
                   <Button
                     key={title}
                     variant='outlined'
                     fullWidth
                     size='medium'
                     sx={{ fontSize: 18, fontWeight: 400 }}
-                    onClick={() => navigate('/services')}
+                    onClick={() => handleClick(i)}
                   >
                     {title}
                   </Button>

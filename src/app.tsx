@@ -11,24 +11,27 @@ import ServicesPage from './pages/services-page';
 import theme from './theme';
 import AlertProvider from './contexts/alert-context';
 import StorePage from './pages/store-page';
+import ServiceNavigationProvider from './contexts/service-navigation-context';
 
 const App = () => (
   <BrowserRouter>
     <AlertProvider>
-      <ThemeProvider theme={theme}>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/services' element={<ServicesPage />} />
-          <Route path='/projects' element={<ProjectsPage />} />
-          <Route path='/galery' element={<GaleryPage />} />
-          <Route path='/about' element={<AboutPage />} />
-          <Route path='/contacts' element={<ContactsPage />} />
-          <Route path='/store' element={<StorePage />} />
-          <Route path='*' element={<ErrorPage />} />
-        </Routes>
-        <AlertSnackbar />
-      </ThemeProvider>
+      <ServiceNavigationProvider>
+        <ThemeProvider theme={theme}>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/services' element={<ServicesPage />} />
+            <Route path='/projects' element={<ProjectsPage />} />
+            <Route path='/galery' element={<GaleryPage />} />
+            <Route path='/about' element={<AboutPage />} />
+            <Route path='/contacts' element={<ContactsPage />} />
+            <Route path='/store' element={<StorePage />} />
+            <Route path='*' element={<ErrorPage />} />
+          </Routes>
+          <AlertSnackbar />
+        </ThemeProvider>
+      </ServiceNavigationProvider>
     </AlertProvider>
   </BrowserRouter>
 );
