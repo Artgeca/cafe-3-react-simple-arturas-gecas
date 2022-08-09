@@ -6,6 +6,11 @@
 npm i
 ```
 
+## launch server
+```
+npm run server
+```
+
 ## launch client
 
 ```
