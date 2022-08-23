@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import AuthLayout from '../layouts/auth-layout';
 import AboutPage from '../pages/about-page';
 import ContactsPage from '../pages/contacts-page';
 import ErrorPage from '../pages/error-page';
@@ -20,7 +21,7 @@ const PageRoutes: React.FC = () => (
       <Route path='about' element={<AboutPage />} />
       <Route path='contacts' element={<ContactsPage />} />
       <Route path='store' element={<StorePage />} />
-      <Route path='auth/'>
+      <Route path='auth/' element={<AuthLayout />}>
         <Route path='signup' element={<SignUpPage />} />
         <Route path='login' element={<LoginPage />} />
       </Route>

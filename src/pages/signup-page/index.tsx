@@ -1,16 +1,28 @@
-import { Typography } from '@mui/material';
-import { Content } from '../../components';
+import { Paper, TextField, Typography } from '@mui/material';
+import { useState } from 'react';
 
-const SignUpPage = () => (
-  <Content
-    display='flex'
-    justifyContent='center'
-    alignItems='center'
-    height='calc(100vh - 64px)'
-    color='common.white'
-  >
-    <Typography variant='h4' fontWeight={100}>SignUpPage</Typography>
-  </Content>
-);
+interface FormValuesType {
+  firstName: string
+}
+
+const defaultFormValues = {
+  firstName: '',
+};
+
+const SignUpPage: React.FC = () => {
+  const [formValues, setFormValues] = useState<FormValuesType>(defaultFormValues);
+
+  return (
+    <Paper
+      component='form'
+      sx={{
+        display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: 2,
+      }}
+    >
+      <Typography variant='h4' fontWeight={100}>Sign Up</Typography>
+      <TextField name='firstName' />
+    </Paper>
+  );
+};
 
 export default SignUpPage;
