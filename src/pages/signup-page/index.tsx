@@ -1,7 +1,6 @@
-import {
-  Button, Paper, TextField, Typography,
-} from '@mui/material';
+import { TextField } from '@mui/material';
 import { useFormik } from 'formik';
+import { Form } from '../../components';
 
 interface FormValuesType {
   email: string,
@@ -21,8 +20,9 @@ const initialValues = {
   birthDate: '',
 };
 
-const onSubmit = (values: FormValuesType) => {
+const onSubmit = (values: FormValuesType, actions: { resetForm: () => void; }) => {
   console.log(JSON.stringify(values, null, 2));
+  actions.resetForm();
 };
 
 const SignUpPage: React.FC = () => {
@@ -35,14 +35,7 @@ const SignUpPage: React.FC = () => {
   });
 
   return (
-    <Paper
-      component='form'
-      onSubmit={handleSubmit}
-      sx={{
-        display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 400, p: 3, m: 3,
-      }}
-    >
-      <Typography variant='h4' fontWeight={100}>Sign Up</Typography>
+    <Form title='Sign Up' btnText='Confirm' onSubmit={handleSubmit}>
       <TextField
         variant='standard'
         type='email'
@@ -97,17 +90,7 @@ const SignUpPage: React.FC = () => {
         value={values.birthDate}
         onChange={handleChange}
       />
-      <Button
-        type='submit'
-        variant='contained'
-        fullWidth
-        color='secondary'
-        sx={{ mt: 2 }}
-      >
-        Submit
-      </Button>
-    </Paper>
+    </Form>
   );
 };
-
 export default SignUpPage;
