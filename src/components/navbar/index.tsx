@@ -60,7 +60,12 @@ const Navbar = () => {
               {page.title}
             </Nav.Link>
           ))}
-          <Divider orientation='vertical' flexItem sx={{}} />
+          <Divider
+            variant='middle'
+            orientation='vertical'
+            flexItem
+            sx={{ bgcolor: 'grey.500' }}
+          />
           {
             authPages.map((page) => (
               <Nav.Link key={page.title} to={page.to} color='inherit'>
