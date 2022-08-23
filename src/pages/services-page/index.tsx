@@ -16,7 +16,6 @@ const ServicesPage = () => {
       display: 'flex', flexDirection: 'column', alignItems: 'center', pt: { xs: 10, sm: 12 }, px: { xs: 0, md: 5 }, pb: 5, gap: 3,
     }}
     >
-      {/* <Page.Title title='Services' /> */}
       <Box sx={{ width: '100%', typography: 'body1' }}>
         <Box display='flex' justifyContent='center' sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Content.TabsList value={index} onChange={handleChange} />
