@@ -12,6 +12,8 @@ import theme from './theme';
 import AlertProvider from './contexts/alert-context';
 import StorePage from './pages/store-page';
 import ServiceNavigationProvider from './contexts/services-page-navigation-context';
+import SignUpPage from './pages/signup-page';
+import LoginPage from './pages/login-page/index';
 
 const App = () => (
   <BrowserRouter>
@@ -20,14 +22,20 @@ const App = () => (
         <ThemeProvider theme={theme}>
           <Navbar />
           <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/services' element={<ServicesPage />} />
-            <Route path='/projects' element={<ProjectsPage />} />
-            <Route path='/galery' element={<GaleryPage />} />
-            <Route path='/about' element={<AboutPage />} />
-            <Route path='/contacts' element={<ContactsPage />} />
-            <Route path='/store' element={<StorePage />} />
-            <Route path='*' element={<ErrorPage />} />
+            <Route path='/'>
+              <Route index element={<HomePage />} />
+              <Route path='services' element={<ServicesPage />} />
+              <Route path='projects' element={<ProjectsPage />} />
+              <Route path='galery' element={<GaleryPage />} />
+              <Route path='about' element={<AboutPage />} />
+              <Route path='contacts' element={<ContactsPage />} />
+              <Route path='store' element={<StorePage />} />
+              <Route path='auth/'>
+                <Route path='signup' element={<SignUpPage />} />
+                <Route path='login' element={<LoginPage />} />
+              </Route>
+              <Route path='*' element={<ErrorPage />} />
+            </Route>
           </Routes>
           <AlertSnackbar />
         </ThemeProvider>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  AppBar, Box, Drawer, IconButton, List, ListItem, ListItemButton,
+  AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton,
   ListItemText, Toolbar, Typography,
 } from '@mui/material';
 import StraightenIcon from '@mui/icons-material/Straighten';
@@ -18,7 +18,7 @@ const pages = [
 ];
 
 const authPages = [
-  { title: 'Sign up', to: '/auth/register' },
+  { title: 'Sign up', to: '/auth/signup' },
   { title: 'Log in', to: '/auth/login' },
 ];
 
@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <AppBar color='secondary'>
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
+      <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
         <Box
           sx={(theme) => ({
             display: 'flex',
@@ -60,11 +60,20 @@ const Navbar = () => {
               {page.title}
             </Nav.Link>
           ))}
+          <Divider orientation='vertical' flexItem sx={{}} />
+          {
+            authPages.map((page) => (
+              <Nav.Link key={page.title} to={page.to} color='inherit'>
+                {page.title}
+              </Nav.Link>
+            ))
+          }
         </Box>
         <IconButton
           sx={(theme) => ({
             display: { md: 'none' },
             color: theme.palette.grey[200],
+            mr: 2,
           })}
           onClick={() => setDrawerOpen(true)}
         >
@@ -93,6 +102,7 @@ const Navbar = () => {
               }
             </Box>
             <Box>
+              <Divider variant='middle' sx={{ my: 2 }} />
               {
                 authPages.map((page) => (
                   <ListItem disablePadding key={page.title}>
