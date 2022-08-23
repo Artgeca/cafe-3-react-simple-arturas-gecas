@@ -21,7 +21,7 @@ const Form = ({
   >
     <Typography variant='h4' fontWeight={100}>{title}</Typography>
     <Box sx={{
-      display: 'flex', flexDirection: 'column', width: '100%', gap: 1,
+      display: 'flex', flexDirection: 'column', width: '100%', gap: 2,
     }}
     >
       {children}

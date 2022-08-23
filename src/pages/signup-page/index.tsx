@@ -1,8 +1,8 @@
 import { TextField } from '@mui/material';
-import { useFormik } from 'formik';
+import { useFormik, FormikConfig } from 'formik';
 import { Form } from '../../components';
 
-interface FormValuesType {
+interface SingUpValues {
   email: string,
   confirmEmail: string,
   password: string,
@@ -11,7 +11,9 @@ interface FormValuesType {
   birthDate: string
 }
 
-const initialValues = {
+type SignUpFormik = FormikConfig<SingUpValues>;
+
+const initialValues: SingUpValues = {
   email: '',
   confirmEmail: '',
   password: '',
@@ -20,7 +22,7 @@ const initialValues = {
   birthDate: '',
 };
 
-const onSubmit = (values: FormValuesType, actions: { resetForm: () => void; }) => {
+const onSubmit: SignUpFormik['onSubmit'] = (values, actions) => {
   console.log(JSON.stringify(values, null, 2));
   actions.resetForm();
 };
@@ -37,7 +39,8 @@ const SignUpPage: React.FC = () => {
   return (
     <Form title='Sign Up' btnText='Confirm' onSubmit={handleSubmit}>
       <TextField
-        variant='standard'
+        variant='outlined'
+        color='secondary'
         type='email'
         name='email'
         label='Email'
@@ -46,7 +49,8 @@ const SignUpPage: React.FC = () => {
         onChange={handleChange}
       />
       <TextField
-        variant='standard'
+        variant='outlined'
+        color='secondary'
         type='email'
         name='confirmEmail'
         label='Confirm email'
@@ -55,7 +59,8 @@ const SignUpPage: React.FC = () => {
         onChange={handleChange}
       />
       <TextField
-        variant='standard'
+        variant='outlined'
+        color='secondary'
         type='password'
         name='password'
         label='Password'
@@ -64,7 +69,8 @@ const SignUpPage: React.FC = () => {
         onChange={handleChange}
       />
       <TextField
-        variant='standard'
+        variant='outlined'
+        color='secondary'
         type='password'
         name='confirmPassword'
         label='Confirm password'
@@ -73,7 +79,8 @@ const SignUpPage: React.FC = () => {
         onChange={handleChange}
       />
       <TextField
-        variant='standard'
+        variant='outlined'
+        color='secondary'
         type='text'
         name='fullName'
         label='Full name'
@@ -82,7 +89,8 @@ const SignUpPage: React.FC = () => {
         onChange={handleChange}
       />
       <TextField
-        variant='standard'
+        variant='outlined'
+        color='secondary'
         type='date'
         name='birthDate'
         label='Birth date'
