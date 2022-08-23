@@ -64,7 +64,7 @@ const Navbar = () => {
             variant='middle'
             orientation='vertical'
             flexItem
-            sx={{ bgcolor: 'grey.500' }}
+            sx={{ bgcolor: 'grey.500', my: 2 }}
           />
           {
             authPages.map((page) => (
