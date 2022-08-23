@@ -17,6 +17,11 @@ const pages = [
   { title: 'Store', to: '/store' },
 ];
 
+const authPages = [
+  { title: 'Sign up', to: '/auth/register' },
+  { title: 'Log in', to: '/auth/login' },
+];
+
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
@@ -72,16 +77,32 @@ const Navbar = () => {
           sx={{ display: { md: 'none' } }}
           PaperProps={{ sx: { bgcolor: 'primary.light' } }}
         >
-          <List sx={{ py: 3 }}>
-            {
-              pages.map((page) => (
-                <ListItem disablePadding key={page.title}>
-                  <ListItemButton sx={{ px: 5 }} onClick={() => handleDrawerNavigation(page.to)}>
-                    <ListItemText primary={page.title} />
-                  </ListItemButton>
-                </ListItem>
-              ))
-            }
+          <List sx={{
+            py: 3, display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between',
+          }}
+          >
+            <Box>
+              {
+                pages.map((page) => (
+                  <ListItem disablePadding key={page.title}>
+                    <ListItemButton sx={{ px: 5 }} onClick={() => handleDrawerNavigation(page.to)}>
+                      <ListItemText primary={page.title} />
+                    </ListItemButton>
+                  </ListItem>
+                ))
+              }
+            </Box>
+            <Box>
+              {
+                authPages.map((page) => (
+                  <ListItem disablePadding key={page.title}>
+                    <ListItemButton sx={{ px: 5 }} onClick={() => handleDrawerNavigation(page.to)}>
+                      <ListItemText primary={page.title} />
+                    </ListItemButton>
+                  </ListItem>
+                ))
+              }
+            </Box>
           </List>
         </Drawer>
       </Toolbar>
