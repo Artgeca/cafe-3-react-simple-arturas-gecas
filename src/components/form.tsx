@@ -1,4 +1,6 @@
-import { Button, Paper, Typography } from '@mui/material';
+import {
+  Box, Button, Paper, Typography,
+} from '@mui/material';
 
 interface Props {
   children: React.ReactNode,
@@ -18,7 +20,12 @@ const Form = ({
     }}
   >
     <Typography variant='h4' fontWeight={100}>{title}</Typography>
-    {children}
+    <Box sx={{
+      display: 'flex', flexDirection: 'column', width: '100%', gap: 1,
+    }}
+    >
+      {children}
+    </Box>
     <Button
       type='submit'
       variant='contained'
