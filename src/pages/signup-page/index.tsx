@@ -1,4 +1,5 @@
 import { TextField } from '@mui/material';
+import { DesktopDatePicker } from '@mui/x-date-pickers';
 import { useFormik, FormikConfig } from 'formik';
 import { Form } from '../../components';
 
@@ -83,14 +84,21 @@ const SignUpPage: React.FC = () => {
         value={values.fullName}
         onChange={handleChange}
       />
-      <TextField
-        color='secondary'
-        type='date'
-        name='birthDate'
-        label='Birth date'
-        fullWidth
+      <DesktopDatePicker
+        inputFormat='yyyy-MM-DD'
+        disableMaskedInput
         value={values.birthDate}
+        disableFuture
         onChange={handleChange}
+        renderInput={(params) => (
+          <TextField
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...params}
+            color='secondary'
+            label='Birth date'
+            error={false}
+          />
+        )}
       />
     </Form>
   );

@@ -1,5 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import theme from './theme';
 import AlertProvider from './contexts/alert-context';
 import PageRoutes from './routes/page-routes';
@@ -8,15 +10,17 @@ import { AlertSnackbar, Navbar } from './components';
 
 const App = () => (
   <BrowserRouter>
-    <AlertProvider>
-      <ServiceNavigationProvider>
-        <ThemeProvider theme={theme}>
-          <Navbar />
-          <PageRoutes />
-          <AlertSnackbar />
-        </ThemeProvider>
-      </ServiceNavigationProvider>
-    </AlertProvider>
+    <LocalizationProvider dateAdapter={AdapterMoment}>
+      <AlertProvider>
+        <ServiceNavigationProvider>
+          <ThemeProvider theme={theme}>
+            <Navbar />
+            <PageRoutes />
+            <AlertSnackbar />
+          </ThemeProvider>
+        </ServiceNavigationProvider>
+      </AlertProvider>
+    </LocalizationProvider>
   </BrowserRouter>
 );
 
