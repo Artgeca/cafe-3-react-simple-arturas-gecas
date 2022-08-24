@@ -18,7 +18,7 @@ export const ServiceNavigationContext = createContext(defaultContextValues);
 
 const ServiceNavigationProvider = ({ children }: Props) => {
   const [index, setIndex] = useState(1);
-  const context = useMemo(() => ({
+  const context = useMemo<DefaultContextInterface>(() => ({
     index,
     setIndex,
   }), [index]);
