@@ -16,10 +16,10 @@ const Form = ({
     component='form'
     onSubmit={onSubmit}
     sx={{
-      display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 400, p: 3, m: 3,
+      display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 400, p: 3, mx: 3, mt: { xs: 12, md: 0 }, mb: { xs: 5, md: 0 },
     }}
   >
-    <Typography variant='h4' fontWeight={100}>{title}</Typography>
+    <Typography variant='h4' fontWeight={100} mb={3}>{title}</Typography>
     <Box sx={{
       display: 'flex', flexDirection: 'column', width: '100%', gap: 2,
     }}

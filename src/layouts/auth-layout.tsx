@@ -6,7 +6,7 @@ const AuthLayout: React.FC = () => (
     display='flex'
     justifyContent='center'
     alignItems='center'
-    height='calc(100vh - 64px)'
+    minHeight='calc(100vh - 64px)'
     color='common.white'
   >
     <Outlet />

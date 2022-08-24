@@ -39,7 +39,6 @@ const SignUpPage: React.FC = () => {
   return (
     <Form title='Sign Up' btnText='Confirm' onSubmit={handleSubmit}>
       <TextField
-        variant='outlined'
         color='secondary'
         type='email'
         name='email'
@@ -49,7 +48,6 @@ const SignUpPage: React.FC = () => {
         onChange={handleChange}
       />
       <TextField
-        variant='outlined'
         color='secondary'
         type='email'
         name='confirmEmail'
@@ -59,7 +57,6 @@ const SignUpPage: React.FC = () => {
         onChange={handleChange}
       />
       <TextField
-        variant='outlined'
         color='secondary'
         type='password'
         name='password'
@@ -69,7 +66,6 @@ const SignUpPage: React.FC = () => {
         onChange={handleChange}
       />
       <TextField
-        variant='outlined'
         color='secondary'
         type='password'
         name='confirmPassword'
@@ -79,7 +75,6 @@ const SignUpPage: React.FC = () => {
         onChange={handleChange}
       />
       <TextField
-        variant='outlined'
         color='secondary'
         type='text'
         name='fullName'
@@ -89,7 +84,6 @@ const SignUpPage: React.FC = () => {
         onChange={handleChange}
       />
       <TextField
-        variant='outlined'
         color='secondary'
         type='date'
         name='birthDate'

@@ -6,7 +6,7 @@ import { AlertContext } from '../../../contexts/alert-context';
 import ContactsFormList from './contacts-form-list';
 import { Form } from '../types';
 
-const defaultFormValues = {
+const defaultFormValues: Form = {
   name: '',
   surname: '',
   mail: '',
