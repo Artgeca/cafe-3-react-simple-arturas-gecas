@@ -35,6 +35,7 @@ module.exports = {
         "jsx-quotes": [1, "prefer-single"],
         "no-unused-vars": [1],
         "@typescript-eslint/no-unused-vars": [1],
-        "react/jsx-max-props-per-line": [1, { "maximum": {"single": 3, "multi": 1} }],
+        "react/jsx-max-props-per-line": [1, { "maximum": { "single": 3, "multi": 1 } }],
+        "no-underscore-dangle": [0],
     }
-}
+};

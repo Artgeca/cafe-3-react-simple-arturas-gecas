@@ -54,7 +54,7 @@ const validationSchema = yup.object({
     .required('Required')
     .min(6, 'At least 6 letters')
     .matches(/^[a-ząčęėįšųūž ]+$/i, 'Only letters and spaces allowed'),
-  birthDate: yup.date(),
+  birthDate: yup.date().max(dateNow, 'Unable to select future'),
 });
 
 const SignUpPage: React.FC = () => {
@@ -139,13 +139,13 @@ const SignUpPage: React.FC = () => {
         disableMaskedInput
         value={values.birthDate}
         disableFuture
-        onChange={handleChange}
-        // onChange={(momentInstance) => {
-        //   if (momentInstance._isValid) {
-        //     setFieldTouched('birthdate', true, false);
-        //     setFieldValue('birthdate', momentInstance, true);
-        //   }
-        // }}
+        // onChange={handleChange}
+        onChange={(momentInstance) => {
+          if (momentInstance !== null && momentInstance.isValid()) {
+            setFieldTouched('birthDate', true, false);
+            setFieldValue('birthDate', momentInstance, true);
+          }
+        }}
         renderInput={(params) => (
           <TextField
             // eslint-disable-next-line react/jsx-props-no-spreading
