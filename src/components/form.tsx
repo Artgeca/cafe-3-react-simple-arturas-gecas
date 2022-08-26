@@ -6,11 +6,12 @@ interface Props {
   children: React.ReactNode,
   title: string,
   btnText: string,
-  onSubmit: () => void
+  onSubmit: () => void,
+  disabled: boolean
 }
 
 const Form = ({
-  children, title, btnText, onSubmit,
+  children, title, btnText, onSubmit, disabled,
 }: Props) => (
   <Paper
     component='form'
@@ -31,6 +32,7 @@ const Form = ({
       variant='contained'
       fullWidth
       color='secondary'
+      disabled={disabled}
       sx={{ mt: 4 }}
     >
       {btnText}
