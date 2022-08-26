@@ -60,7 +60,7 @@ const validationSchema = yup.object({
 const SignUpPage: React.FC = () => {
   const {
     values, dirty, errors, touched, isValid,
-    handleChange, handleSubmit, handleBlur,
+    handleChange, handleSubmit, handleBlur, setFieldTouched, setFieldValue,
   } = useFormik({
     initialValues,
     validationSchema,
@@ -140,6 +140,12 @@ const SignUpPage: React.FC = () => {
         value={values.birthDate}
         disableFuture
         onChange={handleChange}
+        // onChange={(momentInstance) => {
+        //   if (momentInstance._isValid) {
+        //     setFieldTouched('birthdate', true, false);
+        //     setFieldValue('birthdate', momentInstance, true);
+        //   }
+        // }}
         renderInput={(params) => (
           <TextField
             // eslint-disable-next-line react/jsx-props-no-spreading
