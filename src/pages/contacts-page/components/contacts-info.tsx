@@ -4,7 +4,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PlaceIcon from '@mui/icons-material/Place';
 import contactsMapImg from '../../../assets/images/contacts_map.jpg';
 
-const ContactsInfo = () => (
+const ContactsInfo: React.FC = () => (
   <Paper
     elevation={3}
     sx={{

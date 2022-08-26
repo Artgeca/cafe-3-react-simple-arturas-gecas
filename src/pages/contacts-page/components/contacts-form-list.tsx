@@ -26,7 +26,7 @@ interface Props {
   setFormValue: React.Dispatch<React.SetStateAction<Form>>
 }
 
-const ContactsFormList = ({ formValue, setFormValue }: Props) => {
+const ContactsFormList: React.FC<Props> = ({ formValue, setFormValue }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
@@ -94,10 +94,10 @@ const ContactsFormList = ({ formValue, setFormValue }: Props) => {
         sx={{ textAlign: 'left' }}
       >
         {
-            questionCategory.map((item) => (
-              <MenuItem key={item.value} value={item.value}>{item.label}</MenuItem>
-            ))
-            }
+          questionCategory.map((item) => (
+            <MenuItem key={item.value} value={item.value}>{item.label}</MenuItem>
+          ))
+        }
       </TextField>
       <TextField
         error={!formValue.message}

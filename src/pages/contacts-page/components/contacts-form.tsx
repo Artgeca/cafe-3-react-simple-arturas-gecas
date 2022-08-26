@@ -15,7 +15,7 @@ const defaultFormValues: Form = {
   message: '',
 };
 
-const ContactsForm = () => {
+const ContactsForm: React.FC = () => {
   const context = useContext(AlertContext);
   const { alert, setAlert } = context;
 
@@ -58,7 +58,7 @@ const ContactsForm = () => {
     <Paper
       elevation={3}
       sx={{
-        p: 5, mt: { xs: 12, md: 12 }, mb: { xs: 0, md: 5 }, textAlign: 'center', height: 700, width: '85%', maxWidth: 500, order: { xs: 1, md: 2 },
+        p: 5, mt: 12, mb: { xs: 0, md: 5 }, textAlign: 'center', height: 700, width: '85%', maxWidth: 500, order: { xs: 1, md: 2 },
       }}
     >
       <Typography variant='h4' gutterBottom>Contact Us</Typography>
