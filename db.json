@@ -134,280 +134,366 @@
       "url": "https://images.unsplash.com/photo-1563166423-482a8c14b2d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
     }
   ],
-  "rentalsData": [
+  "rentalCategories": [
     {
       "id": 1,
-      "title": "MINI EXCAVATOR CAT 301.6",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/59bd21e1a7a5a5e788631d8d62b77e5f291e889c.jpg",
-      "technicalData": {
-        "Weight": "1,759.00",
-        "Width": "1,300.00",
-        "Max Digging": "2,430.00",
-        "Height": "2,310.00",
-        "Power": "16.10",
-        "Max Reach": "3,800.00",
-        "Length": "3,620.00"
-      }
+      "title": "Backhoe Loader"
     },
     {
       "id": 2,
-      "title": "MINI EXCAVATOR CAT 301.7D",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/217459b8d3abd14884947856789df79b57257729.jpg",
-      "technicalData": {
-        "Weight": "1,720.00",
-        "Width": "990.00",
-        "Max Digging": "2,200.00",
-        "Height": "2,290.00",
-        "Power": "17.90",
-        "Max Reach": "3,700.00",
-        "Length": "3,855.00"
-      }
+      "title": "Skid-Steer Loader"
     },
     {
       "id": 3,
-      "title": "MINI EXCAVATOR CAT 305E",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/d18f89bc74e5f71ce05a14536520fe922b42091e.jpg",
-      "technicalData": {
-        "Weight": "4,924.00",
-        "Width": "1,980.00",
-        "Max Digging": "3,870.00",
-        "Height": "2,550.00",
-        "Power": "34.10",
-        "Max Reach": "6,170.00",
-        "Length": "5,460.00"
-      }
+      "title": "Mini Excavator"
     },
     {
       "id": 4,
-      "title": "MEDIUM EXCAVATOR CAT 308E",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/4340df27a6c1a01712bb14f9e155a712df0e9dc4.jpg",
-      "technicalData": {
-        "Weight": "8,700.00",
-        "Width": "2,320.00",
-        "Max Digging": "3,710.00",
-        "Height": "2,550.00",
-        "Power": "49.70",
-        "Max Reach": "6,550.00",
-        "Length": "5,795.00"
-      }
+      "title": "Excavator"
     },
     {
       "id": 5,
-      "title": "HYDRAULIC EXCAVATORS CAT 313F GC - 313F L",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/0deef6119e66cb8db2bbdb209708c0944ace3a1c.jpg",
-      "technicalData": {
-        "Weight": "14,600.00",
-        "Width": "2,590.00",
-        "Max Digging": "5,530.00",
-        "Height": "2,830.00",
-        "Power": "55.00",
-        "Max Reach": "8,170.00",
-        "Length": "7,940.00"
-      }
+      "title": "Dozer"
     },
     {
       "id": 6,
-      "title": "WHEEL EXCAVATOR CAT M315F",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/c7577a8b24238c390b75a5762803a4308cc7970f.jpg",
-      "technicalData": {
-        "Weight": "16,770.00",
-        "Width": "2,550.00",
-        "Max Digging": "5,570.00",
-        "Height": "3,300.00",
-        "Power": "117.00",
-        "Max Reach": "8,920.00",
-        "Length": "8,150.00"
-      }
+      "title": "Wheel Loder"
     },
     {
       "id": 7,
-      "title": "MEDIUM EXCAVATORS CAT 318F L",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/97fe3f4367e33d9c1f2694d6cf9d5bcf07e81603.jpg",
-      "technicalData": {
-        "Weight": "19,200.00",
-        "Max Digging": "6,090.00",
-        "Power": "88.00"
-      }
+      "title": "Generator"
+    }
+  ],
+  "rentals": [
+    {
+      "id": 1,
+      "title": "BACKHOE 415F 4WD",
+      "rentalCategoryId": 1,
+      "specs": {
+        "power": "68 hp",
+        "digDepth": "4.3 m",
+        "weight": "11000 kg"
+      },
+      "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/backhoe-loaders/C10391046.jpg"
+    },
+    {
+      "id": 2,
+      "title": "BACKHOE 416 4WD",
+      "rentalCategoryId": 1,
+      "specs": {
+        "power": "86 hp",
+        "digDepth": "4.3 m",
+        "weight": "11000 kg"
+      },
+      "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/backhoe-loaders/C10391051.jpg"
+    },
+    {
+      "id": 3,
+      "title": "BACKHOE 420 4WD IT",
+      "rentalCategoryId": 1,
+      "specs": {
+        "power": "94 hp",
+        "digDepth": "4.3 m",
+        "weight": "11000 kg"
+      },
+      "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/backhoe-loaders/C772078.jpg"
+    },
+    {
+      "id": 4,
+      "title": "SKID STEER 226",
+      "rentalCategoryId": 2,
+      "specs": {
+        "power": "67.1 hp",
+        "ratedOperatingCapacity": "680 kg",
+        "weight": "2650 kg"
+      },
+      "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/skid-steer-loaders/C832319.jpg"
+    },
+    {
+      "id": 5,
+      "title": "SKID STEER 236",
+      "rentalCategoryId": 2,
+      "specs": {
+        "power": "74.3 hp",
+        "ratedOperatingCapacity": "820 kg",
+        "weight": "2980 kg"
+      },
+      "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/skid-steer-loaders/C10572343.jpg"
+    },
+    {
+      "id": 6,
+      "title": "SKID STEER 236",
+      "rentalCategoryId": 2,
+      "specs": {
+        "power": "74.3 hp",
+        "ratedOperatingCapacity": "1000 kg",
+        "weight": "3390 kg"
+      },
+      "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/skid-steer-loaders/C772072.jpg"
+    },
+    {
+      "id": 7,
+      "title": "SKID STEER 272",
+      "rentalCategoryId": 2,
+      "specs": {
+        "power": "98 hp",
+        "ratedOperatingCapacity": "1560 kg",
+        "weight": "4140 kg"
+      },
+      "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/skid-steer-loaders/C832319.jpg"
     },
     {
       "id": 8,
-      "title": "MEDIUM EXCAVATORS CAT 320 GC",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/e20dbda61520a7cc3d1f7844334841fe0f03829f.jpg",
-      "technicalData": {
-        "Weight": "21,300.00",
-        "Width": "3,080.00",
-        "Max Digging": "6,720.00",
-        "Height": "3,100.00",
-        "Power": "91.00",
-        "Max Reach": "9,860.00",
-        "Length": "9,530.00"
-      }
+      "title": "MINI EXCAVATOR 301",
+      "rentalCategoryId": 3,
+      "specs": {
+        "power": "21 hp",
+        "digDepth": "2.5 m",
+        "weight": "1780 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30532"
     },
     {
       "id": 9,
-      "title": "HYDRAULIC EXCAVATORS CAT 336F L",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/e1739e044aa182a7d76e02304b4e2fbab719b708.jpg",
-      "technicalData": {
-        "Weight": "36,500.00",
-        "Width": "3,290.00",
-        "Max Digging": "7,490.00",
-        "Height": "3,500.00",
-        "Power": "226.00",
-        "Max Reach": "11,020.00",
-        "Length": "11,180.00"
-      }
+      "title": "MINI EXCAVATOR 303 CR",
+      "rentalCategoryId": 3,
+      "specs": {
+        "power": "23.5 hp",
+        "digDepth": "3.0 m",
+        "weight": "3270 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30534"
     },
     {
       "id": 10,
-      "title": "SKID STEER LOADER CAT 226D",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/18a26b19ce47b7b59b96623a7c666794fa689803.jpg",
-      "technicalData": {
-        "Weight": "2,588.00",
-        "Power": "50.10"
-      }
+      "title": "MINI EXCAVATOR 305",
+      "rentalCategoryId": 3,
+      "specs": {
+        "power": "40.2 hp",
+        "digDepth": "3.7 m",
+        "weight": "5190 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30536"
     },
     {
       "id": 11,
-      "title": "SKID STEER LOADER CAT 259D",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/d1fc9400bc8cdfb9a28a316dbe353729597bd45e.jpg",
-      "technicalData": {
-        "Weight": "4,057.00",
-        "Power": "55.40"
-      }
+      "title": "EXCAVATOR 308",
+      "rentalCategoryId": 3,
+      "specs": {
+        "power": "70.3 hp",
+        "digDepth": "4.7 m",
+        "weight": "9380 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30538"
     },
     {
       "id": 12,
-      "title": "MEDIUM WHEEL LOADERS 950M",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/dc80058ec3cc0fe54513f56cfdf690e98db95de0.jpg",
-      "technicalData": {
-        "Weight": "19,269.00",
-        "Power": "187.00"
-      }
+      "title": "EXCAVATOR 312",
+      "rentalCategoryId": 4,
+      "specs": {
+        "power": "90 hp",
+        "digDepth": "6.0 m",
+        "weight": "12780 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30454"
     },
     {
       "id": 13,
-      "title": "BACKHOE LOADER CAT 434F2",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/d879bc0f5059546cf06650c11e759fa7059a33d4.jpg",
-      "technicalData": {
-        "Weight": "11,500.00",
-        "Height": "3,780.00",
-        "Power": "70.00",
-        "Max Reach": "5,660.00",
-        "Length": "5,900.00"
-      }
+      "title": "EXCAVATOR 315",
+      "rentalCategoryId": 4,
+      "specs": {
+        "power": "108 hp",
+        "digDepth": "6.0 m",
+        "weight": "15420 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30457"
     },
     {
       "id": 14,
-      "title": "TRACK TYPE TRACTOR CAT D6K / D4 LGP",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategory/files/verybig/track-type-tractor-cat-d6k-d4-lgp_1638266070.jpg",
-      "technicalData": {
-        "Weight": "14,350.00"
-      }
+      "title": "EXCAVATOR 320",
+      "rentalCategoryId": 4,
+      "specs": {
+        "power": "153 hp",
+        "digDepth": "7.5 m",
+        "weight": "24700 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30523"
     },
     {
       "id": 15,
-      "title": "TRUCK CAT 730C",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/2838b6fc44f354c87e02efbaba0e043157cbc8d5.jpg",
-      "technicalData": {
-        "Weight": "1,234.00"
-      }
+      "title": "EXCAVATOR 329",
+      "rentalCategoryId": 4,
+      "specs": {
+        "power": "228 hp",
+        "digDepth": "7.2 m",
+        "weight": "31280 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30527"
     },
     {
       "id": 16,
-      "title": "ASPHALT COMPACTOR CAT CD44B",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/0692395a05a59d65470acf1d8f27c9e31918889b.jpg",
-      "technicalData": {
-        "Weight": "8,390.00",
-        "Power": "75.00"
-      }
+      "title": "EXCAVATOR 336",
+      "rentalCategoryId": 4,
+      "specs": {
+        "power": "273 hp",
+        "digDepth": "8.2 m",
+        "weight": "36520 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30466"
     },
     {
       "id": 17,
-      "title": "SINGLE DRUM SOIL COMPACTOR CAT CS64B - CS66B",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/4dbedd247e51e0ef424653acbc59870102a90fda.jpg",
-      "technicalData": {
-        "Weight": "12,305.00"
-      }
+      "title": "EXCAVATOR 374",
+      "rentalCategoryId": 4,
+      "specs": {
+        "power": "484 hp",
+        "digDepth": "8.6 m",
+        "weight": "71760 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30468"
     },
     {
       "id": 18,
-      "title": "TELEHANDLER CAT TH 408D",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/6f6bb88cea1b839ee3bd436d01546b5198ccd439.jpg",
-      "technicalData": {
-        "Weight": "8,526.00",
-        "Height": "2,382.00",
-        "Power": "2,475.00",
-        "Max Reach": "96.50",
-        "Length": "5,260.00"
-      }
+      "title": "DOZER D1 XL",
+      "rentalCategoryId": 5,
+      "specs": {
+        "power": "80 hp",
+        "shoeWidth": "4.8 m",
+        "weight": "7920 kg"
+      },
+      "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/dozers/C10337686.jpg"
     },
     {
       "id": 19,
-      "title": "TELEHANDLER CAT TH 336C",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/cf48ff4b23971252a7a02aad8e608dbe8b89b7f8.jpg",
-      "technicalData": {
-        "Weight": "7,650.00",
-        "Height": "2,402.00",
-        "Power": "2,419.00",
-        "Max Reach": "74.50",
-        "Length": "4,850.00"
-      }
+      "title": "DOZER D3 XL",
+      "rentalCategoryId": 5,
+      "specs": {
+        "power": "104 hp",
+        "shoeWidth": "6.0 m",
+        "weight": "7920 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30395"
     },
     {
       "id": 20,
-      "title": "ELECTRIC SCISSORS LIFT HAULOTTE 8 (8M)",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/55df6ef522868636ba64f3706bf36f106efebd21.jpg",
-      "technicalData": {
-        "Weight": "1,730.00"
-      }
+      "title": "DOZER D5 LGP",
+      "rentalCategoryId": 5,
+      "specs": {
+        "power": "170 hp",
+        "shoeWidth": "6.0 m",
+        "weight": "19170 kg"
+      },
+      "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30395"
     },
     {
       "id": 21,
-      "title": "ELECTRIC SCISSORS LIFT HAULOTTE COMPACT 12 (12M)",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategory/files/verybig/electric-scissors-lift-haulotte-compact-12-12m_1638266070.jpg",
-      "technicalData": {
-        "Weight": "2,470.00"
-      }
+      "title": "914M",
+      "rentalCategoryId": 6,
+      "specs": {
+        "power": "100 hp",
+        "bucketCapacity": "1.9 m³",
+        "weight": "8120 kg"
+      },
+      "img": "https://s7d2.scene7.com/is/image/Caterpillar/CM20160627-53797-06836?$cc-s$"
     },
     {
       "id": 22,
-      "title": "DIESEL SCISSORS LIFT HAULOTTE COMPACT DX (12M)",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/94cee62793da15afb1b8f96cd971d761b591ceda.jpg",
-      "technicalData": {
-        "Weight": "1,234.00"
-      }
+      "title": "966M XE",
+      "rentalCategoryId": 6,
+      "specs": {
+        "power": "298 hp",
+        "bucketCapacity": "7.4 m³",
+        "weight": "23220 kg"
+      },
+      "img": "https://s7d2.scene7.com/is/image/Caterpillar/CM20161025-33743-54015?$cc-s$"
     },
     {
       "id": 23,
-      "title": "DIESEL BOOMLIFT HA16RTJPRO 16 M",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategory/files/verybig/diesel-boomlift-ha16rtjpro-16-m_1638266070.jpg",
-      "technicalData": {
-        "Weight": "6,650.00"
-      }
+      "title": "980M",
+      "rentalCategoryId": 6,
+      "specs": {
+        "power": "386 hp",
+        "bucketCapacity": "12.2 m³",
+        "weight": "30090 kg"
+      },
+      "img": "https://s7d2.scene7.com/is/image/Caterpillar/CM20170518-36324-06403?$cc-s$"
     },
     {
       "id": 24,
-      "title": "GENERATOR 22 - 110 KVA",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/05d10a505dda2ecf6308fd594d11d9cd8cc4433e.jpg",
-      "technicalData": {
-        "Weight": "1,673.00"
-      }
+      "title": "990K",
+      "rentalCategoryId": 6,
+      "specs": {
+        "power": "699 hp",
+        "bucketCapacity": "14.9 m³",
+        "weight": "80980 kg"
+      },
+      "img": "https://s7d2.scene7.com/is/image/Caterpillar/C10214153?$cc-s$"
     },
     {
       "id": 25,
-      "title": "GENERATOR 120 - 220 KVA",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/5dfaafafb4d90a125d183f848d26e94ec1d3c17a.jpg",
-      "technicalData": {
-        "Weight": "2,600.00"
-      }
+      "title": "XG135",
+      "rentalCategoryId": 7,
+      "specs": {
+        "rating": "135 ekW",
+        "frequency": "60Hz",
+        "voltage": "208-480 V"
+      },
+      "img": "https://s7d2.scene7.com/is/image/Caterpillar/C10353431?$cc-s$"
     },
     {
       "id": 26,
-      "title": "GENERATOR 220 - 800 KVA",
-      "img": "https://docs.avesco-rent.lt/uploads/fleetsubcategoryphoto/files/verybig/f6cf6a768bd6e85fc307898966ef32ac200e4bc5.jpg",
-      "technicalData": {
-        "Weight": "5,977.00"
-      }
+      "title": "XQ100",
+      "rentalCategoryId": 7,
+      "specs": {
+        "rating": "100 ekW",
+        "frequency": "60Hz",
+        "voltage": "208-480 V"
+      },
+      "img": "https://s7d2.scene7.com/is/image/Caterpillar/C669059?$cc-s$"
+    },
+    {
+      "id": 27,
+      "title": "XQ125",
+      "rentalCategoryId": 7,
+      "specs": {
+        "rating": "100 ekW",
+        "frequency": "60Hz",
+        "voltage": "208-600 V"
+      },
+      "img": "https://s7d2.scene7.com/is/image/Caterpillar/CM20170511-79068-45605?$cc-s$"
+    },
+    {
+      "id": 28,
+      "title": "XQ175",
+      "rentalCategoryId": 7,
+      "specs": {
+        "rating": "175 ekW",
+        "frequency": "60Hz",
+        "voltage": "208-480 V"
+      },
+      "img": "https://s7d2.scene7.com/is/image/Caterpillar/C669062?$cc-s$"
+    },
+    {
+      "id": 29,
+      "title": "XQ200",
+      "rentalCategoryId": 7,
+      "specs": {
+        "rating": "200 ekW",
+        "frequency": "60Hz",
+        "voltage": "208-480 V"
+      },
+      "img": "https://s7d2.scene7.com/is/image/Caterpillar/C669062?$cc-s$"
+    },
+    {
+      "id": 30,
+      "title": "XQ300",
+      "rentalCategoryId": 7,
+      "specs": {
+        "rating": "300 ekW",
+        "frequency": "60Hz",
+        "voltage": "208-600 V"
+      },
+      "img": "https://s7d2.scene7.com/is/image/Caterpillar/C669053?$cc-s$"
     }
   ]
 }
