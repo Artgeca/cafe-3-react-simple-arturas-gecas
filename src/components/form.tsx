@@ -10,14 +10,14 @@ interface Props {
   disabled: boolean
 }
 
-const Form = ({
+const Form: React.FC<Props> = ({
   children, title, btnText, onSubmit, disabled,
-}: Props) => (
+}) => (
   <Paper
     component='form'
     onSubmit={onSubmit}
     sx={{
-      display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 400, p: 3, mx: 3, mt: { xs: 12, md: 0 }, mb: { xs: 5, md: 0 },
+      display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 400, p: 3, mx: 3, mt: { xs: 12, md: 12 }, mb: { xs: 5, md: 3 },
     }}
   >
     <Typography variant='h4' fontWeight={100} mb={3}>{title}</Typography>
