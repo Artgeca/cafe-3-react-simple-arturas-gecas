@@ -4,19 +4,19 @@ import img2 from '../../../assets/images/home2.jpg';
 
 export { default as HomeCard } from './home-card';
 
-export const Container = styled(Box)({
+export const Container = styled(Box)(() => ({
   position: 'relative',
   minHeight: '100vh',
   display: 'flex',
   justifyContent: 'center',
-});
+}));
 
 export const Background = styled(Box)(({ theme }) => ({
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   left: 0,
   width: '100%',
-  minHeight: '100%',
+  height: '100%',
   backgroundImage: `url(${img1})`,
   backgroundPosition: 'center top',
   backgroundSize: 'cover',
@@ -29,11 +29,11 @@ export const Background = styled(Box)(({ theme }) => ({
 }));
 
 export const BackgroundOverlay = styled(Box)(() => ({
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   left: 0,
   width: '100%',
-  minHeight: '100%',
+  height: '100%',
   backgroundColor: '#000',
   opacity: 0.8,
   zIndex: 2,
@@ -44,14 +44,15 @@ export const Content = styled(Box)(({ theme }) => ({
   top: 0,
   left: 0,
   width: '100%',
-  minHeight: '100%',
+  height: '100%',
   zIndex: 3,
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
   alignItems: 'center',
   textAlign: 'center',
   padding: theme.spacing(5),
-  // marginTop: theme.spacing(5),
+  paddingTop: theme.spacing(12),
+  marginBottom: theme.spacing(10),
   color: theme.palette.common.white,
+  overflow: 'auto',
 }));
