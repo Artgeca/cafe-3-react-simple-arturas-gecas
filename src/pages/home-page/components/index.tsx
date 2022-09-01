@@ -28,13 +28,13 @@ export const Background = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const BackgroundOverlay = styled(Box)(() => ({
+export const BackgroundOverlay = styled(Box)(({ theme }) => ({
   position: 'fixed',
   top: 0,
   left: 0,
   width: '100%',
   height: '100%',
-  backgroundColor: '#000',
+  backgroundColor: theme.palette.common.black,
   opacity: 0.8,
   zIndex: 2,
 }));
