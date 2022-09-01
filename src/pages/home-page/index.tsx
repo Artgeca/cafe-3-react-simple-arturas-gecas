@@ -23,7 +23,7 @@ const HomePage = () => {
     <Home.Container>
       <Home.Background />
       <Home.BackgroundOverlay />
-      <Home.Content>
+      <Home.Content justifyContent={{ xs: 'center', sm: 'unset' }}>
         <Typography
           variant='h2'
           component='h1'
