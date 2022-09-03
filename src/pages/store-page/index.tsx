@@ -1,20 +1,20 @@
 import { Box, Paper, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 import * as Page from '../../components';
+import RentalsService from '../../services/rentals-service';
 
 const StorePage: React.FC = () => {
   const [rentals, setRentals] = useState<any[]>([]);
 
+  console.log(rentals);
+
+  const handleFetchRentals = async () => {
+    const rentalsData = await RentalsService.fetchAll();
+    setRentals([...rentalsData]);
+  };
+
   useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch('http://localhost:8000/rentals?_expand=rentalCategory');
-        const data = await response.json();
-        setRentals([...data]);
-      } catch (error) {
-        console.dir(error);
-      }
-    })();
+    handleFetchRentals();
   }, []);
 
   return (
