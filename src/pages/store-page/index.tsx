@@ -1,7 +1,8 @@
-import { Box, Paper, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { useState, useEffect } from 'react';
 import * as Page from '../../components';
 import RentalsService from '../../services/rentals-service';
+import { RentalCard } from './components';
 
 const StorePage: React.FC = () => {
   const [rentals, setRentals] = useState<any[]>([]);
@@ -10,7 +11,7 @@ const StorePage: React.FC = () => {
 
   const handleFetchRentals = async () => {
     const rentalsData = await RentalsService.fetchAll();
-    setRentals([...rentalsData]);
+    setRentals([rentalsData[0]]);
   };
 
   useEffect(() => {
@@ -28,13 +29,21 @@ const StorePage: React.FC = () => {
         justifyContent='center'
         flexWrap='wrap'
         gap={2}
+        maxWidth={1440}
       >
         {
-          rentals.map((item) => (
-            <Paper key={item.id} sx={{ p: 3 }}>
-              <Typography>{item.title}</Typography>
-              <Box component='img' src={item.img} />
-            </Paper>
+          rentals.map(({
+            id, title, rentalCategoryId, rentalCategory, specs, img,
+          }) => (
+            <RentalCard
+              key={id}
+              id={id}
+              title={title}
+              rentalCategoryId={rentalCategoryId}
+              rentalCategory={rentalCategory}
+              specs={specs}
+              img={img}
+            />
           ))
         }
       </Box>

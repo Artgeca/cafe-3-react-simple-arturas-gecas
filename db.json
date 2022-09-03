@@ -169,11 +169,11 @@
       "id": 1,
       "title": "BACKHOE 415F 4WD",
       "rentalCategoryId": 1,
-      "specs": {
-        "power": "68 hp",
-        "digDepth": "4.3 m",
-        "weight": "11000 kg"
-      },
+      "specs": [
+        "Power: 68 hp",
+        "Dig depth: 4.3 m",
+        "Weight: 11000 kg"
+      ],
       "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/backhoe-loaders/C10391046.jpg"
     },
     {
@@ -181,9 +181,9 @@
       "title": "BACKHOE 416 4WD",
       "rentalCategoryId": 1,
       "specs": {
-        "power": "86 hp",
+        "Power": "86 hp",
         "digDepth": "4.3 m",
-        "weight": "11000 kg"
+        "Weight": "11000 kg"
       },
       "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/backhoe-loaders/C10391051.jpg"
     },
@@ -192,9 +192,9 @@
       "title": "BACKHOE 420 4WD IT",
       "rentalCategoryId": 1,
       "specs": {
-        "power": "94 hp",
+        "Power": "94 hp",
         "digDepth": "4.3 m",
-        "weight": "11000 kg"
+        "Weight": "11000 kg"
       },
       "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/backhoe-loaders/C772078.jpg"
     },
@@ -203,9 +203,9 @@
       "title": "SKID STEER 226",
       "rentalCategoryId": 2,
       "specs": {
-        "power": "67.1 hp",
+        "Power": "67.1 hp",
         "ratedOperatingCapacity": "680 kg",
-        "weight": "2650 kg"
+        "Weight": "2650 kg"
       },
       "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/skid-steer-loaders/C832319.jpg"
     },
@@ -214,9 +214,9 @@
       "title": "SKID STEER 236",
       "rentalCategoryId": 2,
       "specs": {
-        "power": "74.3 hp",
+        "Power": "74.3 hp",
         "ratedOperatingCapacity": "820 kg",
-        "weight": "2980 kg"
+        "Weight": "2980 kg"
       },
       "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/skid-steer-loaders/C10572343.jpg"
     },
@@ -225,9 +225,9 @@
       "title": "SKID STEER 242",
       "rentalCategoryId": 2,
       "specs": {
-        "power": "74.3 hp",
+        "Power": "74.3 hp",
         "ratedOperatingCapacity": "1000 kg",
-        "weight": "3390 kg"
+        "Weight": "3390 kg"
       },
       "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/skid-steer-loaders/C772072.jpg"
     },
@@ -236,9 +236,9 @@
       "title": "SKID STEER 272",
       "rentalCategoryId": 2,
       "specs": {
-        "power": "98 hp",
+        "Power": "98 hp",
         "ratedOperatingCapacity": "1560 kg",
-        "weight": "4140 kg"
+        "Weight": "4140 kg"
       },
       "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/skid-steer-loaders/C832319.jpg"
     },
@@ -247,9 +247,9 @@
       "title": "MINI EXCAVATOR 301",
       "rentalCategoryId": 3,
       "specs": {
-        "power": "21 hp",
+        "Power": "21 hp",
         "digDepth": "2.5 m",
-        "weight": "1780 kg"
+        "Weight": "1780 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30532"
     },
@@ -258,9 +258,9 @@
       "title": "MINI EXCAVATOR 303 CR",
       "rentalCategoryId": 3,
       "specs": {
-        "power": "23.5 hp",
+        "Power": "23.5 hp",
         "digDepth": "3.0 m",
-        "weight": "3270 kg"
+        "Weight": "3270 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30534"
     },
@@ -269,9 +269,9 @@
       "title": "MINI EXCAVATOR 305",
       "rentalCategoryId": 3,
       "specs": {
-        "power": "40.2 hp",
+        "Power": "40.2 hp",
         "digDepth": "3.7 m",
-        "weight": "5190 kg"
+        "Weight": "5190 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30536"
     },
@@ -280,9 +280,9 @@
       "title": "EXCAVATOR 308",
       "rentalCategoryId": 3,
       "specs": {
-        "power": "70.3 hp",
+        "Power": "70.3 hp",
         "digDepth": "4.7 m",
-        "weight": "9380 kg"
+        "Weight": "9380 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30538"
     },
@@ -291,9 +291,9 @@
       "title": "EXCAVATOR 312",
       "rentalCategoryId": 4,
       "specs": {
-        "power": "90 hp",
+        "Power": "90 hp",
         "digDepth": "6.0 m",
-        "weight": "12780 kg"
+        "Weight": "12780 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30454"
     },
@@ -302,9 +302,9 @@
       "title": "EXCAVATOR 315",
       "rentalCategoryId": 4,
       "specs": {
-        "power": "108 hp",
+        "Power": "108 hp",
         "digDepth": "6.0 m",
-        "weight": "15420 kg"
+        "Weight": "15420 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30457"
     },
@@ -313,9 +313,9 @@
       "title": "EXCAVATOR 320",
       "rentalCategoryId": 4,
       "specs": {
-        "power": "153 hp",
+        "Power": "153 hp",
         "digDepth": "7.5 m",
-        "weight": "24700 kg"
+        "Weight": "24700 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30523"
     },
@@ -324,9 +324,9 @@
       "title": "EXCAVATOR 329",
       "rentalCategoryId": 4,
       "specs": {
-        "power": "228 hp",
+        "Power": "228 hp",
         "digDepth": "7.2 m",
-        "weight": "31280 kg"
+        "Weight": "31280 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30527"
     },
@@ -335,9 +335,9 @@
       "title": "EXCAVATOR 336",
       "rentalCategoryId": 4,
       "specs": {
-        "power": "273 hp",
+        "Power": "273 hp",
         "digDepth": "8.2 m",
-        "weight": "36520 kg"
+        "Weight": "36520 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30466"
     },
@@ -346,9 +346,9 @@
       "title": "EXCAVATOR 374",
       "rentalCategoryId": 4,
       "specs": {
-        "power": "484 hp",
+        "Power": "484 hp",
         "digDepth": "8.6 m",
-        "weight": "71760 kg"
+        "Weight": "71760 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30468"
     },
@@ -357,9 +357,9 @@
       "title": "DOZER D1 XL",
       "rentalCategoryId": 5,
       "specs": {
-        "power": "80 hp",
+        "Power": "80 hp",
         "shoeWidth": "4.8 m",
-        "weight": "7920 kg"
+        "Weight": "7920 kg"
       },
       "img": "https://www.catrentalstore.com/content/dam/crs/products/earthmoving-equipment/dozers/C10337686.jpg"
     },
@@ -368,9 +368,9 @@
       "title": "DOZER D3 XL",
       "rentalCategoryId": 5,
       "specs": {
-        "power": "104 hp",
+        "Power": "104 hp",
         "shoeWidth": "6.0 m",
-        "weight": "7920 kg"
+        "Weight": "7920 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30395"
     },
@@ -379,9 +379,9 @@
       "title": "DOZER D5 LGP",
       "rentalCategoryId": 5,
       "specs": {
-        "power": "170 hp",
+        "Power": "170 hp",
         "shoeWidth": "6.0 m",
-        "weight": "19170 kg"
+        "Weight": "19170 kg"
       },
       "img": "https://www.catrentalstore.com/bin/service/dmtCustomImage?id=30395"
     },
@@ -390,9 +390,9 @@
       "title": "914M",
       "rentalCategoryId": 6,
       "specs": {
-        "power": "100 hp",
+        "Power": "100 hp",
         "bucketCapacity": "1.9 m³",
-        "weight": "8120 kg"
+        "Weight": "8120 kg"
       },
       "img": "https://s7d2.scene7.com/is/image/Caterpillar/CM20160627-53797-06836?$cc-s$"
     },
@@ -401,9 +401,9 @@
       "title": "966M XE",
       "rentalCategoryId": 6,
       "specs": {
-        "power": "298 hp",
+        "Power": "298 hp",
         "bucketCapacity": "7.4 m³",
-        "weight": "23220 kg"
+        "Weight": "23220 kg"
       },
       "img": "https://s7d2.scene7.com/is/image/Caterpillar/CM20161025-33743-54015?$cc-s$"
     },
@@ -412,9 +412,9 @@
       "title": "980M",
       "rentalCategoryId": 6,
       "specs": {
-        "power": "386 hp",
+        "Power": "386 hp",
         "bucketCapacity": "12.2 m³",
-        "weight": "30090 kg"
+        "Weight": "30090 kg"
       },
       "img": "https://s7d2.scene7.com/is/image/Caterpillar/CM20170518-36324-06403?$cc-s$"
     },
@@ -423,9 +423,9 @@
       "title": "990K",
       "rentalCategoryId": 6,
       "specs": {
-        "power": "699 hp",
+        "Power": "699 hp",
         "bucketCapacity": "14.9 m³",
-        "weight": "80980 kg"
+        "Weight": "80980 kg"
       },
       "img": "https://s7d2.scene7.com/is/image/Caterpillar/C10214153?$cc-s$"
     },
