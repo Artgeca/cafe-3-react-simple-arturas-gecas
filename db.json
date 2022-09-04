@@ -387,7 +387,7 @@
     },
     {
       "id": 21,
-      "title": "914M",
+      "title": "WHEEL LOADER 914M",
       "rentalCategoryId": 6,
       "specs": [
         "Power: 100 hp",
@@ -398,7 +398,7 @@
     },
     {
       "id": 22,
-      "title": "966M XE",
+      "title": "WHEEL LOADER 966M XE",
       "rentalCategoryId": 6,
       "specs": [
         "Power: 298 hp",
@@ -409,7 +409,7 @@
     },
     {
       "id": 23,
-      "title": "980M",
+      "title": "WHEEL LOADER 980M",
       "rentalCategoryId": 6,
       "specs": [
         "Power: 386 hp",
@@ -420,7 +420,7 @@
     },
     {
       "id": 24,
-      "title": "990K",
+      "title": "WHEEL LOADER 990K",
       "rentalCategoryId": 6,
       "specs": [
         "Power: 699 hp",
@@ -431,7 +431,7 @@
     },
     {
       "id": 25,
-      "title": "XG135",
+      "title": "GENERATOR XG135",
       "rentalCategoryId": 7,
       "specs": [
         "Rating: 135 ekW",
@@ -442,7 +442,7 @@
     },
     {
       "id": 26,
-      "title": "XQ100",
+      "title": "GENERATOR XQ100",
       "rentalCategoryId": 7,
       "specs": [
         "Rating: 100 ekW",
@@ -453,7 +453,7 @@
     },
     {
       "id": 27,
-      "title": "XQ125",
+      "title": "GENERATOR XQ125",
       "rentalCategoryId": 7,
       "specs": [
         "Rating: 100 ekW",
@@ -464,7 +464,7 @@
     },
     {
       "id": 28,
-      "title": "XQ175",
+      "title": "GENERATOR XQ175",
       "rentalCategoryId": 7,
       "specs": [
         "Rating: 175 ekW",
@@ -475,7 +475,7 @@
     },
     {
       "id": 29,
-      "title": "XQ200",
+      "title": "GENERATOR XQ200",
       "rentalCategoryId": 7,
       "specs": [
         "Rating: 200 ekW",
@@ -486,7 +486,7 @@
     },
     {
       "id": 30,
-      "title": "XQ300",
+      "title": "GENERATOR XQ300",
       "rentalCategoryId": 7,
       "specs": [
         "Rating: 300 ekW",
