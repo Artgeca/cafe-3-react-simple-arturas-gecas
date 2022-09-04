@@ -1,27 +1,17 @@
-export type RentalSpecs = string[];
-
-// {
-//   power?: string,
-//   digDepth?: string,
-//   weight?: string,
-//   ratedOperatingCapacity?: string,
-//   shoeWidth?: string,
-//   bucketCapacity?: string,
-//   rating?: string,
-//   frequency?: string,
-//   voltage?: string
-// }
-
-export interface RentalCategory {
-  id: number,
-  title: string
+export interface RentalSpecs {
+  specs: string[];
 }
 
-export interface RentalItem {
+export interface RentalCategory {
+  rentalCategory: {
+    id: number,
+    title: string
+  }
+}
+
+export interface RentalItem extends RentalSpecs, RentalCategory {
   id: number,
   title: string,
   rentalCategoryId: number,
-  rentalCategory: RentalCategory,
-  specs: RentalSpecs,
   img: string,
 }

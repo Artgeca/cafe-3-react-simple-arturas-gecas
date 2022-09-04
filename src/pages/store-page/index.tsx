@@ -1,17 +1,18 @@
-import { Box } from '@mui/material';
+import { Grid } from '@mui/material';
 import { useState, useEffect } from 'react';
 import * as Page from '../../components';
 import RentalsService from '../../services/rentals-service';
 import { RentalCard } from './components';
+import { RentalItem } from './types';
 
 const StorePage: React.FC = () => {
-  const [rentals, setRentals] = useState<any[]>([]);
+  const [rentals, setRentals] = useState<RentalItem[]>([]);
 
   console.log(rentals);
 
   const handleFetchRentals = async () => {
     const rentalsData = await RentalsService.fetchAll();
-    setRentals([rentalsData[0]]);
+    setRentals([...rentalsData]);
   };
 
   useEffect(() => {
@@ -24,10 +25,9 @@ const StorePage: React.FC = () => {
     }}
     >
       <Page.Title title='Rent equipment' />
-      <Box
-        display='flex'
+      <Grid
+        container
         justifyContent='center'
-        flexWrap='wrap'
         gap={2}
         maxWidth={1440}
       >
@@ -35,18 +35,19 @@ const StorePage: React.FC = () => {
           rentals.map(({
             id, title, rentalCategoryId, rentalCategory, specs, img,
           }) => (
-            <RentalCard
-              key={id}
-              id={id}
-              title={title}
-              rentalCategoryId={rentalCategoryId}
-              rentalCategory={rentalCategory}
-              specs={specs}
-              img={img}
-            />
+            <Grid item key={id}>
+              <RentalCard
+                id={id}
+                title={title}
+                rentalCategoryId={rentalCategoryId}
+                rentalCategory={rentalCategory}
+                specs={specs}
+                img={img}
+              />
+            </Grid>
           ))
         }
-      </Box>
+      </Grid>
     </Page.Content>
   );
 };
