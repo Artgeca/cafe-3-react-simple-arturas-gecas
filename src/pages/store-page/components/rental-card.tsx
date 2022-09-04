@@ -6,6 +6,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useNavigate } from 'react-router-dom';
 import { RentalItem } from '../types';
 import AmountField from '../../../components/amount-field/amount-field';
+import Image from '../../../components/image';
 
 const RentalCard: React.FC<RentalItem> = ({
   id,
@@ -25,14 +26,7 @@ const RentalCard: React.FC<RentalItem> = ({
       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', p: 2, width: 300, height: 520,
     }}
     >
-      <Box
-        component='img'
-        src={img}
-        sx={{
-          width: 250,
-          pb: 2,
-        }}
-      />
+      <Image src={img} width={250} />
       <Box>
         <Typography variant='h6' fontWeight={400} sx={{ pb: 2 }}>{title}</Typography>
         <Box
