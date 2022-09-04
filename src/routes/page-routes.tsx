@@ -7,6 +7,7 @@ import GaleryPage from '../pages/galery-page';
 import HomePage from '../pages/home-page';
 import LoginPage from '../pages/login-page';
 import ProjectsPage from '../pages/projects-page';
+import RentalPage from '../pages/rental-page';
 import ServicesPage from '../pages/services-page';
 import SignUpPage from '../pages/signup-page';
 import StorePage from '../pages/store-page';
@@ -21,6 +22,7 @@ const PageRoutes: React.FC = () => (
       <Route path='about' element={<AboutPage />} />
       <Route path='contacts' element={<ContactsPage />} />
       <Route path='store' element={<StorePage />} />
+      <Route path='store/:id' element={<RentalPage />} />
       <Route path='auth/' element={<AuthLayout />}>
         <Route path='signup' element={<SignUpPage />} />
         <Route path='login' element={<LoginPage />} />

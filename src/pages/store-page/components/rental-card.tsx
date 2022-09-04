@@ -1,10 +1,9 @@
 import React from 'react';
 import {
-  Paper, Typography, Box, Button, Chip, TextField, OutlinedInput,
+  Paper, Typography, Box, Button, Chip,
 } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useNavigate } from 'react-router-dom';
 import { RentalItem } from '../types';
 import AmountField from '../../../components/amount-field/amount-field';
 
@@ -16,6 +15,8 @@ const RentalCard: React.FC<RentalItem> = ({
   specs,
   img,
 }) => {
+  const navigate = useNavigate();
+
   const onInc = () => console.log('pressed "+"');
   const onDec = () => console.log('pressed "-"');
 
@@ -57,7 +58,14 @@ const RentalCard: React.FC<RentalItem> = ({
               <ShoppingCartIcon />
             </Button>
           </Box>
-          <Button variant='contained' color='secondary' fullWidth>More info</Button>
+          <Button
+            variant='contained'
+            color='secondary'
+            fullWidth
+            onClick={() => navigate(`./${id}`)}
+          >
+            More info
+          </Button>
         </Box>
       </Box>
     </Paper>
