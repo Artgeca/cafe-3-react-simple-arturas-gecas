@@ -9,7 +9,7 @@ import PageRoutes from './routes/page-routes';
 import ServiceNavigationProvider from './contexts/services-page-navigation-context';
 import { AlertSnackbar, Navbar } from './components';
 
-const App = () => (
+const App: React.FC = () => (
   <BrowserRouter>
     <LocalizationProvider dateAdapter={AdapterMoment}>
       <AlertProvider>
