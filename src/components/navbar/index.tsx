@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <AppBar color='secondary'>
-      <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
+      <Toolbar disableGutters sx={{ justifyContent: 'space-between', px: { xs: 0, sm: 3 } }}>
         <Box
           sx={(theme) => ({
             display: 'flex',
