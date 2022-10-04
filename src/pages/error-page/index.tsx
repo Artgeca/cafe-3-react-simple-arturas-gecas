@@ -7,7 +7,7 @@ const ErrorPage = () => (
     display='flex'
     justifyContent='center'
     alignItems='center'
-    sx={{ color: 'warning.main' }}
+    sx={{ color: 'common.white' }}
   >
     <ErrorOutlineIcon fontSize='large' />
     <Typography

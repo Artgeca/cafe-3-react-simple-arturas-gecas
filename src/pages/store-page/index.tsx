@@ -8,8 +8,6 @@ import { RentalItem } from './types';
 const StorePage: React.FC = () => {
   const [rentals, setRentals] = useState<RentalItem[]>([]);
 
-  console.log(rentals);
-
   const handleFetchRentals = async () => {
     const rentalsData = await RentalsService.fetchAll();
     setRentals([...rentalsData]);
