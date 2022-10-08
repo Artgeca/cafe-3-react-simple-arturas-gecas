@@ -34,7 +34,6 @@ const ContactsFormList: React.FC<Props> = ({ formValue, setFormValue }) => {
   return (
     <>
       <TextField
-        variant='standard'
         name='name'
         value={formValue.name}
         label='Name'
@@ -45,7 +44,6 @@ const ContactsFormList: React.FC<Props> = ({ formValue, setFormValue }) => {
         onChange={handleChange}
       />
       <TextField
-        variant='standard'
         name='surname'
         value={formValue.surname}
         label='Surname'
@@ -56,8 +54,6 @@ const ContactsFormList: React.FC<Props> = ({ formValue, setFormValue }) => {
         onChange={handleChange}
       />
       <TextField
-        error={!formValue.mail}
-        variant='standard'
         required
         name='mail'
         value={formValue.mail}
@@ -69,19 +65,16 @@ const ContactsFormList: React.FC<Props> = ({ formValue, setFormValue }) => {
         onChange={handleChange}
       />
       <TextField
-        variant='standard'
         name='phone'
         value={formValue.phone}
         label='Phone'
-        placeholder='+908...'
+        placeholder='+0123...'
         color='secondary'
         fullWidth
         InputLabelProps={{ shrink: true }}
         onChange={handleChange}
       />
       <TextField
-        error={!formValue.category}
-        variant='standard'
         required
         name='category'
         select
@@ -100,8 +93,6 @@ const ContactsFormList: React.FC<Props> = ({ formValue, setFormValue }) => {
         }
       </TextField>
       <TextField
-        error={!formValue.message}
-        variant='standard'
         required
         name='message'
         value={formValue.message}

@@ -4,16 +4,18 @@ import { AlertContext } from '../../contexts/alert-context';
 
 const AlertSnackbar = () => {
   const { alert, setAlert } = useContext(AlertContext);
-  const { open, type, message } = alert;
+  const {
+    open, type, message,
+  } = alert;
 
   return (
     <Snackbar
       open={open}
       onClose={() => setAlert({ ...alert, open: false })}
       autoHideDuration={5000}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
     >
-      <Alert variant='filled' severity={type} sx={{ width: '100%', mx: { xs: 5, sm: 0 } }}>{message}</Alert>
+      <Alert variant='standard' severity={type} sx={{ width: '100%', mx: { xs: 5, sm: 0 } }}>{message}</Alert>
     </Snackbar>
   );
 };

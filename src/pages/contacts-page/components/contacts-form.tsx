@@ -6,7 +6,7 @@ import { AlertContext } from '../../../contexts/alert-context';
 import ContactsFormList from './contacts-form-list';
 import { FormInterface } from '../types';
 
-const defaultFormValues: FormInterface = {
+const initialFormValues: FormInterface = {
   name: '',
   surname: '',
   mail: '',
@@ -34,7 +34,7 @@ const ContactsForm: React.FC = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
-    setFormValue(defaultFormValues);
+    setFormValue(initialFormValues);
   };
 
   const handleClick = () => {
@@ -58,7 +58,7 @@ const ContactsForm: React.FC = () => {
     <Paper
       elevation={3}
       sx={{
-        p: 5, mt: 12, mb: { xs: 0, md: 5 }, textAlign: 'center', height: 710, width: '85%', maxWidth: 500, order: { xs: 1, md: 2 }, display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+        p: 5, mt: 12, mb: { xs: 0, md: 5 }, textAlign: 'center', height: 780, width: '85%', maxWidth: 500, order: { xs: 1, md: 2 }, display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
       }}
     >
       <Box>
@@ -66,11 +66,18 @@ const ContactsForm: React.FC = () => {
         <Typography variant='body1' fontWeight={100}>Any questions or remarks? Just write us a message!</Typography>
       </Box>
       <Box sx={{
-        display: 'flex', flexDirection: 'column', gap: 3, mt: 3,
+        display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 3, mt: 3,
       }}
       >
         <ContactsFormList formValue={formValue} setFormValue={setFormValue} />
-        <Button variant='contained' color='secondary' onClick={(handleClick)}>Send Message</Button>
+        <Button
+          variant='contained'
+          color='secondary'
+          onClick={(handleClick)}
+          sx={{ mt: 1 }}
+        >
+          Send Message
+        </Button>
       </Box>
     </Paper>
   );
