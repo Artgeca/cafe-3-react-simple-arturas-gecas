@@ -12,7 +12,6 @@ const pages = [
   { title: 'Services', to: '/services' },
   { title: 'Projects', to: '/projects' },
   { title: 'Galery', to: '/galery' },
-  { title: 'About', to: '/about' },
   { title: 'Contacts', to: '/contacts' },
   { title: 'Store', to: '/store' },
 ];
