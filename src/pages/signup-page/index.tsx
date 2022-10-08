@@ -1,30 +1,24 @@
 import * as yup from 'yup';
 import { TextField } from '@mui/material';
-import { DesktopDatePicker } from '@mui/x-date-pickers';
 import { useFormik, FormikConfig } from 'formik';
-import moment from 'moment';
 import { Form } from '../../components';
 
-const dateNow = moment(new Date());
-
 interface SingUpValues {
+  companyName: string,
   email: string,
   confirmEmail: string,
   password: string,
   confirmPassword: string,
-  fullName: string,
-  birthDate: moment.Moment
 }
 
 type SignUpFormik = FormikConfig<SingUpValues>;
 
 const initialValues: SingUpValues = {
+  companyName: '',
   email: '',
   confirmEmail: '',
   password: '',
   confirmPassword: '',
-  fullName: '',
-  birthDate: dateNow,
 };
 
 const onSubmit: SignUpFormik['onSubmit'] = (values, actions) => {
@@ -34,6 +28,10 @@ const onSubmit: SignUpFormik['onSubmit'] = (values, actions) => {
 };
 
 const validationSchema = yup.object({
+  companyName: yup.string()
+    .required('Required')
+    .min(6, 'At least 6 letters')
+    .matches(/^[a-ząčęėįšųūž0-9 ]+$/i, 'Only letters, numbers and spaces allowed'),
   email: yup.string()
     .required('Required')
     .email('Invalid email'),
@@ -50,17 +48,12 @@ const validationSchema = yup.object({
   confirmPassword: yup.string()
     .required('Required')
     .oneOf([yup.ref('password')], 'Password not matching'),
-  fullName: yup.string()
-    .required('Required')
-    .min(6, 'At least 6 letters')
-    .matches(/^[a-ząčęėįšųūž ]+$/i, 'Only letters and spaces allowed'),
-  birthDate: yup.date().max(dateNow, 'Unable to select future'),
 });
 
 const SignUpPage: React.FC = () => {
   const {
     values, dirty, errors, touched, isValid,
-    handleChange, handleSubmit, handleBlur, setFieldTouched, setFieldValue,
+    handleChange, handleSubmit, handleBlur,
   } = useFormik({
     initialValues,
     validationSchema,
@@ -74,6 +67,18 @@ const SignUpPage: React.FC = () => {
       onSubmit={handleSubmit}
       disabled={!dirty || !isValid}
     >
+      <TextField
+        color='secondary'
+        type='text'
+        name='companyName'
+        label='Company name'
+        fullWidth
+        value={values.companyName}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.companyName && Boolean(errors.companyName)}
+        helperText={touched.companyName && errors.companyName}
+      />
       <TextField
         color='secondary'
         type='email'
@@ -121,43 +126,6 @@ const SignUpPage: React.FC = () => {
         onBlur={handleBlur}
         error={touched.confirmPassword && Boolean(errors.confirmPassword)}
         helperText={touched.confirmPassword && errors.confirmPassword}
-      />
-      <TextField
-        color='secondary'
-        type='text'
-        name='fullName'
-        label='Full name'
-        fullWidth
-        value={values.fullName}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        error={touched.fullName && Boolean(errors.fullName)}
-        helperText={touched.fullName && errors.fullName}
-      />
-      <DesktopDatePicker
-        inputFormat='yyyy-MM-DD'
-        disableMaskedInput
-        value={values.birthDate}
-        disableFuture
-        // onChange={handleChange}
-        onChange={(momentInstance) => {
-          if (momentInstance !== null && momentInstance.isValid()) {
-            setFieldTouched('birthDate', true, false);
-            setFieldValue('birthDate', momentInstance, true);
-          }
-        }}
-        renderInput={(params) => (
-          <TextField
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...params}
-            color='secondary'
-            name='birthDate'
-            label='Birth date'
-            onBlur={handleBlur}
-            error={touched.birthDate && Boolean(errors.birthDate)}
-          // helperText={touched.birthDate && errors.birthDate}
-          />
-        )}
       />
     </Form>
   );
