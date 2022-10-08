@@ -31,16 +31,16 @@ const ContactsForm: React.FC = () => {
   const postMessage = async (data: FormInterface) => {
     await fetch('http://localhost:8000/contactsMessages', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
     setFormValue(defaultFormValues);
   };
 
   const handleClick = () => {
-    const { mail, category, message } = formValue;
+    const {
+      mail, category, message,
+    } = formValue;
     if (!mail || !category || !message) {
       setAlert({
         ...alert, open: true, type: 'error', message: 'Please fill all required fields',
