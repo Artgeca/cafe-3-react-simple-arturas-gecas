@@ -4,9 +4,9 @@ import {
 } from '@mui/material';
 import { AlertContext } from '../../../contexts/alert-context';
 import ContactsFormList from './contacts-form-list';
-import { Form } from '../types';
+import { FormInterface } from '../types';
 
-const defaultFormValues: Form = {
+const defaultFormValues: FormInterface = {
   name: '',
   surname: '',
   mail: '',
@@ -19,7 +19,7 @@ const ContactsForm: React.FC = () => {
   const context = useContext(AlertContext);
   const { alert, setAlert } = context;
 
-  const [formValue, setFormValue] = useState<Form>({
+  const [formValue, setFormValue] = useState<FormInterface>({
     name: '',
     surname: '',
     mail: '',
@@ -28,7 +28,7 @@ const ContactsForm: React.FC = () => {
     message: '',
   });
 
-  const postMessage = async (data: Form) => {
+  const postMessage = async (data: FormInterface) => {
     await fetch('http://localhost:8000/contactsMessages', {
       method: 'POST',
       headers: {
@@ -58,11 +58,13 @@ const ContactsForm: React.FC = () => {
     <Paper
       elevation={3}
       sx={{
-        p: 5, mt: 12, mb: { xs: 0, md: 5 }, textAlign: 'center', height: 700, width: '85%', maxWidth: 500, order: { xs: 1, md: 2 },
+        p: 5, mt: 12, mb: { xs: 0, md: 5 }, textAlign: 'center', height: 710, width: '85%', maxWidth: 500, order: { xs: 1, md: 2 }, display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
       }}
     >
-      <Typography variant='h4' gutterBottom>Contact Us</Typography>
-      <Typography variant='body1' fontWeight={100}>Any questions or remarks? Just write us a message!</Typography>
+      <Box>
+        <Typography variant='h4' fontWeight={100} mb={3}>Contact Us</Typography>
+        <Typography variant='body1' fontWeight={100}>Any questions or remarks? Just write us a message!</Typography>
+      </Box>
       <Box sx={{
         display: 'flex', flexDirection: 'column', gap: 3, mt: 3,
       }}

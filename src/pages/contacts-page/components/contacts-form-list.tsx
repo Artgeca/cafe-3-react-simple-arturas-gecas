@@ -1,6 +1,6 @@
 import { MenuItem, TextField } from '@mui/material';
 import React from 'react';
-import { Form } from '../types';
+import { FormInterface } from '../types';
 
 const questionCategory = [
   {
@@ -22,8 +22,8 @@ const questionCategory = [
 ];
 
 interface Props {
-  formValue: Form,
-  setFormValue: React.Dispatch<React.SetStateAction<Form>>
+  formValue: FormInterface,
+  setFormValue: React.Dispatch<React.SetStateAction<FormInterface>>
 }
 
 const ContactsFormList: React.FC<Props> = ({ formValue, setFormValue }) => {

@@ -8,10 +8,10 @@ const ContactsInfo: React.FC = () => (
   <Paper
     elevation={3}
     sx={{
-      p: 5, mt: { xs: 0, md: 12 }, mb: 5, textAlign: 'center', height: { md: 700 }, width: '85%', maxWidth: 500, order: { xs: 2, md: 1 }, backgroundColor: 'primary.light',
+      p: 5, mt: { xs: 0, md: 12 }, mb: 5, textAlign: 'center', height: { md: 710 }, width: '85%', maxWidth: 500, order: { xs: 2, md: 1 }, backgroundColor: 'primary.light',
     }}
   >
-    <Typography variant='h4' gutterBottom>Contact Information</Typography>
+    <Typography variant='h4' fontWeight={100} mb={3}>Contact Information</Typography>
     <Box
       display='flex'
       flexDirection='column'
