@@ -12,8 +12,8 @@ const questionCategory = [
     value: 'construction',
   },
   {
-    label: 'Products',
-    value: 'products',
+    label: 'Demolition',
+    value: 'demolition',
   },
   {
     label: 'Rentals',
