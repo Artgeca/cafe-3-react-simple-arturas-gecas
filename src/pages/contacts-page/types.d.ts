@@ -1,7 +1,7 @@
 export interface FormInterface {
   name: string,
   surname: string,
-  mail: string,
+  email: string,
   phone: string,
   category: string,
   message: string

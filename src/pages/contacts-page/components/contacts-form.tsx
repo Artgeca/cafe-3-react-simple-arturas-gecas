@@ -1,56 +1,67 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import {
-  Box, Button, Paper, Typography,
+  Box,
+  Button,
+  Paper,
+  Typography,
 } from '@mui/material';
+import * as yup from 'yup';
+import { useFormik, FormikConfig } from 'formik';
 import { AlertContext } from '../../../contexts/alert-context';
 import ContactsFormList from './contacts-form-list';
 import { FormInterface } from '../types';
 
-const initialFormValues: FormInterface = {
+type ContactsFormik = FormikConfig<FormInterface>;
+
+const initialValues: FormInterface = {
   name: '',
   surname: '',
-  mail: '',
+  email: '',
   phone: '',
   category: '',
   message: '',
 };
 
+const onSubmit: ContactsFormik['onSubmit'] = (values, actions) => {
+  console.log('Contacts form values:');
+  console.log(JSON.stringify(values, null, 2));
+  actions.resetForm();
+};
+
+const validationSchema = yup.object({
+  name: yup.string()
+    .required('Required'),
+  surname: yup.string()
+    .required('Required'),
+  email: yup.string()
+    .required('Required')
+    .email('Invalid email'),
+  phone: yup.string()
+    .required('Required'),
+  category: yup.string()
+    .required('Required'),
+  message: yup.string()
+    .required('Required')
+    .max(300, 'Max message length is 300 symbols'),
+});
+
 const ContactsForm: React.FC = () => {
   const context = useContext(AlertContext);
-  const { alert, setAlert } = context;
+  const { setAlert } = context;
 
-  const [formValue, setFormValue] = useState<FormInterface>({
-    name: '',
-    surname: '',
-    mail: '',
-    phone: '',
-    category: '',
-    message: '',
+  const {
+    values, dirty, errors, touched, isValid,
+    handleChange, handleSubmit, handleBlur,
+  } = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit,
   });
 
-  const postMessage = async (data: FormInterface) => {
-    await fetch('http://localhost:8000/contactsMessages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-    setFormValue(initialFormValues);
-  };
-
-  const handleClick = () => {
-    const {
-      mail, category, message,
-    } = formValue;
-    if (!mail || !category || !message) {
-      setAlert({
-        ...alert, open: true, type: 'error', message: 'Please fill all required fields',
-      });
-
-      return;
-    }
-    postMessage(formValue);
+  const onSubmitHandler = () => {
+    handleSubmit();
     setAlert({
-      ...alert, open: true, type: 'success', message: 'Your message successfully delivered',
+      open: true, type: 'success', message: 'Your message successfuly delivered',
     });
   };
 
@@ -69,11 +80,18 @@ const ContactsForm: React.FC = () => {
         display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 3, mt: 3,
       }}
       >
-        <ContactsFormList formValue={formValue} setFormValue={setFormValue} />
+        <ContactsFormList
+          values={values}
+          errors={errors}
+          touched={touched}
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+        />
         <Button
           variant='contained'
           color='secondary'
-          onClick={(handleClick)}
+          onClick={onSubmitHandler}
+          disabled={!dirty || !isValid}
           sx={{ mt: 1 }}
         >
           Send Message
