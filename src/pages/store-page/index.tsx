@@ -4,6 +4,7 @@ import * as Page from '../../components';
 import RentalsService from '../../services/rentals-service';
 import { RentalCard } from './components';
 import { RentalItem } from './types';
+import SettingsFab from './components/settings-fab';
 
 const StorePage: React.FC = () => {
   const [rentals, setRentals] = useState<RentalItem[]>([]);
@@ -19,7 +20,14 @@ const StorePage: React.FC = () => {
 
   return (
     <Page.Content sx={{
-      display: 'flex', flexDirection: 'column', alignItems: 'center', pt: { xs: 10, sm: 12 }, px: { xs: 3, md: 5 }, pb: 5, gap: 3,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      position: 'relative',
+      pt: { xs: 10, sm: 12 },
+      px: { xs: 3, md: 5 },
+      pb: 5,
+      gap: 3,
     }}
     >
       <Page.Title title='Rent equipment' />
@@ -47,6 +55,7 @@ const StorePage: React.FC = () => {
           ))
         }
       </Grid>
+      <SettingsFab />
     </Page.Content>
   );
 };
