@@ -90,11 +90,12 @@ const RentalPage: React.FC = () => {
               <Box
                 display={{ xs: 'none', md: 'flex' }}
                 alignItems='center'
+                sx={(theme) => ({ color: theme.palette.common.white })}
               >
-                <IconButton color='primary' onClick={() => navigate('../')}>
+                <IconButton color='inherit' onClick={() => navigate('../')}>
                   <ArrowBackIcon fontSize='large' />
                 </IconButton>
-                <Typography variant='h6' fontWeight={100} color='primary'>Back to Store</Typography>
+                <Typography variant='h6' fontWeight={100} color='inherit'>Back to Store</Typography>
               </Box>
               <Page.Title title={rental.title} />
             </Box>
@@ -107,7 +108,6 @@ const RentalPage: React.FC = () => {
                 flexDirection={{ xs: 'column', md: 'row' }}
                 alignItems='center'
                 gap={3}
-
               >
                 <RentalCard
                   id={rental.id}
@@ -124,7 +124,6 @@ const RentalPage: React.FC = () => {
           </>
         )
       }
-
     </Page.Content>
   );
 };

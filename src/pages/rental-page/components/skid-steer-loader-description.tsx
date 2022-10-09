@@ -2,7 +2,7 @@
 import { Box, Typography } from '@mui/material';
 
 const SkidSteerLoaderDescription = () => (
-  <Box>
+  <Box textAlign='center'>
     <Typography
       variant='h6'
       fontWeight={100}

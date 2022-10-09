@@ -2,7 +2,7 @@
 import { Box, Typography } from '@mui/material';
 
 const ExcavatorDescription = () => (
-  <Box>
+  <Box textAlign='center'>
     <Typography
       variant='h6'
       fontWeight={100}
