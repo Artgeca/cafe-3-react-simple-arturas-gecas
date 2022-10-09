@@ -14,4 +14,5 @@ export interface RentalItem extends RentalSpecs, RentalCategory {
   title: string,
   rentalCategoryId: number,
   img: string,
+  moreInfoBtn: boolean
 }

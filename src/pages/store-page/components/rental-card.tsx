@@ -11,10 +11,9 @@ import Image from '../../../components/image';
 const RentalCard: React.FC<RentalItem> = ({
   id,
   title,
-  rentalCategoryId,
-  rentalCategory,
   specs,
   img,
+  moreInfoBtn,
 }) => {
   const navigate = useNavigate();
 
@@ -52,14 +51,16 @@ const RentalCard: React.FC<RentalItem> = ({
               <ShoppingCartIcon />
             </Button>
           </Box>
-          <Button
-            variant='contained'
-            color='secondary'
-            fullWidth
-            onClick={() => navigate(`./${id}`)}
-          >
-            More info
-          </Button>
+          <Box display={moreInfoBtn ? 'block' : 'none'} width='100%'>
+            <Button
+              variant='contained'
+              color='secondary'
+              fullWidth
+              onClick={() => navigate(`./${id}`)}
+            >
+              More info
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Paper>

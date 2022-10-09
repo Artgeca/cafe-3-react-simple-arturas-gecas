@@ -19,8 +19,10 @@ const PageRoutes: React.FC = () => (
       <Route path='projects' element={<ProjectsPage />} />
       <Route path='galery' element={<GaleryPage />} />
       <Route path='contacts' element={<ContactsPage />} />
-      <Route path='store' element={<StorePage />} />
-      <Route path='store/:id' element={<RentalPage />} />
+      <Route path='store/'>
+        <Route index element={<StorePage />} />
+        <Route path=':id' element={<RentalPage />} />
+      </Route>
       <Route path='auth/' element={<AuthLayout />}>
         <Route path='signup' element={<SignUpPage />} />
         <Route path='login' element={<LoginPage />} />

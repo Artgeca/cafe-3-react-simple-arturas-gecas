@@ -7,7 +7,7 @@ const fetchAll = async () => {
   return items;
 };
 
-const fetchById = async (id: number) => {
+const fetchById = async (id: string) => {
   const response = await fetch(`${domain}/rentals/${id}?_expand=rentalCategory`);
   const item = await response.json();
 

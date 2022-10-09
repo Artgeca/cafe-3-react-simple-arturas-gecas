@@ -41,6 +41,7 @@ const StorePage: React.FC = () => {
                 rentalCategory={rentalCategory}
                 specs={specs}
                 img={img}
+                moreInfoBtn
               />
             </Grid>
           ))
