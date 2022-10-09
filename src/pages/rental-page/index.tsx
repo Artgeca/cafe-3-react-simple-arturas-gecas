@@ -91,6 +91,7 @@ const RentalPage: React.FC = () => {
                 display={{ xs: 'none', md: 'flex' }}
                 alignItems='center'
                 sx={(theme) => ({ color: theme.palette.common.white })}
+                gap={1}
               >
                 <IconButton color='inherit' onClick={() => navigate('../')}>
                   <ArrowBackIcon fontSize='large' />
