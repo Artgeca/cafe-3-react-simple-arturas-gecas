@@ -53,7 +53,9 @@ const HomePage = () => {
               maxWidth={1200}
             >
               {
-                cardsData.map(({ title, img, description }, i) => (
+                cardsData.map(({
+                  title, img, description,
+                }, i) => (
                   <Grid
                     item
                     key={title}

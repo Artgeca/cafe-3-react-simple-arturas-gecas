@@ -37,7 +37,9 @@ const TabsList = ({ value, onChange }: Props) => (
           key={tab.value}
           label={tab.label}
           value={tab.value}
-          sx={{ color: 'grey.300', fontSize: 16, fontWeight: { xs: 300, sm: 400 } }}
+          sx={{
+            color: 'grey.300', fontSize: 16, fontWeight: { xs: 300, sm: 400 },
+          }}
         />
       ))
     }

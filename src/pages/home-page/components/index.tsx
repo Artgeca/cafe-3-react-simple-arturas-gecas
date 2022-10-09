@@ -23,9 +23,7 @@ export const Background = styled(Box)(({ theme }) => ({
   backgroundRepeat: 'no-repeat',
   zIndex: 1,
 
-  [theme.breakpoints.up('md')]: {
-    backgroundImage: `url(${img2})`,
-  },
+  [theme.breakpoints.up('md')]: { backgroundImage: `url(${img2})` },
 }));
 
 export const BackgroundOverlay = styled(Box)(({ theme }) => ({

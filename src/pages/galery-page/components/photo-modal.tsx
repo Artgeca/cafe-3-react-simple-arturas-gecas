@@ -6,7 +6,9 @@ interface Props {
   onClose: () => void,
 }
 
-const PhotoModal = ({ open, src, onClose }: Props) => (
+const PhotoModal = ({
+  open, src, onClose,
+}: Props) => (
   <Dialog open={open} onClose={onClose}>
     <Box
       component='img'

@@ -9,7 +9,9 @@ interface Props {
   project: ProjectsDataInterface
 }
 
-const ProjectCardModal = ({ open, project, onClose }: Props) => (
+const ProjectCardModal = ({
+  open, project, onClose,
+}: Props) => (
   <Dialog onClose={onClose} open={open} fullWidth>
     <DialogTitle>{project.address}</DialogTitle>
     <Box display='flex' flexDirection='column' gap={2}>

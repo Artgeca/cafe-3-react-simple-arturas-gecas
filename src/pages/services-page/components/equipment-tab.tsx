@@ -1,4 +1,6 @@
-import { Box, Button, Typography } from '@mui/material';
+import {
+  Box, Button, Typography,
+} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import equipmentImg from '../../../assets/images/rental.jpg';
 
@@ -46,9 +48,7 @@ const EquipmentTab = () => {
           display='flex'
           justifyContent='center'
           alignItems='center'
-          sx={{
-            zIndex: 3,
-          }}
+          sx={{ zIndex: 3 }}
         >
           <Button
             sx={{

@@ -1,4 +1,6 @@
-import { Box, Button, TextField } from '@mui/material';
+import {
+  Box, Button, TextField,
+} from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
@@ -8,7 +10,9 @@ interface Props {
   onDec: () => void,
 }
 
-const AmountField: React.FC<Props> = ({ amount, onInc, onDec }) => (
+const AmountField: React.FC<Props> = ({
+  amount, onInc, onDec,
+}) => (
   <Box display='flex' gap={1}>
     <Button variant='contained' color='secondary' onClick={onDec}>
       <RemoveIcon />

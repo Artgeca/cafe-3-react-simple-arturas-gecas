@@ -1,4 +1,6 @@
-import { Box, Button, Grid } from '@mui/material';
+import {
+  Box, Button, Grid,
+} from '@mui/material';
 import { useEffect, useState } from 'react';
 import * as Page from '../../components';
 import * as Photo from './components';
@@ -36,29 +38,27 @@ const GaleryPage = () => {
       <Page.Title title='Photo galery' />
       <Grid container maxWidth={1440} sx={{ justifyContent: 'center' }}>
         {
-        photos.map(({ id, url }) => (
-          <Grid item key={id}>
-            <Button
-              color='secondary'
-              sx={{
-                opacity: 0.8,
-                '&:hover': {
-                  opacity: 1,
-                },
-              }}
-              onClick={() => handleClick(url)}
-            >
-              <Box
-                component='img'
-                src={url}
-                height={300}
-                width={300}
-                sx={{ objectFit: 'cover' }}
-              />
-            </Button>
-          </Grid>
-        ))
-      }
+          photos.map(({ id, url }) => (
+            <Grid item key={id}>
+              <Button
+                color='secondary'
+                sx={{
+                  opacity: 0.8,
+                  '&:hover': { opacity: 1 },
+                }}
+                onClick={() => handleClick(url)}
+              >
+                <Box
+                  component='img'
+                  src={url}
+                  height={300}
+                  width={300}
+                  sx={{ objectFit: 'cover' }}
+                />
+              </Button>
+            </Grid>
+          ))
+        }
       </Grid>
       <Photo.PhotoModal open={photoModal} src={imgSrc} onClose={() => setPhotoModal(false)} />
     </Page.Content>

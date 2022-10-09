@@ -8,7 +8,9 @@ interface TabPanelProps {
 }
 
 const TabPanel = (props: TabPanelProps) => {
-  const { children, index, value } = props;
+  const {
+    children, index, value,
+  } = props;
 
   return (
     <Box
