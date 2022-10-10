@@ -4,10 +4,11 @@ import * as Page from '../../components';
 import RentalsService from '../../services/rentals-service';
 import { RentalCard } from './components';
 import { RentalItem } from './types';
-import SettingsFab from './components/settings-fab';
+import * as Components from './components';
 
 const StorePage: React.FC = () => {
   const [rentals, setRentals] = useState<RentalItem[]>([]);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleFetchRentals = async () => {
     const rentalsData = await RentalsService.fetchAll();
@@ -55,7 +56,8 @@ const StorePage: React.FC = () => {
           ))
         }
       </Grid>
-      <SettingsFab />
+      <Components.SettingsFab setDrawerOpen={setDrawerOpen} />
+      <Components.SettingsDrawer drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
     </Page.Content>
   );
 };

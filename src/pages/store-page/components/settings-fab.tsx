@@ -1,10 +1,16 @@
 import { Fab } from '@mui/material';
 import TuneIcon from '@mui/icons-material/Tune';
 
-const SettingsFab: React.FC = () => (
+interface Props {
+  setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const SettingsFab: React.FC<Props> = ({ setDrawerOpen }) => (
   <Fab
     size='large'
+    onClick={() => setDrawerOpen(true)}
     sx={(theme) => ({
+      display: { xs: 'flex', xl: 'none' },
       position: 'sticky',
       bottom: 40,
       left: '90%',
