@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton,
+  AppBar, Box, Divider, SwipeableDrawer, IconButton, List, ListItem, ListItemButton,
   ListItemText, Toolbar, Typography,
 } from '@mui/material';
 import StraightenIcon from '@mui/icons-material/Straighten';
@@ -83,9 +83,10 @@ const Navbar = () => {
         >
           <MenuIcon />
         </IconButton>
-        <Drawer
+        <SwipeableDrawer
           anchor='right'
           open={drawerOpen}
+          onOpen={() => setDrawerOpen(true)}
           onClose={() => setDrawerOpen(false)}
           sx={{ display: { md: 'none' } }}
           PaperProps={{ sx: { bgcolor: 'primary.light' } }}
@@ -118,7 +119,7 @@ const Navbar = () => {
               }
             </Box>
           </List>
-        </Drawer>
+        </SwipeableDrawer>
       </Toolbar>
     </AppBar>
   );
