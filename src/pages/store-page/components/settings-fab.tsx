@@ -6,8 +6,8 @@ const SettingsFab: React.FC = () => (
     size='large'
     sx={(theme) => ({
       position: 'sticky',
-      left: '100%',
       bottom: 40,
+      left: '90%',
       bgcolor: theme.palette.common.black,
       color: theme.palette.primary.main,
       '&:hover': { bgcolor: theme.palette.grey[900] },
