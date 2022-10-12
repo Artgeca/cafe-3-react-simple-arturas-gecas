@@ -22,7 +22,7 @@ const RentalCard: React.FC<RentalItem> = ({
 
   return (
     <Paper sx={{
-      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', p: 2, width: 300, height: 520,
+      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', p: 2, width: { xs: 300, sm: 330 }, height: 520,
     }}
     >
       <Image src={img} width={250} />
