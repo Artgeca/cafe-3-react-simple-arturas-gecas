@@ -6,7 +6,7 @@ import { RootState } from '../../../store/configure-store';
 
 const CartButton: React.FC = () => {
   const navigate = useNavigate();
-  const cartCount = useSelector((state: RootState) => state.cart.value);
+  const cartCount = useSelector((state: RootState) => state.cart.count);
 
   return (
     <Fab

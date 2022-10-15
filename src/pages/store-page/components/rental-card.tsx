@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Paper, Typography, Box, Button, Chip,
 } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RentalItem } from '../types';
 import AmountField from '../../../components/amount-field/amount-field';
 import Image from '../../../components/image';
-import { decrement, increment } from '../../../store/cart';
+import { addItem } from '../../../store/cart';
+import { RootState } from '../../../store/configure-store';
 
 const RentalCard: React.FC<RentalItem> = ({
   id,
@@ -17,11 +18,18 @@ const RentalCard: React.FC<RentalItem> = ({
   img,
   moreInfoBtn,
 }) => {
+  const initCount = useSelector(
+    (state: RootState) => state.cart.items.find((x) => x.id === id)?.count ?? 0,
+  );
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [count, setCount] = useState(initCount);
 
-  const onInc = () => dispatch(increment());
-  const onDec = () => dispatch(decrement());
+  const onInc = () => setCount(count + 1);
+  const onDec = () => setCount(count - 1);
+
+  const handleAddItemToCart = () => dispatch(addItem({ id, count }));
 
   return (
     <Paper sx={{
@@ -49,8 +57,13 @@ const RentalCard: React.FC<RentalItem> = ({
         }}
         >
           <Box display='flex' gap={1}>
-            <AmountField amount={0} onInc={onInc} onDec={onDec} />
-            <Button variant='contained' color='secondary'>
+            <AmountField amount={count} onInc={onInc} onDec={onDec} />
+            <Button
+              variant='contained'
+              color='secondary'
+              disabled={count < 1}
+              onClick={handleAddItemToCart}
+            >
               <ShoppingCartIcon />
             </Button>
           </Box>

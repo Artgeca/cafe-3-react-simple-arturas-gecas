@@ -4,14 +4,14 @@ export interface RentalSpecs {
 
 export interface RentalCategory {
   rentalCategory: {
-    id: number,
+    id: string,
     title: string,
     type: string
   }
 }
 
 export interface RentalItem extends RentalSpecs, RentalCategory {
-  id: number,
+  id: string,
   title: string,
   rentalCategoryId: number,
   img: string,
