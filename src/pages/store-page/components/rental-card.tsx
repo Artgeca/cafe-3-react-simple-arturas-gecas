@@ -4,9 +4,11 @@ import {
 } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { RentalItem } from '../types';
 import AmountField from '../../../components/amount-field/amount-field';
 import Image from '../../../components/image';
+import { decrement, increment } from '../../../store/cart';
 
 const RentalCard: React.FC<RentalItem> = ({
   id,
@@ -16,9 +18,10 @@ const RentalCard: React.FC<RentalItem> = ({
   moreInfoBtn,
 }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const onInc = () => console.log('pressed "+"');
-  const onDec = () => console.log('pressed "-"');
+  const onInc = () => dispatch(increment());
+  const onDec = () => dispatch(decrement());
 
   return (
     <Paper sx={{

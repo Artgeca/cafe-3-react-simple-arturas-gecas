@@ -1,9 +1,12 @@
 import { Fab, Badge } from '@mui/material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/configure-store';
 
 const CartButton: React.FC = () => {
   const navigate = useNavigate();
+  const cartCount = useSelector((state: RootState) => state.cart.value);
 
   return (
     <Fab
@@ -11,15 +14,15 @@ const CartButton: React.FC = () => {
       onClick={() => navigate('./cart')}
       sx={{
         position: 'sticky',
-        bottom: 40,
-        left: '100%',
+        bottom: { xs: 20, sm: 40 },
+        left: '90%',
         bgcolor: 'common.black',
         color: 'common.white',
         '&:hover': { bgcolor: 'grey.900' },
       }}
     >
       <Badge
-        badgeContent={2}
+        badgeContent={cartCount}
         sx={{ '& .MuiBadge-badge': { backgroundColor: 'primary.main', color: 'common.black' } }}
       >
         <ShoppingCartOutlinedIcon />

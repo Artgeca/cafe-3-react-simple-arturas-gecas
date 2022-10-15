@@ -38,5 +38,6 @@ module.exports = {
         "react/jsx-max-props-per-line": [1, { "maximum": { "single": 3, "multi": 1 } }],
         "object-curly-newline": [1, { "multiline": true, "minProperties": 3 }],
         "no-underscore-dangle": [0],
+        "no-param-reassign": [0],
     }
 };
