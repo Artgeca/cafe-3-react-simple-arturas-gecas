@@ -54,6 +54,7 @@ const StorePage: React.FC = () => {
     <Page.Content sx={{
       display: 'flex',
       flexDirection: 'column',
+      alignItems: 'center',
       position: 'relative',
       pt: { xs: 10, sm: 12 },
       px: { xs: 3, md: 5 },
