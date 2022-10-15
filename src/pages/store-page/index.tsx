@@ -14,22 +14,16 @@ const StorePage: React.FC = () => {
   const [rentals, setRentals] = useState<RentalItem[]>([]);
   const [filteredRentals, setFilteredRentals] = useState<RentalItem[]>([]);
 
-  const handleFetchRentals = async () => {
-    const rentalsData = await RentalsService.fetchAll();
-    setRentals([...rentalsData]);
-    setFilteredRentals([...rentalsData]);
-  };
-
   const handleOnChange = (
     _e: React.MouseEvent<HTMLElement>,
     newFilter: string,
   ) => {
     if (newFilter) {
       searchParams.set('categoryType', newFilter);
-      const data = rentals.filter(
-        (rental) => (rental.rentalCategory.type === newFilter ? rental : null),
+      const filteredData = rentals.filter(
+        (rental) => (rental.rentalCategory.type === newFilter),
       );
-      setFilteredRentals([...data]);
+      setFilteredRentals([...filteredData]);
     } else {
       searchParams.delete('categoryType');
       setFilteredRentals([...rentals]);
@@ -38,7 +32,22 @@ const StorePage: React.FC = () => {
   };
 
   useEffect(() => {
-    handleFetchRentals();
+    (
+      async () => {
+        const rentalsData: RentalItem[] = await RentalsService.fetchAll();
+        setRentals([...rentalsData]);
+
+        const categoryFilter = searchParams.get('categoryType');
+        if (categoryFilter) {
+          const filteredData = rentalsData.filter(
+            (rental) => (rental.rentalCategory.type === categoryFilter),
+          );
+          setFilteredRentals([...filteredData]);
+        } else {
+          setFilteredRentals([...rentalsData]);
+        }
+      }
+    )();
   }, []);
 
   return (
