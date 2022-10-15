@@ -1,21 +1,40 @@
 import {
-  Grid, Paper, ToggleButtonGroup, ToggleButton, Accordion, AccordionSummary, Typography, Box,
+  Grid, Paper, ToggleButtonGroup, ToggleButton, Accordion, AccordionSummary, Typography,
 } from '@mui/material';
 import { useState, useEffect } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useSearchParams } from 'react-router-dom';
 import * as Page from '../../components';
 import RentalsService from '../../services/rentals-service';
-import { RentalCard } from './components';
 import { RentalItem } from './types';
 import * as Components from './components';
 
 const StorePage: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [rentals, setRentals] = useState<RentalItem[]>([]);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [filteredRentals, setFilteredRentals] = useState<RentalItem[]>([]);
 
   const handleFetchRentals = async () => {
     const rentalsData = await RentalsService.fetchAll();
     setRentals([...rentalsData]);
+    setFilteredRentals([...rentalsData]);
+  };
+
+  const handleOnChange = (
+    _e: React.MouseEvent<HTMLElement>,
+    newFilter: string,
+  ) => {
+    if (newFilter) {
+      searchParams.set('categoryType', newFilter);
+      const data = rentals.filter(
+        (rental) => (rental.rentalCategory.type === newFilter ? rental : null),
+      );
+      setFilteredRentals([...data]);
+    } else {
+      searchParams.delete('categoryType');
+      setFilteredRentals([...rentals]);
+    }
+    setSearchParams(searchParams);
   };
 
   useEffect(() => {
@@ -34,47 +53,48 @@ const StorePage: React.FC = () => {
       gap: 3,
     }}
     >
-      <Page.Title title='Heavy duty equipment' />
+      <Page.Title title='Rent equipment' />
       <Paper sx={{
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
         justifyContent: 'center',
         alignItems: 'center',
-        width: { xs: '100%', sm: '100%' },
+        width: '100%',
         maxWidth: 1440,
       }}
       >
         <Accordion sx={{ width: '100%', bgcolor: 'secondary.main' }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon color='primary' />}>
-            <Typography color='primary.main'>Category filter</Typography>
+            <Typography color='primary.main'>Category</Typography>
           </AccordionSummary>
           <ToggleButtonGroup
             fullWidth
             color='secondary'
             orientation='vertical'
-            // value={view}
+            value={searchParams.get('categoryType')}
+            onChange={handleOnChange}
             exclusive
           >
-            <ToggleButton value='list' sx={{ color: 'primary.main' }}>
-              Backhoe Loaders
+            <ToggleButton value='1' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
+              Backhoe Loader
             </ToggleButton>
-            <ToggleButton value='list' sx={{ color: 'primary.main' }}>
-              Skid-Steer Loaders
+            <ToggleButton value='2' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
+              Skid-Steer Loader
             </ToggleButton>
-            <ToggleButton value='list' sx={{ color: 'primary.main' }}>
-              Mini Excavators
+            <ToggleButton value='3' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
+              Mini Excavator
             </ToggleButton>
-            <ToggleButton value='list' sx={{ color: 'primary.main' }}>
-              Excavators
+            <ToggleButton value='4' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
+              Excavator
             </ToggleButton>
-            <ToggleButton value='list' sx={{ color: 'primary.main' }}>
-              Dozers
+            <ToggleButton value='5' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
+              Dozer
             </ToggleButton>
-            <ToggleButton value='list' sx={{ color: 'primary.main' }}>
-              Wheel Loders
+            <ToggleButton value='6' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
+              Wheel Loder
             </ToggleButton>
-            <ToggleButton value='list' sx={{ color: 'primary.main' }}>
-              Generators
+            <ToggleButton value='7' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
+              Generator
             </ToggleButton>
           </ToggleButtonGroup>
         </Accordion>
@@ -88,14 +108,14 @@ const StorePage: React.FC = () => {
         sx={{ p: { xs: 2, sm: 3 }, borderRadius: 1 }}
       >
         {
-          rentals.map(({
+          filteredRentals.map(({
             id, title, rentalCategoryId, rentalCategory, specs, img,
           }) => (
             <Grid
               item
               key={id}
             >
-              <RentalCard
+              <Components.RentalCard
                 id={id}
                 title={title}
                 rentalCategoryId={rentalCategoryId}

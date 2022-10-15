@@ -5,7 +5,8 @@ export interface RentalSpecs {
 export interface RentalCategory {
   rentalCategory: {
     id: number,
-    title: string
+    title: string,
+    type: string
   }
 }
 

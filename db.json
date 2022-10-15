@@ -137,31 +137,38 @@
   "rentalCategories": [
     {
       "id": 1,
-      "title": "Backhoe Loader"
+      "title": "Backhoe Loader",
+      "type": "1"
     },
     {
       "id": 2,
-      "title": "Skid-Steer Loader"
+      "title": "Skid-Steer Loader",
+      "type": "2"
     },
     {
       "id": 3,
-      "title": "Mini Excavator"
+      "title": "Mini Excavator",
+      "type": "3"
     },
     {
       "id": 4,
-      "title": "Excavator"
+      "title": "Excavator",
+      "type": "4"
     },
     {
       "id": 5,
-      "title": "Dozer"
+      "title": "Dozer",
+      "type": "5"
     },
     {
       "id": 6,
-      "title": "Wheel Loder"
+      "title": "Wheel Loder",
+      "type": "6"
     },
     {
       "id": 7,
-      "title": "Generator"
+      "title": "Generator",
+      "type": "7"
     }
   ],
   "rentals": [
