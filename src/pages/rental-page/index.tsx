@@ -79,7 +79,6 @@ const RentalPage: React.FC = () => {
           <>
             <Box
               display='flex'
-              flexDirection={{ xs: 'column', md: 'row' }}
               alignItems='center'
               justifyContent='space-between'
               gap={3}
@@ -88,15 +87,23 @@ const RentalPage: React.FC = () => {
               px={2}
             >
               <Box
-                display={{ xs: 'none', md: 'flex' }}
+                display='flex'
                 alignItems='center'
                 sx={(theme) => ({ color: theme.palette.common.white })}
-                gap={1}
+                gap={{ xs: 1, md: 3 }}
               >
                 <IconButton color='inherit' onClick={() => navigate('../')}>
                   <ArrowBackIcon fontSize='large' />
                 </IconButton>
-                <Typography variant='h6' fontWeight={100} color='inherit'>Back to Store</Typography>
+                <Typography
+                  display={{ xs: 'none', sm: 'block' }}
+                  variant='h6'
+                  fontWeight={100}
+                  fontSize={{ xs: 24, md: 30 }}
+                  color='inherit'
+                >
+                  Back to Store
+                </Typography>
               </Box>
               <Page.Title title={rental.title} />
             </Box>
@@ -125,6 +132,7 @@ const RentalPage: React.FC = () => {
           </>
         )
       }
+      <Page.CartButton />
     </Page.Content>
   );
 };

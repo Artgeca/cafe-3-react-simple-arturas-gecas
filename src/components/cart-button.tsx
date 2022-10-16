@@ -2,7 +2,7 @@ import { Fab, Badge } from '@mui/material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../store';
+import { RootState } from '../store';
 
 const CartButton: React.FC = () => {
   const navigate = useNavigate();
@@ -16,8 +16,8 @@ const CartButton: React.FC = () => {
       onClick={() => navigate('./cart')}
       sx={{
         position: 'sticky',
-        bottom: { xs: 20, sm: 40 },
-        left: '90%',
+        bottom: { xs: 20, sm: 20 },
+        left: { xs: '75%', sm: '100%' },
         bgcolor: 'common.black',
         color: 'common.white',
         '&:hover': { bgcolor: 'grey.900' },

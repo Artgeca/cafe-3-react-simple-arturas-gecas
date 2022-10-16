@@ -5,7 +5,7 @@ const index = ({ title }: { title: string }) => (
     variant='h2'
     component='h1'
     fontWeight={100}
-    fontSize={{ xs: 30, sm: 40 }}
+    fontSize={{ xs: 24, md: 40 }}
     color='primary'
   >
     {title}

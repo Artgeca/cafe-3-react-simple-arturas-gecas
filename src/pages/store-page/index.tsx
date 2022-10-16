@@ -100,7 +100,7 @@ const StorePage: React.FC = () => {
           ))
         }
       </Grid>
-      <Components.CartButton />
+      <Page.CartButton />
     </Page.Content>
   );
 };
