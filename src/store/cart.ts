@@ -13,12 +13,21 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (cart, action: PayloadAction<CartItem>) => {
-      cart.items.push(action.payload);
-      console.log(action.payload);
+    itemAdded: (cart, action: PayloadAction<CartItem>) => {
+      const index = cart.items.findIndex((x) => x.id === action.payload.id);
+      if (index !== -1) {
+        cart.items[index].count = action.payload.count;
+      } else {
+        cart.items.push(action.payload);
+      }
+    },
+
+    itemRemoved: (cart, action: PayloadAction<string>) => {
+      const index = cart.items.findIndex((x) => x.id === action.payload);
+      cart.items.splice(index, 1);
     },
   },
 });
 
-export const { addItem } = cartSlice.actions;
+export const { itemAdded, itemRemoved } = cartSlice.actions;
 export default cartSlice.reducer;

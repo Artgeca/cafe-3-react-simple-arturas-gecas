@@ -2,7 +2,7 @@ import { Fab, Badge } from '@mui/material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/configure-store';
+import { RootState } from '../../../store';
 
 const CartButton: React.FC = () => {
   const navigate = useNavigate();

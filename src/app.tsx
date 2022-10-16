@@ -6,7 +6,7 @@ import AlertProvider from './contexts/alert-context';
 import PageRoutes from './routes/page-routes';
 import ServiceNavigationProvider from './contexts/services-page-navigation-context';
 import { AlertSnackbar, Navbar } from './components';
-import { store } from './store/configure-store';
+import { store } from './store';
 
 const App: React.FC = () => (
   <BrowserRouter>
