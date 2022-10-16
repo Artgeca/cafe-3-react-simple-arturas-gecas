@@ -1,13 +1,16 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+  createSelector, createSlice, PayloadAction,
+} from '@reduxjs/toolkit';
+// eslint-disable-next-line import/no-cycle
+import { RootState } from './index';
 
 type CartItem = { id: string, count: number };
 
 export interface CartState {
   items: CartItem[],
-  count: number
 }
 
-const initialState: CartState = { items: [], count: 0 };
+const initialState: CartState = { items: [] };
 
 const cartSlice = createSlice({
   name: 'cart',
