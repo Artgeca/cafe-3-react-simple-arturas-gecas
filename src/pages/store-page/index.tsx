@@ -1,8 +1,5 @@
-import {
-  Grid, Paper, ToggleButtonGroup, ToggleButton, Accordion, AccordionSummary, Typography,
-} from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 import { useState, useEffect } from 'react';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useSearchParams } from 'react-router-dom';
 import * as Page from '../../components';
 import RentalsService from '../../services/rentals-service';
@@ -72,41 +69,7 @@ const StorePage: React.FC = () => {
         maxWidth: 1440,
       }}
       >
-        <Accordion sx={{ width: '100%', bgcolor: 'secondary.main' }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon color='primary' />}>
-            <Typography color='primary.main'>Category</Typography>
-          </AccordionSummary>
-          <ToggleButtonGroup
-            fullWidth
-            color='secondary'
-            orientation='vertical'
-            value={searchParams.get('categoryType')}
-            onChange={handleOnChange}
-            exclusive
-          >
-            <ToggleButton value='1' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
-              Backhoe Loader
-            </ToggleButton>
-            <ToggleButton value='2' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
-              Skid-Steer Loader
-            </ToggleButton>
-            <ToggleButton value='3' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
-              Mini Excavator
-            </ToggleButton>
-            <ToggleButton value='4' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
-              Excavator
-            </ToggleButton>
-            <ToggleButton value='5' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
-              Dozer
-            </ToggleButton>
-            <ToggleButton value='6' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
-              Wheel Loder
-            </ToggleButton>
-            <ToggleButton value='7' sx={{ color: 'common.white', '&.Mui-selected': { color: 'primary.main' } }}>
-              Generator
-            </ToggleButton>
-          </ToggleButtonGroup>
-        </Accordion>
+        <Components.CategoryFilter searchParams={searchParams} handleOnChange={handleOnChange} />
       </Paper>
       <Grid
         container
