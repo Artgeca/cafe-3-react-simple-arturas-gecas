@@ -14,6 +14,7 @@ const cartSlice = createSlice({
   reducers: {
     itemAdded: (cart, action: PayloadAction<CartItem>) => {
       const index = cart.items.findIndex((x) => x.id === action.payload.id);
+
       if (index !== -1) {
         cart.items[index].count = action.payload.count;
       } else {

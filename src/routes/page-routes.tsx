@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import AuthLayout from '../layouts/auth-layout';
+import CartPage from '../pages/cart-page';
 import ContactsPage from '../pages/contacts-page';
 import ErrorPage from '../pages/error-page';
 import GaleryPage from '../pages/galery-page';
@@ -22,6 +23,7 @@ const PageRoutes: React.FC = () => (
       <Route path='store/'>
         <Route index element={<StorePage />} />
         <Route path=':id' element={<RentalPage />} />
+        <Route path='cart' element={<CartPage />} />
       </Route>
       <Route path='auth/' element={<AuthLayout />}>
         <Route path='signup' element={<SignUpPage />} />

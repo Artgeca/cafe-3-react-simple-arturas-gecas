@@ -17,3 +17,7 @@ export interface RentalItem extends RentalSpecs, RentalCategory {
   img: string,
   moreInfoBtn: boolean
 }
+
+export interface FormatedItem extends RentalItem {
+  count?: number
+}
