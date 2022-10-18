@@ -102,7 +102,7 @@ const RentalPage: React.FC = () => {
                   fontSize={{ xs: 24, md: 30 }}
                   color='inherit'
                 >
-                  Back to Store
+                  Back to store
                 </Typography>
               </Box>
               <Page.Title title={rental.title} />

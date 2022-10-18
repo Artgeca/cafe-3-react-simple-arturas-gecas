@@ -1,5 +1,5 @@
 import {
-  Paper, Typography, IconButton,
+  Paper, Typography, IconButton, Box,
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -44,10 +44,36 @@ const CartPage = () => {
       pb: 5,
     }}
     >
-      <IconButton color='inherit' onClick={() => navigate('../')}>
-        <ArrowBackIcon fontSize='large' />
-      </IconButton>
-      <Page.Title title={formatedItems.length !== 0 ? 'Your Order' : 'Your Order'} />
+      <Box
+        display='flex'
+        alignItems='center'
+        justifyContent='space-between'
+        gap={3}
+        width='100%'
+        maxWidth={1440}
+        px={2}
+      >
+        <Box
+          display='flex'
+          alignItems='center'
+          sx={(theme) => ({ color: theme.palette.common.white })}
+          gap={{ xs: 1, md: 3 }}
+        >
+          <IconButton color='inherit' onClick={() => navigate('../')}>
+            <ArrowBackIcon fontSize='large' />
+          </IconButton>
+          <Typography
+            display={{ xs: 'none', sm: 'block' }}
+            variant='h6'
+            fontWeight={100}
+            fontSize={{ xs: 24, md: 30 }}
+            color='inherit'
+          >
+            Back to store
+          </Typography>
+        </Box>
+        <Page.Title title='Your order' />
+      </Box>
       <Paper sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -68,7 +94,7 @@ const CartPage = () => {
                 title={title}
               />
             )) : (
-              <Typography variant='h6' color='secondary'>Your order is empty</Typography>
+              <Typography variant='h5' color='secondary'>Your order is empty</Typography>
             )
         }
       </Paper>
