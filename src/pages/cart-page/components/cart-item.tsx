@@ -1,5 +1,5 @@
 import {
-  Paper, Typography, Button, Box,
+  Paper, Typography, Button, Box, Grid,
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -41,24 +41,48 @@ const CartItem: React.FC<Props> = ({
       elevation={3}
       sx={{
         display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: 2,
-        width: '100%',
         p: 2,
       }}
     >
-      <Components.Image src={img} width={150} />
-      <Typography>{title}</Typography>
-      <Box width={200}>
-        <AmountField amount={count} onInc={onInc} onDec={onDec} />
-      </Box>
-      <Button
-        variant='contained'
-        color='secondary'
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          justifyContent: { xs: 'center', sm: 'space-between' },
+          alignItems: 'center',
+        }}
       >
-        <DeleteOutlineIcon color='warning' />
-      </Button>
+        <Grid
+          item
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 1,
+          }}
+        >
+          <Components.Image src={img} width={150} />
+          <Typography>{title}</Typography>
+        </Grid>
+        <Grid
+          item
+          display='flex'
+          justifyContent='center'
+          alignItems='center'
+          gap={1}
+        >
+          <Box width={200}>
+            <AmountField amount={count} onInc={onInc} onDec={onDec} />
+          </Box>
+          <Button
+            variant='contained'
+            color='secondary'
+          >
+            <DeleteOutlineIcon color='warning' />
+          </Button>
+        </Grid>
+      </Grid>
     </Paper>
   );
 };

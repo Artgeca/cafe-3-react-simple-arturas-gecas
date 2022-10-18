@@ -1,5 +1,5 @@
 import {
-  Paper, Typography, IconButton, Box,
+  Paper, Typography, IconButton, Box, Button,
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -17,6 +17,8 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   const findItemCount = (id: string) => cartItems.find((x) => x.id === id)?.count;
+
+  const emptyOrder = formatedItems.length === 0;
 
   useEffect(() => {
     (
@@ -79,11 +81,11 @@ const CartPage = () => {
         flexDirection: 'column',
         gap: 3,
         maxWidth: 1440,
-        p: 5,
+        p: 3,
       }}
       >
         {
-          formatedItems.length !== 0
+          !emptyOrder
             ? formatedItems.map(({
               id, img, title,
             }) => (
@@ -97,6 +99,14 @@ const CartPage = () => {
               <Typography variant='h5' color='secondary'>Your order is empty</Typography>
             )
         }
+        <Button
+          disabled={emptyOrder}
+          variant='contained'
+          color='secondary'
+          fullWidth
+        >
+          Confirm Request
+        </Button>
       </Paper>
     </Page.Content>
   );
