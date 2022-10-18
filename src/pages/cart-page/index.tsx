@@ -1,6 +1,10 @@
-import { Paper } from '@mui/material';
+import {
+  Paper, Typography, IconButton,
+} from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate } from 'react-router-dom';
 import * as Page from '../../components';
 import { RootState } from '../../store/index';
 import RentalsService from '../../services/rentals-service';
@@ -10,6 +14,7 @@ import * as Components from './components';
 const CartPage = () => {
   const [formatedItems, setFormatedItems] = useState<FormatedItem[]>([]);
   const cartItems = useSelector((state: RootState) => state.cart.items);
+  const navigate = useNavigate();
 
   const findItemCount = (id: string) => cartItems.find((x) => x.id === id)?.count;
 
@@ -39,7 +44,10 @@ const CartPage = () => {
       pb: 5,
     }}
     >
-      <Page.Title title='Your Order' />
+      <IconButton color='inherit' onClick={() => navigate('../')}>
+        <ArrowBackIcon fontSize='large' />
+      </IconButton>
+      <Page.Title title={formatedItems.length !== 0 ? 'Your Order' : 'Your Order'} />
       <Paper sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -49,16 +57,19 @@ const CartPage = () => {
       }}
       >
         {
-          formatedItems.map(({
-            id, img, title,
-          }) => (
-            <Components.CartItem
-              key={id}
-              id={id}
-              img={img}
-              title={title}
-            />
-          ))
+          formatedItems.length !== 0
+            ? formatedItems.map(({
+              id, img, title,
+            }) => (
+              <Components.CartItem
+                key={id}
+                id={id}
+                img={img}
+                title={title}
+              />
+            )) : (
+              <Typography variant='h6' color='secondary'>Your order is empty</Typography>
+            )
         }
       </Paper>
     </Page.Content>

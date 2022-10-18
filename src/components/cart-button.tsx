@@ -4,7 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 
-const CartButton: React.FC = () => {
+interface Props {
+  to: string
+}
+
+const CartButton: React.FC<Props> = ({ to }) => {
   const navigate = useNavigate();
   const cartCount = useSelector(
     (state: RootState) => state.cart.items.reduce((sum, item) => sum + item.count, 0),
@@ -13,7 +17,7 @@ const CartButton: React.FC = () => {
   return (
     <Fab
       size='large'
-      onClick={() => navigate('./cart')}
+      onClick={() => navigate(to)}
       sx={{
         position: 'sticky',
         bottom: { xs: 20, sm: 20 },

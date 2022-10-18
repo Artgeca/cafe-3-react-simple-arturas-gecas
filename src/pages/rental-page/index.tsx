@@ -132,7 +132,7 @@ const RentalPage: React.FC = () => {
           </>
         )
       }
-      <Page.CartButton />
+      <Page.CartButton to='../cart' />
     </Page.Content>
   );
 };
