@@ -36,6 +36,8 @@ const CartPage = () => {
     });
     removeAllItemsFromCart();
     navigate('../');
+    console.log('Order info: ');
+    console.log(formatedItems);
   };
 
   useEffect(() => {
