@@ -1,15 +1,18 @@
 import { Grid, Paper } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import * as Page from '../../components';
 import RentalsService from '../../services/rentals-service';
 import { RentalItem } from './types';
 import * as Components from './components';
+import { CartItem, itemAdded } from '../../store/cart';
 
 const StorePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [rentals, setRentals] = useState<RentalItem[]>([]);
   const [filteredRentals, setFilteredRentals] = useState<RentalItem[]>([]);
+  const dispatch = useDispatch();
 
   const handleOnChange = (
     _e: React.MouseEvent<HTMLElement>,
@@ -28,23 +31,23 @@ const StorePage: React.FC = () => {
     setSearchParams(searchParams);
   };
 
-  useEffect(() => {
-    (
-      async () => {
-        const rentalsData: RentalItem[] = await RentalsService.fetchAll();
-        setRentals([...rentalsData]);
+  const mountComponent = async () => {
+    const rentalsData: RentalItem[] = await RentalsService.fetchAll();
+    setRentals([...rentalsData]);
 
-        const categoryFilter = searchParams.get('categoryType');
-        if (categoryFilter) {
-          const filteredData = rentalsData.filter(
-            (rental) => (rental.rentalCategory.type === categoryFilter),
-          );
-          setFilteredRentals([...filteredData]);
-        } else {
-          setFilteredRentals([...rentalsData]);
-        }
-      }
-    )();
+    const categoryFilter = searchParams.get('categoryType');
+    if (categoryFilter) {
+      const filteredData = rentalsData.filter(
+        (rental) => (rental.rentalCategory.type === categoryFilter),
+      );
+      setFilteredRentals([...filteredData]);
+    } else {
+      setFilteredRentals([...rentalsData]);
+    }
+  };
+
+  useEffect(() => {
+    mountComponent();
   }, []);
 
   return (
