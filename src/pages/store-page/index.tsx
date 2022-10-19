@@ -1,18 +1,15 @@
 import { Grid, Paper } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import * as Page from '../../components';
 import RentalsService from '../../services/rentals-service';
 import { RentalItem } from './types';
 import * as Components from './components';
-import { CartItem, itemAdded } from '../../store/cart';
 
 const StorePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [rentals, setRentals] = useState<RentalItem[]>([]);
   const [filteredRentals, setFilteredRentals] = useState<RentalItem[]>([]);
-  const dispatch = useDispatch();
 
   const handleOnChange = (
     _e: React.MouseEvent<HTMLElement>,
