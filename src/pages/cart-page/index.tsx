@@ -1,8 +1,10 @@
 import {
   Paper, Typography, IconButton, Box, Button,
 } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import {
+  useContext, useEffect, useState,
+} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
 import * as Page from '../../components';
@@ -10,8 +12,12 @@ import { RootState } from '../../store/index';
 import RentalsService from '../../services/rentals-service';
 import { FormatedItem, RentalItem } from '../store-page/types';
 import * as Components from './components';
+import { AlertContext } from '../../contexts/alert-context';
+import { itemRemoved } from '../../store/cart';
 
 const CartPage = () => {
+  const dispatch = useDispatch();
+  const { setAlert } = useContext(AlertContext);
   const [formatedItems, setFormatedItems] = useState<FormatedItem[]>([]);
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const navigate = useNavigate();
@@ -19,6 +25,18 @@ const CartPage = () => {
   const findItemCount = (id: string) => cartItems.find((x) => x.id === id)?.count;
 
   const emptyOrder = formatedItems.length === 0;
+
+  const removeAllItemsFromCart = () => {
+    formatedItems.forEach((item) => dispatch(itemRemoved(item.id)));
+  };
+
+  const handleSubmit = () => {
+    setAlert({
+      open: true, type: 'success', message: 'Your request successfuly delivered',
+    });
+    removeAllItemsFromCart();
+    navigate('../');
+  };
 
   useEffect(() => {
     (
@@ -104,6 +122,7 @@ const CartPage = () => {
           variant='contained'
           color='secondary'
           fullWidth
+          onClick={handleSubmit}
         >
           Confirm Request
         </Button>
