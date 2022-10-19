@@ -7,7 +7,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import * as Components from '../../../components';
 import AmountField from '../../../components/amount-field/amount-field';
 import { RootState } from '../../../store';
-import { itemAdded } from '../../../store/cart';
+import { itemAdded, itemRemoved } from '../../../store/cart';
 
 interface Props {
   id: string,
@@ -34,6 +34,10 @@ const CartItem: React.FC<Props> = ({
       setCount(count - 1);
       dispatch(itemAdded({ id, count: count - 1 }));
     }
+  };
+
+  const onDelete = () => {
+    dispatch(itemRemoved(id));
   };
 
   return (
@@ -78,6 +82,7 @@ const CartItem: React.FC<Props> = ({
           <Button
             variant='contained'
             color='secondary'
+            onClick={onDelete}
           >
             <DeleteOutlineIcon color='warning' />
           </Button>

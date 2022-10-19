@@ -33,7 +33,7 @@ const CartPage = () => {
         setFormatedItems([...formatedData]);
       }
     )();
-  }, []);
+  }, [formatedItems]);
 
   return (
     <Page.Content sx={{
