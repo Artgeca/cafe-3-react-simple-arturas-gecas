@@ -96,39 +96,50 @@ const CartPage = () => {
         </Box>
         <Page.Title title='Your order' />
       </Box>
-      <Paper sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 3,
-        maxWidth: 1440,
-        p: 3,
-      }}
-      >
-        {
-          !emptyOrder
-            ? formatedItems.map(({
-              id, img, title,
-            }) => (
-              <Components.CartItem
-                key={id}
-                id={id}
-                img={img}
-                title={title}
-              />
-            )) : (
-              <Typography variant='h5' color='secondary'>Your order is empty</Typography>
-            )
-        }
-        <Button
-          disabled={emptyOrder}
-          variant='contained'
-          color='secondary'
-          fullWidth
-          onClick={handleSubmit}
-        >
-          Confirm Request
-        </Button>
-      </Paper>
+      {
+        emptyOrder ? (
+          <Typography
+            variant='h3'
+            fontWeight={100}
+            fontSize={{ xs: 30, sm: 48 }}
+            color='common.white'
+            paddingTop={3}
+          >
+            Your order is empty
+          </Typography>
+        ) : (
+          <Paper sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 3,
+            maxWidth: 1440,
+            p: 3,
+          }}
+          >
+            {
+              formatedItems.map(({
+                id, img, title,
+              }) => (
+                <Components.CartItem
+                  key={id}
+                  id={id}
+                  img={img}
+                  title={title}
+                />
+              ))
+            }
+            <Button
+              disabled={emptyOrder}
+              variant='contained'
+              color='secondary'
+              fullWidth
+              onClick={handleSubmit}
+            >
+              Confirm Request
+            </Button>
+          </Paper>
+        )
+      }
     </Page.Content>
   );
 };
