@@ -24,8 +24,8 @@ const validationSchema = yup.object({
   email: yup.string()
     .required('Required')
     .email('Invalid email'),
-  password: yup.string()
-    .required('Required'),
+  password: yup.string(),
+  // .required('Required'),
   // .min(8, 'At least 8 symbols')
   // .matches(/[a-z]/, 'At least 1 lowercase')
   // .matches(/[A-Z]/, 'At least 1 uppercase')

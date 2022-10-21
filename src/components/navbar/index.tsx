@@ -86,7 +86,7 @@ const Navbar = () => {
           />
           {
             user ? (
-              <Nav.LogOut to='#' onClick={handleLogOut}>
+              <Nav.LogOut to='/' onClick={handleLogOut}>
                 <LogoutIcon />
               </Nav.LogOut>
             ) : (

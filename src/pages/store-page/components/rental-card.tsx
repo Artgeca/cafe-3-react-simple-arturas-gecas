@@ -20,7 +20,7 @@ const RentalCard: React.FC<RentalItem> = ({
   moreInfoBtn,
 }) => {
   const initCount = useSelector(
-    (state: RootState) => state.entities.cart.items.find((x) => x.id === id)?.count ?? 0,
+    (state: RootState) => state.cart.items.find((x) => x.id === id)?.count ?? 0,
   );
 
   const navigate = useNavigate();

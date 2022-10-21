@@ -13,7 +13,7 @@ import RentalPage from '../pages/rental-page';
 import ServicesPage from '../pages/services-page';
 import SignUpPage from '../pages/signup-page';
 import StorePage from '../pages/store-page';
-import LoadCartItems from './load-cart-items';
+import PrivateRoutes from './private-route';
 
 const PageRoutes: React.FC = () => (
   <Routes>
@@ -23,10 +23,12 @@ const PageRoutes: React.FC = () => (
       <Route path='projects' element={<ProjectsPage />} />
       <Route path='galery' element={<GaleryPage />} />
       <Route path='contacts' element={<ContactsPage />} />
-      <Route path='store/'>
-        <Route index element={<LoadCartItems><StorePage /></LoadCartItems>} />
-        <Route path=':id' element={<LoadCartItems><RentalPage /></LoadCartItems>} />
-        <Route path='cart' element={<LoadCartItems><CartPage /></LoadCartItems>} />
+      <Route element={<PrivateRoutes />}>
+        <Route path='store/'>
+          <Route index element={<StorePage />} />
+          <Route path=':id' element={<RentalPage />} />
+          <Route path='cart' element={<CartPage />} />
+        </Route>
       </Route>
       <Route path='auth/' element={<AuthLayout />}>
         <Route index element={<Navigate to='login' />} />
