@@ -12,15 +12,15 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    authAdded: (auth, action: PayloadAction<UserItem>) => {
+    userAdded: (auth, action: PayloadAction<UserItem>) => {
       auth.user = action.payload;
     },
 
-    authRemoved: (auth) => {
+    userRemoved: (auth) => {
       auth.user = null;
     },
   },
 });
 
-export const { authAdded, authRemoved } = authSlice.actions;
+export const { userAdded, userRemoved } = authSlice.actions;
 export default authSlice.reducer;

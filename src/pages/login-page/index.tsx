@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form } from '../../components';
-import { authAdded } from '../../store/auth';
+import { userAdded } from '../../store/auth';
 import { AlertContext } from '../../contexts/alert-context';
 
 interface LogInValues {
@@ -43,10 +43,10 @@ const LoginPage = () => {
     console.log('Log In form values:');
     console.log(JSON.stringify(loginValues, null, 2));
     if (loginValues.email === 'user@user.com') {
-      dispatch(authAdded({ email: loginValues.email, role: 'user' }));
+      dispatch(userAdded({ email: loginValues.email, role: 'user' }));
       navigate('../../');
     } else if (loginValues.email === 'admin@admin.com') {
-      dispatch(authAdded({ email: loginValues.email, role: 'admin' }));
+      dispatch(userAdded({ email: loginValues.email, role: 'admin' }));
       navigate('../../');
     } else {
       setAlert({
