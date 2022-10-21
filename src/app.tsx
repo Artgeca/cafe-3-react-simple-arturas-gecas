@@ -7,7 +7,7 @@ import PageRoutes from './routes/page-routes';
 import ServiceNavigationProvider from './contexts/services-page-navigation-context';
 import { AlertSnackbar, Navbar } from './components';
 import { store } from './store';
-import LoadDataFromLocalStorage from './helpers/load-data-form-local-storage';
+import LoadApp from './components/load-app/index';
 
 const App: React.FC = () => (
   <BrowserRouter>
@@ -15,13 +15,13 @@ const App: React.FC = () => (
       <ServiceNavigationProvider>
         <ThemeProvider theme={theme}>
           <Provider store={store}>
-            <LoadDataFromLocalStorage>
+            <LoadApp>
               <>
                 <Navbar />
                 <PageRoutes />
                 <AlertSnackbar />
               </>
-            </LoadDataFromLocalStorage>
+            </LoadApp>
           </Provider>
         </ThemeProvider>
       </ServiceNavigationProvider>

@@ -14,10 +14,12 @@ const authSlice = createSlice({
   reducers: {
     userAdded: (auth, action: PayloadAction<UserItem>) => {
       auth.user = action.payload;
+      localStorage.setItem('user', JSON.stringify(auth.user));
     },
 
     userRemoved: (auth) => {
       auth.user = initialState.user;
+      localStorage.setItem('user', JSON.stringify(auth.user));
     },
   },
 });

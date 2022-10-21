@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as Nav from './components';
 import { RootState } from '../../store';
 import { userRemoved } from '../../store/auth';
+import { itemsRemoved } from '../../store/cart';
 
 const guestPages = [
   { title: 'Services', to: '/services' },
@@ -47,6 +48,7 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     dispatch(userRemoved());
+    dispatch(itemsRemoved());
   };
 
   return (
