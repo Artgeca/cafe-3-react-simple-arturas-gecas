@@ -12,7 +12,14 @@ import * as Nav from './components';
 import { RootState } from '../../store';
 import { userRemoved } from '../../store/auth';
 
-const pages = [
+const guestPages = [
+  { title: 'Services', to: '/services' },
+  { title: 'Projects', to: '/projects' },
+  { title: 'Galery', to: '/galery' },
+  { title: 'Contacts', to: '/contacts' },
+];
+
+const userPages = [
   { title: 'Services', to: '/services' },
   { title: 'Projects', to: '/projects' },
   { title: 'Galery', to: '/galery' },
@@ -30,6 +37,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
+
+  const pages = user ? userPages : guestPages;
 
   const handleDrawerNavigation = (to: string) => {
     navigate(to);
