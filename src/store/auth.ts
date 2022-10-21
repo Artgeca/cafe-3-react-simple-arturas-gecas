@@ -12,12 +12,12 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    authAdded: (auth, action: PayloadAction<AuthState>) => {
-      auth.user = action.payload.user;
+    authAdded: (auth, action: PayloadAction<UserItem>) => {
+      auth.user = action.payload;
     },
 
     authRemoved: (auth) => {
-      auth.user = initialState.user;
+      auth.user = null;
     },
   },
 });
