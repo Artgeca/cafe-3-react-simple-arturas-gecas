@@ -28,3 +28,17 @@ export const HomeLink = styled(NavLink)(({ theme }) => ({
   textDecoration: 'none',
   color: theme.palette.grey[200],
 }));
+
+export const LogOut = styled(NavLink)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: theme.spacing(0, 3),
+  textDecoration: 'none',
+  color: theme.palette.grey[500],
+
+  ':hover': {
+    backgroundColor: theme.palette.secondary.light,
+    color: theme.palette.grey[200],
+  },
+}));

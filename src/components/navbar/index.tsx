@@ -5,8 +5,12 @@ import {
 } from '@mui/material';
 import StraightenIcon from '@mui/icons-material/Straighten';
 import MenuIcon from '@mui/icons-material/Menu';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import * as Nav from './components';
+import { RootState } from '../../store';
+import { userRemoved } from '../../store/auth';
 
 const pages = [
   { title: 'Services', to: '/services' },
@@ -22,12 +26,18 @@ const authPages = [
 ];
 
 const Navbar = () => {
+  const user = useSelector((state: RootState) => state.auth.user);
+  const dispatch = useDispatch();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleDrawerNavigation = (to: string) => {
     navigate(to);
     setDrawerOpen(false);
+  };
+
+  const handleLogOut = () => {
+    dispatch(userRemoved());
   };
 
   return (
@@ -66,11 +76,17 @@ const Navbar = () => {
             sx={{ bgcolor: 'grey.500', my: 2 }}
           />
           {
-            authPages.map((page) => (
-              <Nav.Link key={page.title} to={page.to} color='inherit'>
-                {page.title}
-              </Nav.Link>
-            ))
+            user ? (
+              <Nav.LogOut to='#' onClick={handleLogOut}>
+                <LogoutIcon />
+              </Nav.LogOut>
+            ) : (
+              authPages.map((page) => (
+                <Nav.Link key={page.title} to={page.to} color='inherit'>
+                  {page.title}
+                </Nav.Link>
+              ))
+            )
           }
         </Box>
         <IconButton
@@ -109,13 +125,30 @@ const Navbar = () => {
             <Box>
               <Divider variant='middle' sx={{ my: 2 }} />
               {
-                authPages.map((page) => (
-                  <ListItem disablePadding key={page.title}>
-                    <ListItemButton sx={{ px: 5 }} onClick={() => handleDrawerNavigation(page.to)}>
-                      <ListItemText primary={page.title} />
+                user ? (
+                  <ListItem disablePadding>
+                    <ListItemButton
+                      sx={{ px: 5 }}
+                      onClick={handleLogOut}
+                    >
+                      <ListItemText primary='Log out' />
+                      <LogoutIcon color='action' sx={{ ml: 1 }} />
                     </ListItemButton>
                   </ListItem>
-                ))
+                ) : (
+                  authPages.map((page) => (
+                    <ListItem disablePadding key={page.title}>
+                      <ListItemButton
+                        sx={{ px: 5 }}
+                        onClick={
+                          () => handleDrawerNavigation(page.to)
+                        }
+                      >
+                        <ListItemText primary={page.title} />
+                      </ListItemButton>
+                    </ListItem>
+                  ))
+                )
               }
             </Box>
           </List>
