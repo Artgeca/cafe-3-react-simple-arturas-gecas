@@ -1,4 +1,6 @@
-import { Route, Routes } from 'react-router-dom';
+import {
+  Navigate, Route, Routes,
+} from 'react-router-dom';
 import AuthLayout from '../layouts/auth-layout';
 import CartPage from '../pages/cart-page';
 import ContactsPage from '../pages/contacts-page';
@@ -27,6 +29,7 @@ const PageRoutes: React.FC = () => (
         <Route path='cart' element={<LoadCartItems><CartPage /></LoadCartItems>} />
       </Route>
       <Route path='auth/' element={<AuthLayout />}>
+        <Route index element={<Navigate to='login' />} />
         <Route path='signup' element={<SignUpPage />} />
         <Route path='login' element={<LoginPage />} />
       </Route>
