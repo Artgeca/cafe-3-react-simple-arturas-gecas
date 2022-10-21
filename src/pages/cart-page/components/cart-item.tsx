@@ -19,7 +19,7 @@ const CartItem: React.FC<Props> = ({
   id, img, title,
 }) => {
   const initCount = useSelector(
-    (state: RootState) => state.cart.items.find((x) => x.id === id)?.count ?? 0,
+    (state: RootState) => state.entities.cart.items.find((x) => x.id === id)?.count ?? 0,
   );
 
   const dispatch = useDispatch();

@@ -19,7 +19,7 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const { setAlert } = useContext(AlertContext);
   const [formatedItems, setFormatedItems] = useState<FormatedItem[]>([]);
-  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const cartItems = useSelector((state: RootState) => state.entities.cart.items);
   const navigate = useNavigate();
 
   const findItemCount = (id: string) => cartItems.find((x) => x.id === id)?.count;

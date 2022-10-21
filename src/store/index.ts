@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import cartReducer from './cart';
 import authReducer from './auth';
+import enititiesReducer from './entities';
 import cartToLocalStorage from './middleware/cart-to-local-storage';
 
 export const store = configureStore({
-  reducer: { cart: cartReducer, auth: authReducer },
+  reducer: { auth: authReducer, entities: enititiesReducer },
   middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), cartToLocalStorage],
 });
 

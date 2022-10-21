@@ -11,7 +11,7 @@ interface Props {
 const CartButton: React.FC<Props> = ({ to }) => {
   const navigate = useNavigate();
   const cartCount = useSelector(
-    (state: RootState) => state.cart.items.reduce((sum, item) => sum + item.count, 0),
+    (state: RootState) => state.entities.cart.items.reduce((sum, item) => sum + item.count, 0),
   );
 
   return (
