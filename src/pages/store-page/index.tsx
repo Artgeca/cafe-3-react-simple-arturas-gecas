@@ -11,6 +11,7 @@ const StorePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [rentals, setRentals] = useState<RentalItem[]>([]);
   const [filteredRentals, setFilteredRentals] = useState<RentalItem[]>([]);
+  const [openModal, setOpenModal] = useState(false);
   const isAdmin = useAdmin();
 
   const handleOnChange = (
@@ -103,8 +104,9 @@ const StorePage: React.FC = () => {
       </Grid>
       <Page.CartButton to='./cart' />
       {
-        isAdmin && <Components.CreateRentalButton />
+        isAdmin && <Components.CreateRentalButton setOpen={setOpenModal} />
       }
+      <Components.CreateRentalModal open={openModal} setOpen={setOpenModal} />
     </Page.Content>
   );
 };

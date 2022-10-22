@@ -6,48 +6,12 @@ import {
   Typography,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { rentalCategories } from '../../../assets/data/rentals-data';
 
 interface Props {
   searchParams: URLSearchParams,
   handleOnChange: (_e: React.MouseEvent<HTMLElement>, newFilter: string) => void
 }
-
-interface Category {
-  title: string,
-  value: string
-}
-
-const rentalCategories: Category[] = [
-  {
-    title: 'Backhoe Loader',
-    value: '1',
-  },
-  {
-    title: 'Skid-Steer Loader',
-    value: '2',
-  },
-  {
-    title: 'Mini Excavator',
-    value: '3',
-  },
-  {
-    title: 'Excavator',
-    value: '4',
-  },
-  {
-    title: 'Dozer',
-    value: '5',
-  },
-  {
-    title: 'Wheel Loder',
-    value: '6',
-  },
-  {
-    title: 'Generator',
-    value: '7',
-  },
-
-];
 
 const CategoryFilter: React.FC<Props> = ({ searchParams, handleOnChange }) => (
   <Accordion sx={{ width: '100%', bgcolor: 'secondary.main' }}>

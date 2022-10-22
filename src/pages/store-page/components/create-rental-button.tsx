@@ -1,9 +1,14 @@
 import { Fab } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
-const CreateRentalButton: React.FC = () => (
+interface Props {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const CreateRentalButton: React.FC<Props> = ({ setOpen }) => (
   <Fab
     size='large'
+    onClick={() => setOpen(true)}
     sx={{
       position: 'sticky',
       bottom: { xs: 80, sm: 90 },
