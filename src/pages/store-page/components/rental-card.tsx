@@ -12,6 +12,7 @@ import Image from '../../../components/image';
 import { itemAdded, itemRemoved } from '../../../store/cart';
 import { RootState } from '../../../store';
 import AdminPanel from './admin-panel';
+import useAdmin from '../../../hooks/use-admin';
 
 const RentalCard: React.FC<RentalItem> = ({
   id,
@@ -23,8 +24,7 @@ const RentalCard: React.FC<RentalItem> = ({
   const initCount = useSelector(
     (state: RootState) => state.cart.items.find((x) => x.id === id)?.count ?? 0,
   );
-  const role = useSelector((state: RootState) => state.auth.user?.role);
-  const isAdmin = role === 'admin';
+  const isAdmin = useAdmin();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();

@@ -49,6 +49,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     dispatch(userRemoved());
     dispatch(itemsRemoved());
+    navigate('/auth/login');
   };
 
   return (
@@ -88,7 +89,7 @@ const Navbar = () => {
           />
           {
             user ? (
-              <Nav.LogOut to='/' onClick={handleLogOut}>
+              <Nav.LogOut to='#' onClick={handleLogOut}>
                 <LogoutIcon />
               </Nav.LogOut>
             ) : (

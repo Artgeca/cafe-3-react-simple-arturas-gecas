@@ -1,15 +1,17 @@
 import { Grid, Paper } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import * as Page from '../../components';
 import RentalsService from '../../services/rentals-service';
 import { RentalItem } from './types';
+import * as Page from '../../components';
 import * as Components from './components';
+import useAdmin from '../../hooks/use-admin';
 
 const StorePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [rentals, setRentals] = useState<RentalItem[]>([]);
   const [filteredRentals, setFilteredRentals] = useState<RentalItem[]>([]);
+  const isAdmin = useAdmin();
 
   const handleOnChange = (
     _e: React.MouseEvent<HTMLElement>,
@@ -65,7 +67,7 @@ const StorePage: React.FC = () => {
         flexDirection: { xs: 'column', md: 'row' },
         justifyContent: 'center',
         alignItems: 'center',
-        width: '100%',
+        width: { xs: 300, sm: 330 },
         maxWidth: 1440,
       }}
       >
@@ -76,7 +78,6 @@ const StorePage: React.FC = () => {
         justifyContent='center'
         gap={3}
         maxWidth={1440}
-        bgcolor='secondary.main'
         sx={{ p: { xs: 2, sm: 3 }, borderRadius: 1 }}
       >
         {
@@ -101,6 +102,9 @@ const StorePage: React.FC = () => {
         }
       </Grid>
       <Page.CartButton to='./cart' />
+      {
+        isAdmin && <Components.CreateRentalButton />
+      }
     </Page.Content>
   );
 };
