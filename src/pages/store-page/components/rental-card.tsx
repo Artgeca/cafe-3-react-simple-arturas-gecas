@@ -52,7 +52,7 @@ const RentalCard: React.FC<RentalItem> = ({
       justifyContent: 'space-between',
       p: 2,
       width: { xs: 300, sm: 330 },
-      height: isAdmin ? 620 : 520,
+      height: isAdmin ? 600 : 520,
     }}
     >
       <Image src={img} width={250} />
