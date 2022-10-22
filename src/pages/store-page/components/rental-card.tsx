@@ -11,6 +11,7 @@ import AmountField from '../../../components/amount-field/amount-field';
 import Image from '../../../components/image';
 import { itemAdded, itemRemoved } from '../../../store/cart';
 import { RootState } from '../../../store';
+import AdminPanel from './admin-panel';
 
 const RentalCard: React.FC<RentalItem> = ({
   id,
@@ -22,6 +23,8 @@ const RentalCard: React.FC<RentalItem> = ({
   const initCount = useSelector(
     (state: RootState) => state.cart.items.find((x) => x.id === id)?.count ?? 0,
   );
+  const role = useSelector((state: RootState) => state.auth.user?.role);
+  const isAdmin = role === 'admin';
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -43,7 +46,13 @@ const RentalCard: React.FC<RentalItem> = ({
 
   return (
     <Paper sx={{
-      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', p: 2, width: { xs: 300, sm: 330 }, height: 520,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      p: 2,
+      width: { xs: 300, sm: 330 },
+      height: isAdmin ? 620 : 520,
     }}
     >
       <Image src={img} width={250} />
@@ -91,6 +100,11 @@ const RentalCard: React.FC<RentalItem> = ({
               More info
             </Button>
           </Box>
+          {
+            isAdmin && moreInfoBtn && (
+              <AdminPanel />
+            )
+          }
         </Box>
       </Box>
     </Paper>
