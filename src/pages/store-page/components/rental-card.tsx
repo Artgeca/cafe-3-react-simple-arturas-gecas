@@ -74,7 +74,7 @@ const RentalCard: React.FC<RentalItem> = ({
           }
         </Box>
         <Box sx={{
-          width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
+          width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1,
         }}
         >
           <Box display='flex' gap={1}>

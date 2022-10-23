@@ -4,7 +4,7 @@ import TuneIcon from '@mui/icons-material/Tune';
 
 const AdminPanel = () => (
   <Box sx={{
-    display: 'flex', width: '100%', gap: 2,
+    display: 'flex', width: '100%', gap: 1,
   }}
   >
     <Button
