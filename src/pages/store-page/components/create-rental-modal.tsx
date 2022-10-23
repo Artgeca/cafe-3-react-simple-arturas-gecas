@@ -49,6 +49,7 @@ const CreateRentalModal: React.FC<Props> = ({ open, setOpen }) => {
         >
           <TextField
             name='title'
+            required
             color='secondary'
             label='Title'
             value={formValues.title}
@@ -56,6 +57,7 @@ const CreateRentalModal: React.FC<Props> = ({ open, setOpen }) => {
           />
           <TextField
             name='category'
+            required
             color='secondary'
             label='Category'
             select

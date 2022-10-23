@@ -13,6 +13,7 @@ import { itemAdded, itemRemoved } from '../../../store/cart';
 import { RootState } from '../../../store';
 import AdminPanel from './admin-panel';
 import useAdmin from '../../../hooks/use-admin';
+import noImg from '../../../assets/images/no-image.jpg';
 
 const RentalCard: React.FC<RentalItem> = ({
   id,
@@ -55,7 +56,7 @@ const RentalCard: React.FC<RentalItem> = ({
       height: isAdmin ? 600 : 520,
     }}
     >
-      <Image src={img} width={250} />
+      <Image src={img || noImg} width={250} />
       <Box>
         <Typography variant='h6' fontWeight={400} sx={{ pb: 2 }}>{title}</Typography>
         <Box
@@ -66,7 +67,8 @@ const RentalCard: React.FC<RentalItem> = ({
           pb={2}
         >
           {
-            specs.map((spec) => (
+            specs
+            && specs.map((spec) => (
               <Chip key={spec} label={spec} color='primary' />
             ))
           }

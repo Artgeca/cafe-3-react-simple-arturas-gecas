@@ -14,6 +14,7 @@ import { FormatedItem, RentalItem } from '../store-page/types';
 import * as Components from './components';
 import { AlertContext } from '../../contexts/alert-context';
 import { itemRemoved } from '../../store/cart';
+import noImg from '../../assets/images/no-image.jpg';
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -123,7 +124,7 @@ const CartPage = () => {
                 <Components.CartItem
                   key={id}
                   id={id}
-                  img={img}
+                  img={img || noImg}
                   title={title}
                 />
               ))

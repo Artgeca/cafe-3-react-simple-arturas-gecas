@@ -1,5 +1,5 @@
 export interface RentalSpecs {
-  specs: string[];
+  specs?: string[];
 }
 
 export interface RentalCategory {
@@ -14,8 +14,9 @@ export interface RentalItem extends RentalSpecs, RentalCategory {
   id: string,
   title: string,
   rentalCategoryId: number,
-  img: string,
   moreInfoBtn: boolean
+  specs?: string[];
+  img?: string,
 }
 
 export interface FormatedItem extends RentalItem {
