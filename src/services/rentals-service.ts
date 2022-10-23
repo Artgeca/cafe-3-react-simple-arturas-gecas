@@ -26,8 +26,17 @@ const create = async (data: RentalItemFetch) => {
   return response.json();
 };
 
+const remove = async (id: string) => {
+  const response = await fetch(`${domain}/rentals/${id}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  return response.json();
+};
+
 const RentalsService = {
-  fetchAll, fetchById, create,
+  fetchAll, fetchById, create, remove,
 };
 
 export default RentalsService;

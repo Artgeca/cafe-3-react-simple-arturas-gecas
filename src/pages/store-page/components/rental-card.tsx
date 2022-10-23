@@ -14,6 +14,7 @@ import { RootState } from '../../../store';
 import AdminPanel from './admin-panel';
 import useAdmin from '../../../hooks/use-admin';
 import noImg from '../../../assets/images/no-image.jpg';
+import RentalsService from '../../../services/rentals-service';
 
 const RentalCard: React.FC<RentalItem> = ({
   id,
@@ -43,6 +44,10 @@ const RentalCard: React.FC<RentalItem> = ({
     } else {
       handleAddItemToCart();
     }
+  };
+
+  const handleDelete = () => {
+    RentalsService.remove(id);
   };
 
   return (
@@ -104,7 +109,7 @@ const RentalCard: React.FC<RentalItem> = ({
           </Box>
           {
             isAdmin && moreInfoBtn && (
-              <AdminPanel />
+              <AdminPanel handleDelete={handleDelete} />
             )
           }
         </Box>

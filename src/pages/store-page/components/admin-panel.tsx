@@ -2,7 +2,11 @@ import { Box, Button } from '@mui/material';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import TuneIcon from '@mui/icons-material/Tune';
 
-const AdminPanel = () => (
+interface Props {
+  handleDelete: () => void
+}
+
+const AdminPanel: React.FC<Props> = ({ handleDelete }) => (
   <Box sx={{
     display: 'flex', width: '100%', gap: 1,
   }}
@@ -21,6 +25,7 @@ const AdminPanel = () => (
       variant='contained'
       color='secondary'
       fullWidth
+      onClick={handleDelete}
     >
       <Box display='flex' gap={1}>
         Delete
