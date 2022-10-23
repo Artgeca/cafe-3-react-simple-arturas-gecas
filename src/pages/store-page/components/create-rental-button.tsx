@@ -11,7 +11,7 @@ const CreateRentalButton: React.FC<Props> = ({ setOpen }) => (
     onClick={() => setOpen(true)}
     sx={{
       position: 'sticky',
-      bottom: { xs: 80, sm: 90 },
+      bottom: { xs: 100, sm: 110 },
       left: { xs: '75%', sm: '100%' },
       bgcolor: 'common.black',
       color: 'common.white',

@@ -20,7 +20,7 @@ const CartButton: React.FC<Props> = ({ to }) => {
       onClick={() => navigate(to)}
       sx={{
         position: 'sticky',
-        bottom: { xs: 20, sm: 20 },
+        bottom: 40,
         left: { xs: '75%', sm: '100%' },
         bgcolor: 'common.black',
         color: 'common.white',

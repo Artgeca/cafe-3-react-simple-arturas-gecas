@@ -58,8 +58,6 @@ const StorePage: React.FC = () => {
       position: 'relative',
       pt: { xs: 10, sm: 12 },
       px: { xs: 3, md: 5 },
-      pb: 5,
-      gap: 3,
     }}
     >
       <Page.Title title='Rent equipment' />
@@ -102,10 +100,10 @@ const StorePage: React.FC = () => {
           ))
         }
       </Grid>
-      <Page.CartButton to='./cart' />
       {
         isAdmin && <Components.CreateRentalButton setOpen={setOpenModal} />
       }
+      <Page.CartButton to='./cart' />
       <Components.CreateRentalModal open={openModal} setOpen={setOpenModal} />
     </Page.Content>
   );
