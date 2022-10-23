@@ -22,3 +22,10 @@ export interface RentalItem extends RentalSpecs, RentalCategory {
 export interface FormatedItem extends RentalItem {
   count?: number
 }
+
+export interface RentalItemFetch {
+  title: string,
+  rentalCategoryId: number,
+  specs?: string[];
+  img?: string,
+}

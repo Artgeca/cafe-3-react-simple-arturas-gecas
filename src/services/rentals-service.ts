@@ -1,3 +1,5 @@
+import { RentalItemFetch } from '../pages/store-page/types';
+
 const domain = process.env.REACT_APP_SERVER_ADDRESS;
 
 const fetchAll = async () => {
@@ -14,6 +16,18 @@ const fetchById = async (id: string) => {
   return item;
 };
 
-const RentalsService = { fetchAll, fetchById };
+const create = async (data: RentalItemFetch) => {
+  const response = await fetch(`${domain}/rentals`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+
+  return response.json();
+};
+
+const RentalsService = {
+  fetchAll, fetchById, create,
+};
 
 export default RentalsService;

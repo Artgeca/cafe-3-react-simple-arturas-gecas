@@ -2,7 +2,9 @@ import {
   Dialog, DialogTitle, DialogActions, Button, TextField, Box, MenuItem,
 } from '@mui/material';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { rentalCategories } from '../../../assets/data/rentals-data';
+import RentalsService from '../../../services/rentals-service';
 
 interface Props {
   open: boolean
@@ -29,9 +31,44 @@ const formInitialValues: FormInterface = {
 
 const CreateRentalModal: React.FC<Props> = ({ open, setOpen }) => {
   const [formValues, setFormValues] = useState(formInitialValues);
+  const navigate = useNavigate();
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const formatFormValues = () => {
+    const {
+      title,
+      category,
+      spec1,
+      spec2,
+      spec3,
+      img,
+    } = formValues;
+
+    const specs: string[] = [];
+
+    [spec1, spec2, spec3].forEach((spec) => {
+      if (spec && spec !== '') {
+        specs.push(spec);
+      }
+    });
+
+    return {
+      title,
+      rentalCategoryId: +category,
+      img,
+      specs,
+    };
+  };
+
+  const handleCreateRental = () => {
+    const formatedData = formatFormValues();
+    RentalsService.create(formatedData);
+    setFormValues(formInitialValues);
+    setOpen(false);
+    navigate('/store');
   };
 
   return (
@@ -105,6 +142,7 @@ const CreateRentalModal: React.FC<Props> = ({ open, setOpen }) => {
             variant='contained'
             color='secondary'
             sx={{ color: 'primary.main' }}
+            onClick={handleCreateRental}
           >
             Create
           </Button>

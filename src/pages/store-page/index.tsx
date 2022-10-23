@@ -48,7 +48,7 @@ const StorePage: React.FC = () => {
 
   useEffect(() => {
     mountComponent();
-  }, []);
+  }, [openModal]);
 
   return (
     <Page.Content sx={{
