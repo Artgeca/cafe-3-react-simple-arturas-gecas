@@ -1,9 +1,7 @@
 import {
   Dialog, DialogTitle, DialogActions, Button, TextField, Box, MenuItem,
 } from '@mui/material';
-import {
-  useState, useEffect, useCallback,
-} from 'react';
+import { useState, useEffect } from 'react';
 import { rentalCategories } from '../../../assets/data/rentals-data';
 import RentalsService from '../../../services/rentals-service';
 import { RentalItemFetch } from '../types';
@@ -37,7 +35,6 @@ const EditRentalModal: React.FC<Props> = ({
   open, setOpen, editRentalId, setEditRentalId,
 }) => {
   const [formValues, setFormValues] = useState<FormInterface>(formInitialValues);
-  // const [rental, setRental] = useState<RentalItemFetch | null>(null);
 
   const formatRental = (rental: RentalItemFetch) => {
     const {
@@ -93,7 +90,6 @@ const EditRentalModal: React.FC<Props> = ({
   const handleClose = () => {
     setOpen(false);
     setEditRentalId(null);
-    // setRental(null);
     setFormValues(formInitialValues);
   };
 
@@ -102,7 +98,6 @@ const EditRentalModal: React.FC<Props> = ({
       async () => {
         if (editRentalId) {
           const item: RentalItemFetch = await RentalsService.fetchById(editRentalId);
-          // setRental(item);
           if (item) {
             setFormValues(formatRental(item));
           }
