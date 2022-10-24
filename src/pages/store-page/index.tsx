@@ -11,7 +11,9 @@ const StorePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [rentals, setRentals] = useState<RentalItem[]>([]);
   const [filteredRentals, setFilteredRentals] = useState<RentalItem[]>([]);
-  const [openModal, setOpenModal] = useState(false);
+  const [openCreateModal, setOpenCreateModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [editRentalId, setEditRentalId] = useState<string | null>(null);
   const [deleteClicked, setDeleteClicked] = useState(false);
   const isAdmin = useAdmin();
 
@@ -51,7 +53,7 @@ const StorePage: React.FC = () => {
 
   useEffect(() => {
     mountComponent();
-  }, [openModal, deleteClicked]);
+  }, [openCreateModal, openEditModal, deleteClicked]);
 
   return (
     <Page.Content sx={{
@@ -100,16 +102,24 @@ const StorePage: React.FC = () => {
                 img={img}
                 moreInfoBtn
                 setDeleteClicked={setDeleteClicked}
+                setOpenEditModal={setOpenEditModal}
+                setEditRentalId={setEditRentalId}
               />
             </Grid>
           ))
         }
       </Grid>
       {
-        isAdmin && <Components.CreateRentalButton setOpen={setOpenModal} />
+        isAdmin && <Components.CreateRentalButton setOpenCreateModal={setOpenCreateModal} />
       }
       <Page.CartButton to='./cart' />
-      <Components.CreateRentalModal open={openModal} setOpen={setOpenModal} />
+      <Components.CreateRentalModal open={openCreateModal} setOpen={setOpenCreateModal} />
+      <Components.EditRentalModal
+        open={openEditModal}
+        setOpen={setOpenEditModal}
+        editRentalId={editRentalId}
+        setEditRentalId={setEditRentalId}
+      />
     </Page.Content>
   );
 };

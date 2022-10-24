@@ -23,6 +23,8 @@ const RentalCard: React.FC<RentalItem> = ({
   img,
   moreInfoBtn,
   setDeleteClicked,
+  setOpenEditModal,
+  setEditRentalId,
 }) => {
   const initCount = useSelector(
     (state: RootState) => state.cart.items.find((x) => x.id === id)?.count ?? 0,
@@ -50,6 +52,11 @@ const RentalCard: React.FC<RentalItem> = ({
   const handleDelete = () => {
     RentalsService.remove(id);
     setDeleteClicked!(true);
+  };
+
+  const handleEditClick = () => {
+    setEditRentalId!(id);
+    setOpenEditModal!(true);
   };
 
   return (
@@ -111,7 +118,7 @@ const RentalCard: React.FC<RentalItem> = ({
           </Box>
           {
             isAdmin && moreInfoBtn && (
-              <AdminPanel handleDelete={handleDelete} />
+              <AdminPanel handleDelete={handleDelete} handleEditClick={handleEditClick} />
             )
           }
         </Box>

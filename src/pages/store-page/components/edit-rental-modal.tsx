@@ -1,14 +1,17 @@
 import {
   Dialog, DialogTitle, DialogActions, Button, TextField, Box, MenuItem,
 } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { rentalCategories } from '../../../assets/data/rentals-data';
 import RentalsService from '../../../services/rentals-service';
+import { RentalItemFetch } from '../types';
 
 interface Props {
   open: boolean
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  editRentalId: string | null,
+  setEditRentalId: React.Dispatch<React.SetStateAction<string | null>>,
 }
 
 interface FormInterface {
@@ -29,53 +32,44 @@ const formInitialValues: FormInterface = {
   img: '',
 };
 
-const CreateRentalModal: React.FC<Props> = ({ open, setOpen }) => {
+const EditRentalModal: React.FC<Props> = ({
+  open, setOpen, editRentalId, setEditRentalId,
+}) => {
   const [formValues, setFormValues] = useState(formInitialValues);
+  const [rental, setRental] = useState<RentalItemFetch>();
   const navigate = useNavigate();
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-  const formatFormValues = () => {
-    const {
-      title,
-      category,
-      spec1,
-      spec2,
-      spec3,
-      img,
-    } = formValues;
+  const handleEditRental = () => {
 
-    const specs: string[] = [];
-
-    [spec1, spec2, spec3].forEach((spec) => {
-      if (spec && spec !== '') {
-        specs.push(spec);
-      }
-    });
-
-    return {
-      title,
-      rentalCategoryId: +category,
-      img,
-      specs,
-    };
   };
 
-  const handleCreateRental = async () => {
-    const formatedData = formatFormValues();
-    await RentalsService.create(formatedData);
-    setFormValues(formInitialValues);
+  const handleClose = () => {
     setOpen(false);
-    navigate('/store');
+    setEditRentalId(null);
   };
+
+  useEffect(() => {
+    (async () => {
+      if (editRentalId) {
+        const item = await RentalsService.fetchById(editRentalId);
+        setRental(item);
+      }
+    })();
+  }, [editRentalId]);
 
   return (
-    <Dialog fullWidth open={open} onClose={() => setOpen(false)}>
+    <Dialog
+      fullWidth
+      open={open}
+      onClose={handleClose}
+    >
       <Box p={2}>
         <DialogTitle>
-          Create New Rental
+          Edit Rental
         </DialogTitle>
         <Box sx={{
           display: 'flex',
@@ -137,14 +131,14 @@ const CreateRentalModal: React.FC<Props> = ({ open, setOpen }) => {
           />
         </Box>
         <DialogActions>
-          <Button variant='contained' color='secondary' onClick={() => setOpen(false)}>Close</Button>
+          <Button variant='contained' color='secondary' onClick={handleClose}>Close</Button>
           <Button
             variant='contained'
             color='secondary'
             sx={{ color: 'primary.main' }}
-            onClick={handleCreateRental}
+            onClick={handleEditRental}
           >
-            Create
+            Edit
           </Button>
         </DialogActions>
       </Box>
@@ -152,4 +146,4 @@ const CreateRentalModal: React.FC<Props> = ({ open, setOpen }) => {
   );
 };
 
-export default CreateRentalModal;
+export default EditRentalModal;
