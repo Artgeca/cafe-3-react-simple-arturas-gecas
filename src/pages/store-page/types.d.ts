@@ -17,6 +17,7 @@ export interface RentalItem extends RentalSpecs, RentalCategory {
   moreInfoBtn: boolean
   specs?: string[];
   img?: string,
+  setDeleteClicked?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface FormatedItem extends RentalItem {

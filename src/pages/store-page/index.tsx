@@ -12,6 +12,7 @@ const StorePage: React.FC = () => {
   const [rentals, setRentals] = useState<RentalItem[]>([]);
   const [filteredRentals, setFilteredRentals] = useState<RentalItem[]>([]);
   const [openModal, setOpenModal] = useState(false);
+  const [deleteClicked, setDeleteClicked] = useState(false);
   const isAdmin = useAdmin();
 
   const handleOnChange = (
@@ -44,11 +45,13 @@ const StorePage: React.FC = () => {
     } else {
       setFilteredRentals([...rentalsData]);
     }
+
+    setDeleteClicked(false);
   };
 
   useEffect(() => {
     mountComponent();
-  }, [openModal]);
+  }, [openModal, deleteClicked]);
 
   return (
     <Page.Content sx={{
@@ -96,6 +99,7 @@ const StorePage: React.FC = () => {
                 specs={specs}
                 img={img}
                 moreInfoBtn
+                setDeleteClicked={setDeleteClicked}
               />
             </Grid>
           ))

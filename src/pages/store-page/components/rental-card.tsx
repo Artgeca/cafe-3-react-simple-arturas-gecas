@@ -22,6 +22,7 @@ const RentalCard: React.FC<RentalItem> = ({
   specs,
   img,
   moreInfoBtn,
+  setDeleteClicked,
 }) => {
   const initCount = useSelector(
     (state: RootState) => state.cart.items.find((x) => x.id === id)?.count ?? 0,
@@ -48,6 +49,7 @@ const RentalCard: React.FC<RentalItem> = ({
 
   const handleDelete = () => {
     RentalsService.remove(id);
+    setDeleteClicked!(true);
   };
 
   return (
