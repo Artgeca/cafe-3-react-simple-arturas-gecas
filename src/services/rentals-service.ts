@@ -35,8 +35,18 @@ const remove = async (id: string) => {
   return response.json();
 };
 
+const update = async (id: string, data: RentalItemFetch) => {
+  const response = await fetch(`${domain}/rentals/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+
+  return response.json();
+};
+
 const RentalsService = {
-  fetchAll, fetchById, create, remove,
+  fetchAll, fetchById, create, remove, update,
 };
 
 export default RentalsService;

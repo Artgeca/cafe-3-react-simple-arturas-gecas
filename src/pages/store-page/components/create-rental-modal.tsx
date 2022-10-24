@@ -2,7 +2,6 @@ import {
   Dialog, DialogTitle, DialogActions, Button, TextField, Box, MenuItem,
 } from '@mui/material';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { rentalCategories } from '../../../assets/data/rentals-data';
 import RentalsService from '../../../services/rentals-service';
 
@@ -30,8 +29,7 @@ const formInitialValues: FormInterface = {
 };
 
 const CreateRentalModal: React.FC<Props> = ({ open, setOpen }) => {
-  const [formValues, setFormValues] = useState(formInitialValues);
-  const navigate = useNavigate();
+  const [formValues, setFormValues] = useState<FormInterface>(formInitialValues);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -68,7 +66,6 @@ const CreateRentalModal: React.FC<Props> = ({ open, setOpen }) => {
     await RentalsService.create(formatedData);
     setFormValues(formInitialValues);
     setOpen(false);
-    navigate('/store');
   };
 
   return (

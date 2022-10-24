@@ -1,8 +1,9 @@
 import {
   Dialog, DialogTitle, DialogActions, Button, TextField, Box, MenuItem,
 } from '@mui/material';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {
+  useState, useEffect, useCallback,
+} from 'react';
 import { rentalCategories } from '../../../assets/data/rentals-data';
 import RentalsService from '../../../services/rentals-service';
 import { RentalItemFetch } from '../types';
@@ -35,30 +36,79 @@ const formInitialValues: FormInterface = {
 const EditRentalModal: React.FC<Props> = ({
   open, setOpen, editRentalId, setEditRentalId,
 }) => {
-  const [formValues, setFormValues] = useState(formInitialValues);
-  const [rental, setRental] = useState<RentalItemFetch>();
-  const navigate = useNavigate();
+  const [formValues, setFormValues] = useState<FormInterface>(formInitialValues);
+  // const [rental, setRental] = useState<RentalItemFetch | null>(null);
+
+  const formatRental = (rental: RentalItemFetch) => {
+    const {
+      title, rentalCategoryId, specs, img,
+    } = rental;
+
+    return {
+      title,
+      category: rentalCategoryId.toString(),
+      spec1: specs && specs[0] ? specs[0] : '',
+      spec2: specs && specs[1] ? specs[1] : '',
+      spec3: specs && specs[2] ? specs[2] : '',
+      img: img || '',
+    };
+  };
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-  const handleEditRental = () => {
+  const formatFormValues = () => {
+    const {
+      title,
+      category,
+      spec1,
+      spec2,
+      spec3,
+      img,
+    } = formValues;
 
+    const specs: string[] = [];
+
+    [spec1, spec2, spec3].forEach((spec) => {
+      if (spec && spec !== '') {
+        specs.push(spec);
+      }
+    });
+
+    return {
+      title,
+      rentalCategoryId: +category,
+      img,
+      specs,
+    };
+  };
+
+  const handleEditRental = async () => {
+    const formatedData = formatFormValues();
+    await RentalsService.update(editRentalId!, formatedData);
+    setOpen(false);
   };
 
   const handleClose = () => {
     setOpen(false);
     setEditRentalId(null);
+    // setRental(null);
+    setFormValues(formInitialValues);
   };
 
   useEffect(() => {
-    (async () => {
-      if (editRentalId) {
-        const item = await RentalsService.fetchById(editRentalId);
-        setRental(item);
+    (
+      async () => {
+        if (editRentalId) {
+          const item: RentalItemFetch = await RentalsService.fetchById(editRentalId);
+          // setRental(item);
+          if (item) {
+            setFormValues(formatRental(item));
+          }
+        }
       }
-    })();
+    )();
   }, [editRentalId]);
 
   return (
