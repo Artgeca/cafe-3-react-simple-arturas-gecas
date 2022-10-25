@@ -6,12 +6,12 @@
 npm i
 ```
 
-## launch server
+## launch server on terminal 1
 ```
 npm run server
 ```
 
-## launch client
+## launch client on terminal 2
 
 ```
 npm run start
